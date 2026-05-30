@@ -18,7 +18,7 @@ const EMAILJS = {
 const DJ = {
   name: "DJ APPZ",
   tagline: "R&B · Hip-Hop · Soul",
-  bio: "DJ Appz is a UK-based DJ specialising in R&B, Hip-Hop and Soul — crafting sets that move rooms from intimate private events to late-night club floors. Known for seamless blends, crowd-reading instincts, and an ear for the perfect moment.",
+  bio: "DJ Appz is a London-based DJ, entertainer, and former professional dancer with over 4 years of experience behind the decks. Specialising in R&B, Hip-Hop, Soul, Afrobeats and Dancehall, he brings a performer's instinct to every set — reading the crowd, building energy, and keeping the floor moving from first track to last. He has played at some of London's most respected venues including Boxpark, Dirty Martini, All Bar One, Lightbox Vauxhall, Simmons Bars, and Proper Snacks, as well as a growing portfolio of private events, weddings, and corporate functions across the UK.",
   email: "dj-appz@outlook.com",
   location: "London, UK",
   instagram: "@djappz",
@@ -152,7 +152,9 @@ function NavBar({ active, setActive }) {
   return (
     <>
       <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, padding: "0 24px", height: 80, display: "flex", alignItems: "center", justifyContent: "space-between", background: scrolled || menuOpen ? "rgba(245,240,232,0.97)" : "transparent", backdropFilter: scrolled ? "blur(20px)" : "none", borderBottom: scrolled ? "1px solid rgba(26,24,21,0.1)" : "none", transition: "all 0.4s ease" }}>
-        <img src={logo} alt="DJ Appz" onClick={() => nav("home")} style={{ height: 44, objectFit: "contain", mixBlendMode: "screen", cursor: "pointer", opacity: 1 }} />
+        <div onClick={() => nav("home")} style={{ cursor: "pointer", height: 44, display: "flex", alignItems: "center" }}>
+          <img src={logo} alt="DJ Appz" style={{ height: 44, objectFit: "contain", opacity: 1, mixBlendMode: scrolled ? "multiply" : "screen" }} />
+        </div>
         {isMobile ? (
           <button onClick={() => setMenuOpen(o => !o)} style={{ background: "none", border: "none", cursor: "pointer", color: scrolled ? "#1a1815" : "#fff", fontSize: 22, padding: 4 }}>
             {menuOpen ? "✕" : "☰"}
@@ -187,13 +189,13 @@ function HeroSection({ onBook }) {
     <section style={{ minHeight: "calc(var(--vh, 1vh) * 100)", display: "flex", alignItems: "center", position: "relative", overflow: "hidden" }}>
       {/* Background photo — full bleed on mobile, right-side on desktop */}
       <div style={{ position: "absolute", inset: 0 }}>
-        <img src={heroPhoto} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: isMobile ? "center 20%" : "center 20%" }} />
+        <img src={heroPhoto} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: isMobile ? "center 35%" : "center 30%" }} />
         {/* Dark overlay — stronger on mobile for text readability */}
         <div style={{ position: "absolute", inset: 0, background: isMobile ? "linear-gradient(to bottom, rgba(26,24,21,0.45) 0%, rgba(26,24,21,0.65) 60%, rgba(245,240,232,0.97) 100%)" : "linear-gradient(to right, rgba(245,240,232,0.96) 0%, rgba(245,240,232,0.75) 45%, rgba(245,240,232,0.05) 100%)" }} />
       </div>
 
       {/* Grid overlay */}
-      <div style={{ position: "absolute", inset: 0, backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(255,255,255,0.015) 80px), repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(255,255,255,0.015) 80px)", pointerEvents: "none" }} />
+      <div style={{ position: "absolute", inset: 0, backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(26,24,21,0.02) 80px), repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(26,24,21,0.02) 80px)", pointerEvents: "none" }} />
 
       {/* Content */}
       <div style={{ position: "relative", zIndex: 2, padding: isMobile ? "120px 24px 80px" : "120px 48px 80px", maxWidth: 640, width: "100%" }}>
@@ -229,9 +231,9 @@ function AboutSection() {
           <div style={{ position: "relative" }}>
             <img src={streetPhoto} alt="DJ Appz" style={{ width: "100%", aspectRatio: isMobile ? "4/3" : "3/4", objectFit: "cover", objectPosition: "center 15%", borderRadius: 2, display: "block" }} />
             <div style={{ position: "absolute", bottom: -10, right: -10, width: "60%", height: "60%", border: "1px solid rgba(180,140,80,0.2)", borderRadius: 2, pointerEvents: "none" }} />
-            <div style={{ position: "absolute", bottom: 20, left: 20, background: "rgba(22,20,18,0.9)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 2, padding: "14px 18px" }}>
-              <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 26, color: "#1a1815", fontStyle: "italic", lineHeight: 1 }}>200+</div>
-              <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 9, letterSpacing: 2.5, color: "rgba(26,24,21,0.55)", marginTop: 4 }}>EVENTS PLAYED</div>
+            <div style={{ position: "absolute", bottom: 20, left: 20, background: "rgba(26,24,21,0.88)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.2)", borderRadius: 2, padding: "14px 18px" }}>
+              <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 26, color: "#fff", fontStyle: "italic", lineHeight: 1 }}>200+</div>
+              <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 9, letterSpacing: 2.5, color: "rgba(26,24,21,0.75)", marginTop: 4 }}>EVENTS PLAYED</div>
             </div>
           </div>
         </Reveal>
@@ -282,7 +284,7 @@ function MixesSection() {
                   </div>
                   <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 9, letterSpacing: 2, color: "rgba(140,100,30,0.85)", border: "1px solid rgba(180,140,80,0.2)", padding: "4px 10px", borderRadius: 1, whiteSpace: "nowrap" }}>{mix.tag}</span>
                 </div>
-                <div style={{ borderRadius: 2, overflow: "hidden", border: "1px solid rgba(255,255,255,0.06)" }}>
+                <div style={{ borderRadius: 2, overflow: "hidden", border: "1px solid rgba(26,24,21,0.08)" }}>
                   <iframe width="100%" height="120" src={mix.src} frameBorder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share" title={mix.title} style={{ display: "block" }} />
                 </div>
                 <div style={{ marginTop: 12, textAlign: "right" }}>
@@ -312,7 +314,7 @@ function ServicesSection({ onBook }) {
         <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)", gap: isMobile ? 12 : 1, background: isMobile ? "transparent" : "rgba(26,24,21,0.08)" }}>
           {SERVICES.map((s, i) => (
             <Reveal key={s.id} delay={i * 0.1}>
-              <div onClick={() => onBook(s.id)} style={{ background: "#fff", padding: isMobile ? "28px 24px" : "44px 40px", cursor: "pointer", transition: "background 0.3s", borderRadius: isMobile ? 4 : 0, border: "1px solid rgba(26,24,21,0.06)" }} onMouseEnter={e => e.currentTarget.style.background = "#252220"} onMouseLeave={e => e.currentTarget.style.background = "#ffffff"}>
+              <div onClick={() => onBook(s.id)} style={{ background: "#fff", padding: isMobile ? "28px 24px" : "44px 40px", cursor: "pointer", transition: "background 0.3s", borderRadius: isMobile ? 4 : 0, border: "1px solid rgba(26,24,21,0.06)" }} onMouseEnter={e => e.currentTarget.style.background = "#ede8df"} onMouseLeave={e => e.currentTarget.style.background = "#fff"}>
                 <div style={{ fontSize: 28, marginBottom: 12, color: "rgba(26,24,21,0.25)" }}>{s.icon}</div>
                 <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, color: "#1a1815", margin: "0 0 8px", fontWeight: 400 }}>{s.title}</h3>
                 <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, color: "rgba(26,24,21,0.4)", letterSpacing: 1.5, margin: "0 0 24px" }}>{s.sub}</p>
@@ -331,7 +333,7 @@ function ServicesSection({ onBook }) {
             <img
               src={weddingPhoto}
               alt="DJ Appz at a wedding"
-              style={{ width: "100%", height: isMobile ? 260 : 340, objectFit: "cover", objectPosition: "center 30%", display: "block", opacity: 0.9 }}
+              style={{ width: "100%", height: isMobile ? 260 : 340, objectFit: "cover", objectPosition: "center 40%", display: "block", opacity: 0.9 }}
             />
           </div>
         </Reveal>
@@ -377,7 +379,7 @@ function FAQSection() {
         </Reveal>
         {FAQS.map((f, i) => (
           <Reveal key={i} delay={i * 0.05}>
-            <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}>
+            <div style={{ borderTop: "1px solid rgba(26,24,21,0.1)" }}>
               <button onClick={() => setOpen(open === i ? null : i)} style={{ width: "100%", background: "none", border: "none", padding: "20px 0", display: "flex", justifyContent: "space-between", alignItems: "center", cursor: "pointer", textAlign: "left", gap: 16 }}>
                 <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(26,24,21,0.8)" }}>{f.q}</span>
                 <span style={{ color: "rgba(140,100,30,0.85)", fontSize: 20, transform: open === i ? "rotate(45deg)" : "none", transition: "transform 0.25s", flexShrink: 0, lineHeight: 1 }}>+</span>
@@ -388,7 +390,7 @@ function FAQSection() {
             </div>
           </Reveal>
         ))}
-        <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }} />
+        <div style={{ borderTop: "1px solid rgba(26,24,21,0.1)" }} />
       </div>
     </section>
   );
@@ -418,12 +420,12 @@ function DatePicker({ value, onChange, error }) {
   const isToday = (day) => day === today.getDate() && viewMonth === today.getMonth() && viewYear === today.getFullYear();
   return (
     <div style={{ position: "relative" }}>
-      <button type="button" onClick={() => setOpen(o => !o)} style={{ width: "100%", background: "none", border: "none", borderBottom: `1px solid ${error ? "rgba(200,80,80,0.6)" : "rgba(26,24,21,0.15)"}`, padding: "12px 0", fontFamily: "'Outfit', sans-serif", fontSize: 13, color: value ? "#fff" : "rgba(255,255,255,0.25)", cursor: "pointer", textAlign: "left", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+      <button type="button" onClick={() => setOpen(o => !o)} style={{ width: "100%", background: "none", border: "none", borderBottom: `1px solid ${error ? "rgba(200,80,80,0.6)" : "rgba(26,24,21,0.15)"}`, padding: "12px 0", fontFamily: "'Outfit', sans-serif", fontSize: 13, color: value ? "#1a1815" : "rgba(26,24,21,0.3)", cursor: "pointer", textAlign: "left", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <span>{value || "Select a date…"}</span>
         <span style={{ color: "rgba(140,100,30,0.75)", fontSize: 11 }}>📅</span>
       </button>
       {open && (
-        <div style={{ position: "absolute", top: "calc(100% + 8px)", left: isMobile ? "50%" : 0, transform: isMobile ? "translateX(-50%)" : "none", zIndex: 300, background: "#ffffff", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 4, padding: 16, width: isMobile ? "calc(100vw - 48px)" : 300, boxShadow: "0 20px 60px rgba(0,0,0,0.8)" }}>
+        <div style={{ position: "absolute", top: "calc(100% + 8px)", left: isMobile ? "50%" : 0, transform: isMobile ? "translateX(-50%)" : "none", zIndex: 300, background: "#faf7f2", border: "1px solid rgba(26,24,21,0.15)", borderRadius: 4, padding: 16, width: isMobile ? "calc(100vw - 48px)" : 300, boxShadow: "0 20px 60px rgba(0,0,0,0.8)" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
             <button type="button" onClick={prevMonth} style={{ background: "none", border: "none", color: "rgba(26,24,21,0.5)", cursor: "pointer", fontSize: 18, padding: "4px 10px" }}>‹</button>
             <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 14, color: "#1a1815", fontStyle: "italic" }}>{MONTHS[viewMonth]} {viewYear}</span>
@@ -499,7 +501,7 @@ function BookingForm({ prefill, onSuccess }) {
         ))}
         <div>
           <Label c="Event Type" />
-          <select value={f.eventType} onChange={e => set("eventType", e.target.value)} style={{ ...iStyle("eventType"), color: f.eventType ? "#fff" : "rgba(255,255,255,0.3)", cursor: "pointer" }}>
+          <select value={f.eventType} onChange={e => set("eventType", e.target.value)} style={{ ...iStyle("eventType"), color: f.eventType ? "#1a1815" : "rgba(26,24,21,0.3)", cursor: "pointer" }}>
             <option value="">Select your event type…</option>
             {SERVICES.map(s => <option key={s.id} value={s.title} style={{ background: "#ffffff" }}>{s.title}</option>)}
           </select>
@@ -561,16 +563,16 @@ function SuccessSection({ form }) {
             Your booking enquiry has been successfully submitted. A member of the <strong style={{ color: "#1a1815" }}>DJ Appz</strong> team will be in touch at <strong style={{ color: "rgba(140,100,30,0.95)" }}>{form.email}</strong> within <strong style={{ color: "#1a1815" }}>24 hours</strong>. A confirmation has also been sent to your email.
           </p>
         </div>
-        <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 4, padding: "20px 24px", textAlign: "left", marginBottom: 20 }}>
+        <div style={{ background: "rgba(26,24,21,0.02)", border: "1px solid rgba(26,24,21,0.1)", borderRadius: 4, padding: "20px 24px", textAlign: "left", marginBottom: 20 }}>
           <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 9, letterSpacing: 3, color: "rgba(26,24,21,0.3)", marginBottom: 14 }}>YOUR BOOKING SUMMARY</div>
           {[["Event Type", form.eventType], ["Date", form.date], ["Venue", form.venue || "TBC"], ["Guests", form.guests || "TBC"], ["Budget", form.budget || "TBC"]].map(([k, v]) => (
-            <div key={k} style={{ display: "flex", justifyContent: "space-between", padding: "9px 0", borderBottom: "1px solid rgba(255,255,255,0.05)", fontFamily: "'Outfit', sans-serif", fontSize: 12 }}>
+            <div key={k} style={{ display: "flex", justifyContent: "space-between", padding: "9px 0", borderBottom: "1px solid rgba(26,24,21,0.08)", fontFamily: "'Outfit', sans-serif", fontSize: 12 }}>
               <span style={{ color: "rgba(26,24,21,0.35)" }}>{k}</span>
               <span style={{ color: "rgba(26,24,21,0.8)", fontWeight: 500 }}>{v}</span>
             </div>
           ))}
         </div>
-        <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 4, padding: "20px 24px", textAlign: "left", marginBottom: 28 }}>
+        <div style={{ background: "rgba(26,24,21,0.02)", border: "1px solid rgba(26,24,21,0.1)", borderRadius: 4, padding: "20px 24px", textAlign: "left", marginBottom: 28 }}>
           <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 9, letterSpacing: 3, color: "rgba(26,24,21,0.3)", marginBottom: 16 }}>WHAT HAPPENS NEXT</div>
           {[["01", "We review your enquiry and check availability for your date"], ["02", "You'll receive a personalised response within 24 hours"], ["03", "We'll confirm details, discuss your music preferences, and send a quote"], ["04", "A 25% deposit secures your booking"]].map(([num, text]) => (
             <div key={num} style={{ display: "flex", gap: 14, marginBottom: 14, alignItems: "flex-start" }}>
@@ -589,7 +591,7 @@ function SuccessSection({ form }) {
 function FooterBar() {
   const isMobile = useIsMobile();
   return (
-    <footer style={{ borderTop: "1px solid rgba(255,255,255,0.06)", padding: isMobile ? "32px 24px" : "40px 48px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 16 }}>
+    <footer style={{ borderTop: "1px solid rgba(26,24,21,0.08)", padding: isMobile ? "32px 24px" : "40px 48px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 16 }}>
       <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 14, color: "rgba(26,24,21,0.35)", fontStyle: "italic", letterSpacing: 2 }}>DJ Appz</span>
       <div style={{ display: "flex", gap: isMobile ? 16 : 28, flexWrap: "wrap" }}>
         {[DJ.instagram, DJ.email, DJ.location].map(l => <span key={l} style={{ fontFamily: "'Outfit', sans-serif", fontSize: 10, letterSpacing: 1.5, color: "rgba(26,24,21,0.3)" }}>{l}</span>)}
@@ -630,9 +632,9 @@ function ChatBot({ onOpenBook }) {
         {badge > 0 && !open && <span style={{ position: "absolute", top: -3, right: -3, background: "rgba(140,100,30,0.95)", color: "#1a1815", width: 18, height: 18, borderRadius: "50%", fontSize: 10, display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 700 }}>{badge}</span>}
       </button>
       {open && (
-        <div style={{ position: "fixed", bottom: 88, right: 24, zIndex: 199, width: "min(340px, calc(100vw - 48px))", maxHeight: 500, background: "#ffffff", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 4, display: "flex", flexDirection: "column", boxShadow: "0 24px 64px rgba(0,0,0,0.8)", animation: "fadeUp 0.2s ease" }}>
-          <div style={{ padding: "14px 16px", borderBottom: "1px solid rgba(255,255,255,0.07)", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-            <img src={logo} alt="" style={{ height: 22, mixBlendMode: "screen", opacity: 0.9 }} />
+        <div style={{ position: "fixed", bottom: 88, right: 24, zIndex: 199, width: "min(340px, calc(100vw - 48px))", maxHeight: 500, background: "#faf7f2", border: "1px solid rgba(26,24,21,0.12)", borderRadius: 4, display: "flex", flexDirection: "column", boxShadow: "0 8px 40px rgba(0,0,0,0.12)", animation: "fadeUp 0.2s ease" }}>
+          <div style={{ padding: "14px 16px", borderBottom: "1px solid rgba(26,24,21,0.1)", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+            <img src={logo} alt="" style={{ height: 22, opacity: 0.9, filter: "none" }} />
             <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
               <div style={{ width: 6, height: 6, borderRadius: "50%", background: "rgba(100,200,100,0.8)" }} />
               <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 9, letterSpacing: 2, color: "rgba(26,24,21,0.4)" }}>ONLINE</span>
@@ -641,7 +643,7 @@ function ChatBot({ onOpenBook }) {
           <div style={{ flex: 1, overflowY: "auto", padding: "14px 14px 8px", display: "flex", flexDirection: "column", gap: 10 }}>
             {msgs.map((m, i) => (
               <div key={i} style={{ display: "flex", justifyContent: m.role === "user" ? "flex-end" : "flex-start" }}>
-                <div style={{ maxWidth: "85%", background: m.role === "user" ? "#fff" : "rgba(26,24,21,0.1)", color: m.role === "user" ? "#f5f0e8" : "rgba(255,255,255,0.75)", padding: "10px 13px", borderRadius: 2, fontFamily: "'Outfit', sans-serif", fontSize: 12, lineHeight: 1.65 }}>{m.content}</div>
+                <div style={{ maxWidth: "85%", background: m.role === "user" ? "#1a1815" : "rgba(26,24,21,0.06)", color: m.role === "user" ? "#f5f0e8" : "rgba(26,24,21,0.8)", padding: "10px 13px", borderRadius: 2, fontFamily: "'Outfit', sans-serif", fontSize: 12, lineHeight: 1.65 }}>{m.content}</div>
               </div>
             ))}
             {loading && <div style={{ display: "flex", gap: 5, padding: "10px 13px" }}>{[0, 0.2, 0.4].map((d, i) => <div key={i} style={{ width: 5, height: 5, borderRadius: "50%", background: "rgba(26,24,21,0.3)", animation: `blink 1s ${d}s infinite` }} />)}</div>}
@@ -651,7 +653,7 @@ function ChatBot({ onOpenBook }) {
             {quickReplies.map((q, i) => <button key={i} onClick={() => send(q)} style={{ background: "none", border: "1px solid rgba(180,140,80,0.4)", borderRadius: 1, padding: "5px 10px", color: "rgba(140,100,30,0.9)", fontFamily: "'Outfit', sans-serif", fontSize: 10, letterSpacing: 1, whiteSpace: "nowrap", cursor: "pointer", flexShrink: 0 }}>{q}</button>)}
           </div>
           <div style={{ padding: "10px 12px 14px", display: "flex", gap: 8 }}>
-            <input value={input} onChange={e => setInput(e.target.value)} onKeyDown={e => e.key === "Enter" && send()} placeholder="Ask me anything…" style={{ flex: 1, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 2, padding: "9px 12px", color: "#1a1815", fontSize: 12, outline: "none", fontFamily: "'Outfit', sans-serif" }} />
+            <input value={input} onChange={e => setInput(e.target.value)} onKeyDown={e => e.key === "Enter" && send()} placeholder="Ask me anything…" style={{ flex: 1, background: "rgba(26,24,21,0.04)", border: "1px solid rgba(26,24,21,0.12)", borderRadius: 2, padding: "9px 12px", color: "#1a1815", fontSize: 12, outline: "none", fontFamily: "'Outfit', sans-serif" }} />
             <button onClick={() => send()} style={{ background: "#1a1815", border: "none", borderRadius: 2, width: 36, height: 36, cursor: "pointer", fontSize: 13, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, color: "#f5f0e8" }}>→</button>
           </div>
         </div>
@@ -722,13 +724,13 @@ export default function App() {
             <ServicesSection onBook={goBook} />
             <TestimonialsSection />
             <FAQSection />
-            <section style={{ padding: isMobile ? "80px 24px" : "100px 48px", textAlign: "center", borderTop: "1px solid rgba(255,255,255,0.06)", position: "relative", overflow: "hidden" }}>
+            <section style={{ padding: isMobile ? "80px 24px" : "100px 48px", textAlign: "center", borderTop: "1px solid rgba(26,24,21,0.08)", position: "relative", overflow: "hidden" }}>
               <div style={{ position: "absolute", inset: 0, backgroundImage: `url(${heroPhoto})`, backgroundSize: "cover", backgroundPosition: "center 30%", opacity: 0.05 }} />
               <Reveal>
                 <div style={{ position: "relative" }}>
                   <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(28px, 4vw, 52px)", color: "#1a1815", margin: "0 0 16px" }}>Ready to <em>book?</em></h2>
                   <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(26,24,21,0.4)", margin: "0 0 32px" }}>Let's talk about your event.</p>
-                  <button onClick={() => goBook()} style={{ background: "#fff", color: "#1a1815", border: "none", padding: "15px 48px", fontFamily: "'Outfit', sans-serif", fontSize: 10, letterSpacing: 3, textTransform: "uppercase", cursor: "pointer", borderRadius: 1, fontWeight: 500 }}>Get in Touch</button>
+                  <button onClick={() => goBook()} style={{ background: "#1a1815", color: "#f5f0e8", border: "none", padding: "15px 48px", fontFamily: "'Outfit', sans-serif", fontSize: 10, letterSpacing: 3, textTransform: "uppercase", cursor: "pointer", borderRadius: 1, fontWeight: 500 }}>Get in Touch</button>
                 </div>
               </Reveal>
             </section>
