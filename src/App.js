@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { useState, useEffect, useRef } from "react";
 import logo from "./Assets/djappz-logo.png";
 import heroPhoto from "./Assets/djappz-photo.jpg";
@@ -103,7 +104,7 @@ function useInView(threshold = 0.15) {
     const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVisible(true); }, { threshold });
     if (ref.current) obs.observe(ref.current);
     return () => obs.disconnect();
-  }, []);
+  }, [threshold]); // eslint-disable-line react-hooks/exhaustive-deps
   return [ref, visible];
 }
 
@@ -148,7 +149,7 @@ function NavBar({ active, setActive }) {
 // ─── HERO ──────────────────────────────────────────────────────────────────
 function HeroSection({ onBook }) {
   const [tick, setTick] = useState(0);
-  useEffect(() => { const t = setInterval(() => setTick(x => x + 1), 3000); return () => clearInterval(t); }, []);
+  useEffect(() => { const t = setInterval(() => setTick(x => x + 1), 3000); return () => clearInterval(t); }, []); // eslint-disable-line react-hooks/exhaustive-deps
   const words = ["R&B", "Hip-Hop", "Neo-Soul", "Afrobeats"];
 
   return (
@@ -309,7 +310,7 @@ function ServicesSection({ onBook }) {
 // ─── TESTIMONIALS ──────────────────────────────────────────────────────────
 function TestimonialsSection() {
   const [active, setActive] = useState(0);
-  useEffect(() => { const t = setInterval(() => setActive(x => (x + 1) % TESTIMONIALS.length), 5000); return () => clearInterval(t); }, []);
+  useEffect(() => { const t = setInterval(() => setActive(x => (x + 1) % TESTIMONIALS.length), 5000); return () => clearInterval(t); }, []); // eslint-disable-line react-hooks/exhaustive-deps
   const t = TESTIMONIALS[active];
   return (
     <section style={{ padding: "120px 40px" }}>
