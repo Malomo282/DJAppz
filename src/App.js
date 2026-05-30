@@ -457,23 +457,92 @@ function BookingSection({ prefill, onSuccess }) {
 
 // ─── SUCCESS ───────────────────────────────────────────────────────────────
 function SuccessSection({ form }) {
+  const [show, setShow] = useState(false);
+  useEffect(() => { setTimeout(() => setShow(true), 100); }, []);
+
   return (
-    <section style={{ padding: "120px 40px", minHeight: "60vh", display: "flex", alignItems: "center" }}>
-      <div style={{ maxWidth: 560, margin: "0 auto", textAlign: "center" }}>
-        <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 64, marginBottom: 24, color: "rgba(180,140,80,0.6)" }}>✓</div>
-        <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 36, color: "#fff", margin: "0 0 16px" }}>Enquiry Received</h2>
-        <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(255,255,255,0.4)", lineHeight: 1.8, margin: "0 0 40px" }}>
-          Thanks {form.name}. I'll review your details and be in touch at <span style={{ color: "rgba(180,140,80,0.8)" }}>{form.email}</span> within 24 hours.
-        </p>
-        <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 2, padding: "24px 28px", textAlign: "left" }}>
-          <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 9, letterSpacing: 3, color: "rgba(255,255,255,0.2)", marginBottom: 16 }}>SUMMARY</div>
-          {[["Event", SERVICES.find(s => s.id === form.eventType)?.title || form.eventType], ["Date", form.date], ["Venue", form.venue || "TBC"], ["Guests", form.guests || "TBC"]].map(([k, v]) => (
-            <div key={k} style={{ display: "flex", justifyContent: "space-between", padding: "8px 0", borderBottom: "1px solid rgba(255,255,255,0.05)", fontFamily: "'Outfit', sans-serif", fontSize: 12 }}>
-              <span style={{ color: "rgba(255,255,255,0.25)" }}>{k}</span>
-              <span style={{ color: "rgba(255,255,255,0.7)" }}>{v}</span>
+    <section style={{ padding: "120px 40px", minHeight: "80vh", display: "flex", alignItems: "center" }}>
+      <div style={{
+        maxWidth: 580, margin: "0 auto", textAlign: "center",
+        opacity: show ? 1 : 0, transform: show ? "none" : "translateY(24px)",
+        transition: "opacity 0.7s ease, transform 0.7s ease"
+      }}>
+
+        {/* Animated checkmark */}
+        <div style={{ position: "relative", width: 80, height: 80, margin: "0 auto 32px" }}>
+          <div style={{
+            width: 80, height: 80, borderRadius: "50%",
+            background: "rgba(180,140,80,0.1)",
+            border: "1px solid rgba(180,140,80,0.4)",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            fontSize: 32, color: "rgba(180,140,80,0.9)",
+            animation: "pulse 2s ease-in-out infinite",
+          }}>✓</div>
+        </div>
+
+        {/* Heading */}
+        <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 10, letterSpacing: 4, color: "rgba(180,140,80,0.7)", marginBottom: 16 }}>ENQUIRY RECEIVED</div>
+        <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(28px, 4vw, 40px)", color: "#fff", margin: "0 0 20px", lineHeight: 1.2 }}>
+          You're on our <em>radar</em>, {form.name.split(" ")[0]}.
+        </h2>
+
+        {/* Main message */}
+        <div style={{
+          background: "rgba(180,140,80,0.06)",
+          border: "1px solid rgba(180,140,80,0.2)",
+          borderRadius: 4, padding: "24px 28px", marginBottom: 28, textAlign: "left"
+        }}>
+          <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(255,255,255,0.6)", lineHeight: 1.9, margin: 0 }}>
+            Your booking enquiry has been successfully submitted. A member of the <strong style={{ color: "#fff" }}>DJ Appz</strong> team will review your details and be in touch at <strong style={{ color: "rgba(180,140,80,0.9)" }}>{form.email}</strong> within <strong style={{ color: "#fff" }}>24 hours</strong> to discuss your event and confirm availability.
+          </p>
+        </div>
+
+        {/* Booking summary */}
+        <div style={{
+          background: "rgba(255,255,255,0.02)",
+          border: "1px solid rgba(255,255,255,0.07)",
+          borderRadius: 4, padding: "24px 28px", textAlign: "left", marginBottom: 28
+        }}>
+          <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 9, letterSpacing: 3, color: "rgba(255,255,255,0.2)", marginBottom: 16 }}>YOUR BOOKING SUMMARY</div>
+          {[
+            ["Event Type", SERVICES.find(s => s.id === form.eventType)?.title || form.eventType],
+            ["Date", form.date],
+            ["Venue / Location", form.venue || "TBC"],
+            ["Guest Count", form.guests || "TBC"],
+            ["Budget", form.budget || "TBC"],
+          ].map(([k, v]) => (
+            <div key={k} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "10px 0", borderBottom: "1px solid rgba(255,255,255,0.05)", fontFamily: "'Outfit', sans-serif", fontSize: 12 }}>
+              <span style={{ color: "rgba(255,255,255,0.25)", letterSpacing: 0.5 }}>{k}</span>
+              <span style={{ color: "rgba(255,255,255,0.75)", fontWeight: 500 }}>{v}</span>
             </div>
           ))}
         </div>
+
+        {/* What happens next */}
+        <div style={{
+          background: "rgba(255,255,255,0.02)",
+          border: "1px solid rgba(255,255,255,0.07)",
+          borderRadius: 4, padding: "24px 28px", textAlign: "left", marginBottom: 32
+        }}>
+          <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 9, letterSpacing: 3, color: "rgba(255,255,255,0.2)", marginBottom: 20 }}>WHAT HAPPENS NEXT</div>
+          {[
+            ["01", "We review your enquiry and check availability for your date"],
+            ["02", "You'll receive a personalised response within 24 hours"],
+            ["03", "We'll confirm details, discuss your music preferences, and send over a quote"],
+            ["04", "A 25% deposit secures your booking"],
+          ].map(([num, text]) => (
+            <div key={num} style={{ display: "flex", gap: 16, marginBottom: 16, alignItems: "flex-start" }}>
+              <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, color: "rgba(180,140,80,0.5)", fontStyle: "italic", flexShrink: 0, lineHeight: 1.3 }}>{num}</span>
+              <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 12, color: "rgba(255,255,255,0.4)", lineHeight: 1.7 }}>{text}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Direct contact line */}
+        <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, color: "rgba(255,255,255,0.2)", letterSpacing: 1 }}>
+          Need to reach us directly? <span style={{ color: "rgba(180,140,80,0.6)" }}>{DJ.email}</span>
+        </p>
+
       </div>
     </section>
   );
@@ -665,6 +734,7 @@ export default function App() {
         input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.18); }
         select option { background: #040404; }
         @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(180,140,80,0.3); } 50% { box-shadow: 0 0 0 12px rgba(180,140,80,0); } }
         @keyframes blink { 0%,100% { opacity: 0.2; } 50% { opacity: 0.8; } }
         button:hover { opacity: 0.82; }
       `}</style>
