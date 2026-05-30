@@ -63,7 +63,7 @@ async function submitEnquiry(data) {
     const res = await fetch("https://formspree.io/f/xlgvvpbo", {
       method: "POST",
       headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify({ ...data, _subject: `Booking Enquiry — ${data.eventType} | ${data.name}`, _replyto: data.email }),
+      body: JSON.stringify({ ...data, _subject: `New Booking Enquiry — ${data.eventType} | ${data.name}`, _replyto: data.email }),
     });
     return res.ok;
   } catch { return true; }
@@ -376,7 +376,7 @@ function BookingForm({ prefill, onSuccess }) {
     const e = {};
     if (!f.name.trim()) e.name = "Required";
     if (!f.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) e.email = "Valid email needed";
-    if (!f.eventType) e.eventType = "Required";
+    if (!f.eventType || f.eventType.trim() === "") e.eventType = "Please select an event type";
     if (!f.date) e.date = "Required";
     return e;
   };
@@ -412,8 +412,8 @@ function BookingForm({ prefill, onSuccess }) {
         <div>
           <Label c="Event Type" />
           <select value={f.eventType} onChange={e => set("eventType", e.target.value)} style={{ ...iStyle("eventType"), color: f.eventType ? "#fff" : "rgba(255,255,255,0.25)", cursor: "pointer" }}>
-            <option value="">Select…</option>
-            {SERVICES.map(s => <option key={s.id} value={s.id} style={{ background: "#040404" }}>{s.title}</option>)}
+            <option value="">Select your event type…</option>
+            {SERVICES.map(s => <option key={s.id} value={s.title} style={{ background: "#040404" }}>{s.title}</option>)}
           </select>
           {errors.eventType && <span style={{ fontSize: 10, color: "rgba(200,80,80,0.8)" }}>{errors.eventType}</span>}
         </div>
@@ -505,7 +505,7 @@ function SuccessSection({ form }) {
         }}>
           <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 9, letterSpacing: 3, color: "rgba(255,255,255,0.2)", marginBottom: 16 }}>YOUR BOOKING SUMMARY</div>
           {[
-            ["Event Type", SERVICES.find(s => s.id === form.eventType)?.title || form.eventType],
+            ["Event Type", form.eventType],
             ["Date", form.date],
             ["Venue / Location", form.venue || "TBC"],
             ["Guest Count", form.guests || "TBC"],
