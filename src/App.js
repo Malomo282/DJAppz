@@ -60,7 +60,7 @@ const FAQS = [
 // ─── EMAIL SUBMIT ──────────────────────────────────────────────────────────
 async function submitEnquiry(data) {
   try {
-    const res = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
+    const res = await fetch("https://formspree.io/f/xlgvvpbo", {
       method: "POST",
       headers: { "Content-Type": "application/json", Accept: "application/json" },
       body: JSON.stringify({ ...data, _subject: `Booking Enquiry — ${data.eventType} | ${data.name}`, _replyto: data.email }),
