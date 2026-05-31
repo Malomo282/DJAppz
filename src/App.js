@@ -34,8 +34,8 @@ const MIXES = [
 const SERVICES = [
   { id: "private", icon: "🥂", title: "Private Events", sub: "Birthdays · House Parties · Celebrations", price: "From £350" },
   { id: "wedding", icon: "💍", title: "Weddings", sub: "Ceremony · Reception · Evening", price: "From £800" },
-  { id: "corporate", icon: "💼", title: "Corporate", sub: "Launches · Parties · Brand Events", price: "From £600" },
-  { id: "club", icon: "🪩", title: "Club & Bar", sub: "Residencies · Guest Sets · Nights", price: "From £250" },
+  { id: "corporate", icon: "◈", title: "Corporate", sub: "Launches · Parties · Brand Events", price: "From £600" },
+  { id: "club", icon: "◉", title: "Club & Bar", sub: "Residencies · Guest Sets · Nights", price: "From £250" },
 ];
 
 const TESTIMONIALS = [
@@ -141,13 +141,13 @@ function NavBar({ active, setActive }) {
           <img src={logo} alt="DJ Appz" style={{ height: 44, objectFit: "contain", opacity: 1, mixBlendMode: "multiply" }} />
         </div>
         {isMobile ? (
-          <button onClick={() => setMenuOpen(o => !o)} style={{ background: "none", border: "none", cursor: "pointer", color: "#1a1815", fontSize: 20, padding: 4 }}>
+          <button onClick={() => setMenuOpen(o => !o)} style={{ background: "none", border: "none", cursor: "pointer", color: "#1a1815", fontSize: 14, padding: 4 }}>
             {menuOpen ? "✕" : "☰"}
           </button>
         ) : (
           <div style={{ display: "flex", gap: 36 }}>
             {links.map(l => (
-              <button key={l} onClick={() => nav(l)} style={{ background: "none", border: "none", cursor: "pointer", fontFamily: "'Outfit', sans-serif", fontSize: 20, letterSpacing: 2, textTransform: "uppercase", color: active === l ? "#1a1815" : "rgba(26,24,21,0.5)", transition: "color 0.2s", padding: 0 }}>{l}</button>
+              <button key={l} onClick={() => nav(l)} style={{ background: "none", border: "none", cursor: "pointer", fontFamily: "'Outfit', sans-serif", fontSize: 14, letterSpacing: 2, textTransform: "uppercase", color: active === l ? "#1a1815" : "rgba(26,24,21,0.5)", transition: "color 0.2s", padding: 0 }}>{l}</button>
             ))}
           </div>
         )}
@@ -156,7 +156,7 @@ function NavBar({ active, setActive }) {
       {isMobile && menuOpen && (
         <div style={{ position: "fixed", top: 68, left: 0, right: 0, zIndex: 99, background: "rgba(245,240,232,0.99)", borderBottom: "1px solid rgba(26,24,21,0.12)", padding: "16px 0" }}>
           {links.map(l => (
-            <button key={l} onClick={() => nav(l)} style={{ display: "block", width: "100%", background: "none", border: "none", cursor: "pointer", fontFamily: "'Outfit', sans-serif", fontSize: 33, letterSpacing: 2.6, textTransform: "uppercase", color: active === l ? "#1a1815" : "rgba(26,24,21,0.5)", padding: "16px 24px", textAlign: "left" }}>{l}</button>
+            <button key={l} onClick={() => nav(l)} style={{ display: "block", width: "100%", background: "none", border: "none", cursor: "pointer", fontFamily: "'Outfit', sans-serif", fontSize: 20, letterSpacing: 2, textTransform: "uppercase", color: active === l ? "#1a1815" : "rgba(26,24,21,0.5)", padding: "16px 24px", textAlign: "left" }}>{l}</button>
           ))}
         </div>
       )}
@@ -198,8 +198,8 @@ function HeroSection({ onBook }) {
           ))}
         </div>
         <div style={{ display: "flex", gap: 12, flexWrap: "wrap", opacity: 0, animation: "fadeUp 0.8s 0.8s forwards" }}>
-          <button onClick={onBook} style={{ background: "#fff", color: "#1a1815", border: "none", borderRadius: 2, padding: "14px 36px", fontFamily: "'Outfit', sans-serif", fontSize: 22, letterSpacing: 3.2, textTransform: "uppercase", cursor: "pointer", fontWeight: 500 }}>Book Now</button>
-          <button onClick={() => document.getElementById("about-section")?.scrollIntoView({ behavior: "smooth" })} style={{ background: "none", color: "rgba(26,24,21,0.65)", border: "1px solid rgba(26,24,21,0.3)", borderRadius: 2, padding: "14px 36px", fontFamily: "'Outfit', sans-serif", fontSize: 22, letterSpacing: 3.2, textTransform: "uppercase", cursor: "pointer" }}>About</button>
+          <button onClick={onBook} style={{ background: "#fff", color: "#1a1815", border: "none", borderRadius: 2, padding: "14px 36px", fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 2.5, textTransform: "uppercase", cursor: "pointer", fontWeight: 500 }}>Book Now</button>
+          <button onClick={() => document.getElementById("about-section")?.scrollIntoView({ behavior: "smooth" })} style={{ background: "none", color: "rgba(26,24,21,0.65)", border: "1px solid rgba(26,24,21,0.3)", borderRadius: 2, padding: "14px 36px", fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 2.5, textTransform: "uppercase", cursor: "pointer" }}>About</button>
         </div>
       </div>
     </section>
@@ -228,7 +228,7 @@ function AboutSection() {
             <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 32, color: "#1a1815", margin: "0 0 14px", lineHeight: 1.15 }}>The Sound of<br /><em>Every Room</em></h2>
             <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 17, color: "rgba(26,24,21,0.65)", lineHeight: 1.65, margin: "0 0 18px" }}>{DJ.bio}</p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 36 }}>
-              {GENRES.map(g => <span key={g} style={{ fontFamily: "'Outfit', sans-serif", fontSize: 20, letterSpacing: 2, color: "rgba(140,100,30,0.85)", border: "1px solid rgba(180,140,80,0.2)", borderRadius: 1, padding: "5px 12px" }}>{g}</span>)}
+              {GENRES.map(g => <span key={g} style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, letterSpacing: 2, color: "rgba(140,100,30,0.85)", border: "1px solid rgba(180,140,80,0.2)", borderRadius: 1, padding: "5px 12px" }}>{g}</span>)}
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 1, background: "rgba(26,24,21,0.08)" }}>
               {[["4+", "Years"], ["4.9★", "Rated"], ["UK", "& Beyond"]].map(([val, label]) => (
@@ -300,8 +300,8 @@ function ServicesSection({ onBook }) {
           {SERVICES.map((s, i) => (
             <Reveal key={s.id} delay={i * 0.1}>
               <div onClick={() => onBook(s.id)} style={{ background: "#fff", padding: isMobile ? "28px 24px" : "44px 40px", cursor: "pointer", transition: "background 0.3s", borderRadius: isMobile ? 4 : 0, border: "1px solid rgba(26,24,21,0.06)" }} onMouseEnter={e => e.currentTarget.style.background = "#ede8df"} onMouseLeave={e => e.currentTarget.style.background = "#fff"}>
-                <div style={{ fontSize: 63, marginBottom: 12, color: "rgba(26,24,21,0.25)" }}>{s.icon}</div>
-                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 50, color: "#1a1815", margin: "0 0 8px", fontWeight: 400 }}>{s.title}</h3>
+                <div style={{ fontSize: 36, marginBottom: 12, color: "rgba(26,24,21,0.25)" }}>{s.icon}</div>
+                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, color: "#1a1815", margin: "0 0 8px", fontWeight: 400 }}>{s.title}</h3>
                 <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(26,24,21,0.4)", letterSpacing: 1.5, margin: "0 0 24px" }}>{s.sub}</p>
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                   <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14, color: "rgba(140,100,30,0.9)", letterSpacing: 1 }}>{s.price}</span>
@@ -318,7 +318,7 @@ function ServicesSection({ onBook }) {
             <img
               src={weddingPhoto}
               alt="DJ Appz at a wedding"
-              style={{ width: "100%", height: isMobile ? 320 : 460, objectFit: "cover", objectPosition: "center 50%", display: "block", opacity: 1 }}
+              style={{ width: "100%", height: isMobile ? 320 : 460, objectFit: "cover", objectPosition: "center 25%", display: "block", opacity: 1 }}
             />
           </div>
         </Reveal>
@@ -337,10 +337,10 @@ function TestimonialsSection() {
     <section style={{ padding: isMobile ? "80px 24px" : "120px 48px", background: "rgba(26,24,21,0.03)" }}>
       <div style={{ maxWidth: 700, margin: "0 auto", textAlign: "center" }}>
         <Reveal>
-          <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 16, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 40 }}>KIND WORDS</div>
+          <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 40 }}>KIND WORDS</div>
           <div style={{ minHeight: 160 }}>
             <p key={active} style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(16px, 2vw, 20px)", color: "rgba(26,24,21,0.9)", lineHeight: 1.65, margin: "0 0 28px", fontStyle: "italic", animation: "fadeUp 0.5s ease" }}>"{t.quote}"</p>
-            <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 18, color: "rgba(26,24,21,0.4)", letterSpacing: 2 }}>{t.name} — {t.event}</div>
+            <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(26,24,21,0.4)", letterSpacing: 2 }}>{t.name} — {t.event}</div>
           </div>
           <div style={{ display: "flex", justifyContent: "center", gap: 8, marginTop: 36 }}>
             {TESTIMONIALS.map((_, i) => <button key={i} onClick={() => setActive(i)} style={{ width: i === active ? 28 : 6, height: 2, background: i === active ? "rgba(140,100,30,0.9)" : "rgba(26,24,21,0.15)", border: "none", cursor: "pointer", transition: "all 0.3s", padding: 0, borderRadius: 1 }} />)}
@@ -359,18 +359,18 @@ function FAQSection() {
     <section style={{ padding: isMobile ? "80px 24px" : "120px 48px" }}>
       <div style={{ maxWidth: 700, margin: "0 auto" }}>
         <Reveal>
-          <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 16, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 16 }}>FAQ</div>
+          <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 16 }}>FAQ</div>
           <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(32px, 4vw, 50px)", color: "#1a1815", margin: "0 0 48px" }}>Common Questions</h2>
         </Reveal>
         {FAQS.map((f, i) => (
           <Reveal key={i} delay={i * 0.05}>
             <div style={{ borderTop: "1px solid rgba(26,24,21,0.1)" }}>
               <button onClick={() => setOpen(open === i ? null : i)} style={{ width: "100%", background: "none", border: "none", padding: "20px 0", display: "flex", justifyContent: "space-between", alignItems: "center", cursor: "pointer", textAlign: "left", gap: 16 }}>
-                <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 16, color: "rgba(26,24,21,0.8)" }}>{f.q}</span>
+                <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 15, color: "rgba(26,24,21,0.8)" }}>{f.q}</span>
                 <span style={{ color: "rgba(140,100,30,0.85)", fontSize: 22, transform: open === i ? "rotate(45deg)" : "none", transition: "transform 0.25s", flexShrink: 0, lineHeight: 1 }}>+</span>
               </button>
               <div style={{ overflow: "hidden", maxHeight: open === i ? 300 : 0, transition: "max-height 0.35s ease", paddingBottom: open === i ? 20 : 0 }}>
-                <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 16, color: "rgba(26,24,21,0.5)", lineHeight: 1.8, margin: 0 }}>{f.a}</p>
+                <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 15, color: "rgba(26,24,21,0.5)", lineHeight: 1.8, margin: 0 }}>{f.a}</p>
               </div>
             </div>
           </Reveal>
@@ -405,16 +405,16 @@ function DatePicker({ value, onChange, error }) {
   const isToday = (day) => day === today.getDate() && viewMonth === today.getMonth() && viewYear === today.getFullYear();
   return (
     <div style={{ position: "relative" }}>
-      <button type="button" onClick={() => setOpen(o => !o)} style={{ width: "100%", background: "none", border: "none", borderBottom: `1px solid ${error ? "rgba(200,80,80,0.6)" : "rgba(26,24,21,0.15)"}`, padding: "12px 0", fontFamily: "'Outfit', sans-serif", fontSize: 30, color: value ? "#1a1815" : "rgba(26,24,21,0.3)", cursor: "pointer", textAlign: "left", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+      <button type="button" onClick={() => setOpen(o => !o)} style={{ width: "100%", background: "none", border: "none", borderBottom: `1px solid ${error ? "rgba(200,80,80,0.6)" : "rgba(26,24,21,0.15)"}`, padding: "12px 0", fontFamily: "'Outfit', sans-serif", fontSize: 13, color: value ? "#1a1815" : "rgba(26,24,21,0.3)", cursor: "pointer", textAlign: "left", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <span>{value || "Select a date…"}</span>
         <span style={{ color: "rgba(140,100,30,0.75)", fontSize: 14 }}>📅</span>
       </button>
       {open && (
         <div style={{ position: "absolute", top: "calc(100% + 8px)", left: isMobile ? "50%" : 0, transform: isMobile ? "translateX(-50%)" : "none", zIndex: 300, background: "#faf7f2", border: "1px solid rgba(26,24,21,0.15)", borderRadius: 4, padding: 16, width: isMobile ? "calc(100vw - 48px)" : 300, boxShadow: "0 20px 60px rgba(0,0,0,0.8)" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
-            <button type="button" onClick={prevMonth} style={{ background: "none", border: "none", color: "rgba(26,24,21,0.5)", cursor: "pointer", fontSize: 40, padding: "4px 10px" }}>‹</button>
+            <button type="button" onClick={prevMonth} style={{ background: "none", border: "none", color: "rgba(26,24,21,0.5)", cursor: "pointer", fontSize: 18, padding: "4px 10px" }}>‹</button>
             <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 16, color: "#1a1815", fontStyle: "italic" }}>{MONTHS[viewMonth]} {viewYear}</span>
-            <button type="button" onClick={nextMonth} style={{ background: "none", border: "none", color: "rgba(26,24,21,0.5)", cursor: "pointer", fontSize: 40, padding: "4px 10px" }}>›</button>
+            <button type="button" onClick={nextMonth} style={{ background: "none", border: "none", color: "rgba(26,24,21,0.5)", cursor: "pointer", fontSize: 18, padding: "4px 10px" }}>›</button>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: 2, marginBottom: 6 }}>
             {DAYS.map(d => <div key={d} style={{ fontFamily: "'Outfit', sans-serif", fontSize: 9, letterSpacing: 1, color: "rgba(26,24,21,0.3)", textAlign: "center", padding: "4px 0" }}>{d}</div>)}
@@ -474,7 +474,7 @@ function BookingForm({ prefill, onSuccess, onPrivacyClick }) {
   };
 
   const iStyle = (k) => ({ width: "100%", background: "none", border: "none", borderBottom: `1px solid ${errors[k] ? "rgba(200,80,80,0.7)" : "rgba(26,24,21,0.2)"}`, padding: "12px 0", fontFamily: "'Outfit', sans-serif", fontSize: 15, color: "#1a1815", outline: "none", boxSizing: "border-box", transition: "border-color 0.2s" });
-  const Label = ({ c }) => <label style={{ fontFamily: "'Outfit', sans-serif", fontSize: 16, letterSpacing: 3, color: "rgba(26,24,21,0.4)", textTransform: "uppercase", display: "block", marginBottom: 4 }}>{c}</label>;
+  const Label = ({ c }) => <label style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 3, color: "rgba(26,24,21,0.4)", textTransform: "uppercase", display: "block", marginBottom: 4 }}>{c}</label>;
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
@@ -483,7 +483,7 @@ function BookingForm({ prefill, onSuccess, onPrivacyClick }) {
           <div key={k}>
             <Label c={l} />
             <input type={t} value={f[k]} onChange={e => set(k, e.target.value)} style={iStyle(k)} placeholder={t === "tel" ? "+44 7700 000000" : ""} />
-            {errors[k] && <span style={{ fontSize: 14, color: "rgba(200,80,80,0.8)", marginTop: 4, display: "block" }}>{errors[k]}</span>}
+            {errors[k] && <span style={{ fontSize: 11, color: "rgba(200,80,80,0.8)", marginTop: 4, display: "block" }}>{errors[k]}</span>}
           </div>
         ))}
         <div>
@@ -492,12 +492,12 @@ function BookingForm({ prefill, onSuccess, onPrivacyClick }) {
             <option value="">Select your event type…</option>
             {SERVICES.map(s => <option key={s.id} value={s.title} style={{ background: "#ffffff" }}>{s.title}</option>)}
           </select>
-          {errors.eventType && <span style={{ fontSize: 14, color: "rgba(200,80,80,0.8)", marginTop: 4, display: "block" }}>{errors.eventType}</span>}
+          {errors.eventType && <span style={{ fontSize: 11, color: "rgba(200,80,80,0.8)", marginTop: 4, display: "block" }}>{errors.eventType}</span>}
         </div>
         <div>
           <Label c="Event Date" />
           <DatePicker value={f.date} onChange={v => set("date", v)} error={errors.date} />
-          {errors.date && <span style={{ fontSize: 14, color: "rgba(200,80,80,0.8)", marginTop: 4, display: "block" }}>{errors.date}</span>}
+          {errors.date && <span style={{ fontSize: 11, color: "rgba(200,80,80,0.8)", marginTop: 4, display: "block" }}>{errors.date}</span>}
         </div>
         <div>
           <Label c="Guest Count" />
@@ -512,15 +512,15 @@ function BookingForm({ prefill, onSuccess, onPrivacyClick }) {
       </div>
       {/* Privacy Notice */}
       <div style={{ borderTop: "1px solid rgba(26,24,21,0.1)", paddingTop: 20 }}>
-        <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 16, color: "rgba(26,24,21,0.55)", lineHeight: 1.8, margin: "0 0 16px" }}>
+        <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 12, color: "rgba(26,24,21,0.55)", lineHeight: 1.8, margin: "0 0 12px" }}>
           We will use the information you provide to respond to your enquiry, discuss your event requirements, and where applicable take steps towards entering into a contract for DJ services. For more information, please see our{" "}
           <button type="button" onClick={() => onPrivacyClick && onPrivacyClick()} style={{ background: "none", border: "none", padding: 0, fontFamily: "'Outfit', sans-serif", fontSize: 12, color: "rgba(140,100,30,0.9)", cursor: "pointer", textDecoration: "underline" }}>Privacy Policy</button>.
         </p>
         <label style={{ display: "flex", alignItems: "flex-start", gap: 10, cursor: "pointer" }}>
           <input type="checkbox" checked={privacyAccepted} onChange={e => setPrivacyAccepted(e.target.checked)} style={{ marginTop: 3, width: 15, height: 15, cursor: "pointer", accentColor: "#8c6414", flexShrink: 0 }} />
-          <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 16, color: "rgba(26,24,21,0.7)", lineHeight: 1.6 }}>I have read and understood the Privacy Policy.</span>
+          <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 12, color: "rgba(26,24,21,0.7)", lineHeight: 1.6 }}>I have read and understood the Privacy Policy.</span>
         </label>
-        {errors.privacy && <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 16, color: "rgba(200,80,80,0.9)", margin: "8px 0 0 26px" }}>{errors.privacy}</p>}
+        {errors.privacy && <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, color: "rgba(200,80,80,0.9)", margin: "8px 0 0 26px" }}>{errors.privacy}</p>}
       </div>
       {sendError && <div style={{ background: "rgba(200,80,80,0.1)", border: "1px solid rgba(200,80,80,0.3)", borderRadius: 2, padding: "12px 16px", fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(255,150,150,0.9)" }}>Something went wrong sending your enquiry. Please email us directly at {DJ.email}</div>}
       <button onClick={submit} disabled={sending} style={{ alignSelf: isMobile ? "stretch" : "flex-start", background: sending ? "rgba(26,24,21,0.12)" : "#1a1815", color: "#f5f0e8", border: "none", padding: "16px 48px", fontFamily: "'Outfit', sans-serif", fontSize: 12, letterSpacing: 3, textTransform: "uppercase", cursor: sending ? "not-allowed" : "pointer", borderRadius: 1, fontWeight: 500, textAlign: "center" }}>
@@ -764,7 +764,7 @@ export default function App() {
               <Reveal>
                 <div style={{ position: "relative" }}>
                   <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 32, color: "#1a1815", margin: "0 0 14px" }}>Ready to <em>book?</em></h2>
-                  <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 30, color: "rgba(26,24,21,0.4)", margin: "0 0 32px" }}>Let's talk about your event.</p>
+                  <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(26,24,21,0.4)", margin: "0 0 32px" }}>Let's talk about your event.</p>
                   <button onClick={() => goBook()} style={{ background: "#1a1815", color: "#f5f0e8", border: "none", padding: "15px 48px", fontFamily: "'Outfit', sans-serif", fontSize: 12, letterSpacing: 3, textTransform: "uppercase", cursor: "pointer", borderRadius: 1, fontWeight: 500 }}>Get in Touch</button>
                 </div>
               </Reveal>
