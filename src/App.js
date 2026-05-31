@@ -225,7 +225,7 @@ function AboutSection() {
         <Reveal delay={isMobile ? 0 : 0.2}>
           <div>
             <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 20 }}>ABOUT</div>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 24, color: "#1a1815", margin: "0 0 16px", lineHeight: 1.15 }}>The Sound of<br /><em>Every Room</em></h2>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 34, color: "#1a1815", margin: "0 0 16px", lineHeight: 1.15 }}>The Sound of<br /><em>Every Room</em></h2>
             <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 16, color: "rgba(26,24,21,0.65)", lineHeight: 1.7, margin: "0 0 20px" }}>{DJ.bio}</p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 36 }}>
               {GENRES.map(g => <span key={g} style={{ fontFamily: "'Outfit', sans-serif", fontSize: 10, letterSpacing: 2, color: "rgba(140,100,30,0.85)", border: "1px solid rgba(180,140,80,0.2)", borderRadius: 1, padding: "5px 12px" }}>{g}</span>)}
@@ -254,23 +254,23 @@ function MixesSection() {
         <Reveal>
           <div style={{ marginBottom: 48 }}>
             <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 16 }}>LISTEN</div>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 24, color: "#1a1815", margin: "0 0 10px" }}>Hear the Sound</h2>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 34, color: "#1a1815", margin: "0 0 10px" }}>Hear the Sound</h2>
             <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 16, color: "rgba(26,24,21,0.55)", lineHeight: 1.7, maxWidth: 480 }}>A selection of recorded sets — the best way to get a feel for the vibe before you book.</p>
           </div>
         </Reveal>
         <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)", gap: isMobile ? 16 : 1, background: isMobile ? "transparent" : "rgba(26,24,21,0.08)" }}>
           {MIXES.map((mix, i) => (
             <Reveal key={mix.id} delay={i * 0.15}>
-              <div style={{ background: "#fff", padding: isMobile ? "24px 20px" : "32px 32px 28px", borderRadius: isMobile ? 4 : 0, border: "1px solid rgba(26,24,21,0.07)" }}>
-                <div style={{ display: "flex", alignItems: isMobile ? "flex-start" : "center", justifyContent: "space-between", marginBottom: 18, flexDirection: isMobile ? "column" : "row", gap: isMobile ? 8 : 0 }}>
-                  <div>
-                    <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 40, color: "#1a1815", margin: "0 0 4px", fontWeight: 400 }}>{mix.title}</h3>
-                    <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(26,24,21,0.4)", letterSpacing: 1.5, margin: 0 }}>{mix.subtitle}</p>
+              <div style={{ background: "#fff", padding: isMobile ? "20px 18px" : "28px 28px 24px", borderRadius: isMobile ? 4 : 0, border: "1px solid rgba(26,24,21,0.07)", display: "flex", flexDirection: "column" }}>
+                <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: 16, flexDirection: "row", gap: 12 }}>
+                  <div style={{ flex: 1 }}>
+                    <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 16, color: "#1a1815", margin: "0 0 4px", fontWeight: 400, lineHeight: 1.3 }}>{mix.title}</h3>
+                    <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, color: "rgba(26,24,21,0.45)", letterSpacing: 1, margin: 0 }}>{mix.subtitle}</p>
                   </div>
-                  <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 21, letterSpacing: 2.6, color: "rgba(140,100,30,0.85)", border: "1px solid rgba(180,140,80,0.2)", padding: "4px 10px", borderRadius: 1, whiteSpace: "nowrap" }}>{mix.tag}</span>
+                  <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 10, letterSpacing: 1.5, color: "rgba(140,100,30,0.85)", border: "1px solid rgba(180,140,80,0.2)", padding: "4px 10px", borderRadius: 1, whiteSpace: "nowrap", flexShrink: 0 }}>{mix.tag}</span>
                 </div>
                 <div style={{ borderRadius: 2, overflow: "hidden", border: "1px solid rgba(26,24,21,0.08)" }}>
-                  <iframe width="100%" height="120" src={mix.src} frameBorder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share" title={mix.title} style={{ display: "block" }} />
+                  <iframe width="100%" height="120" src={mix.src} frameBorder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share" title={mix.title} style={{ display: "block", width: "100%" }} />
                 </div>
                 <div style={{ marginTop: 12, textAlign: "right" }}>
                   <a href="https://www.mixcloud.com/DJAppz/" target="_blank" rel="noopener noreferrer" style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 2, color: "rgba(140,100,30,0.7)", textDecoration: "none" }}>MORE ON MIXCLOUD →</a>
@@ -293,7 +293,7 @@ function ServicesSection({ onBook }) {
         <Reveal>
           <div style={{ marginBottom: 48 }}>
             <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 16 }}>SERVICES</div>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 24, color: "#1a1815", margin: 0 }}>What I Do</h2>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 34, color: "#1a1815", margin: 0 }}>What I Do</h2>
           </div>
         </Reveal>
         <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)", gap: isMobile ? 12 : 1, background: isMobile ? "transparent" : "rgba(26,24,21,0.08)" }}>
@@ -318,7 +318,7 @@ function ServicesSection({ onBook }) {
             <img
               src={weddingPhoto}
               alt="DJ Appz at a wedding"
-              style={{ width: "100%", height: isMobile ? 260 : 340, objectFit: "cover", objectPosition: "center 55%", display: "block", opacity: 0.9, transform: "scale(0.88)", transformOrigin: "center 55%" }}
+              style={{ width: "100%", height: isMobile ? 320 : 460, objectFit: "cover", objectPosition: "center 25%", display: "block", opacity: 1 }}
             />
           </div>
         </Reveal>
@@ -544,7 +544,7 @@ function SuccessSection({ form }) {
       <div style={{ maxWidth: 580, margin: "0 auto", textAlign: "center", opacity: show ? 1 : 0, transform: show ? "none" : "translateY(24px)", transition: "opacity 0.7s ease, transform 0.7s ease" }}>
         <div style={{ width: 80, height: 80, borderRadius: "50%", background: "rgba(140,100,30,0.1)", border: "1px solid rgba(180,140,80,0.4)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 72, color: "rgba(140,100,30,0.95)", margin: "0 auto 28px", animation: "pulseRing 2s ease-in-out infinite" }}>✓</div>
         <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 16 }}>ENQUIRY RECEIVED</div>
-        <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 24, color: "#1a1815", margin: "0 0 20px", lineHeight: 1.2 }}>You're on our <em>radar</em>, {form.name.split(" ")[0]}.</h2>
+        <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 34, color: "#1a1815", margin: "0 0 20px", lineHeight: 1.2 }}>You're on our <em>radar</em>, {form.name.split(" ")[0]}.</h2>
         <div style={{ background: "rgba(140,100,30,0.06)", border: "1px solid rgba(180,140,80,0.2)", borderRadius: 4, padding: "20px 24px", marginBottom: 20, textAlign: "left" }}>
           <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(26,24,21,0.65)", lineHeight: 1.9, margin: 0 }}>
             Your booking enquiry has been successfully submitted. A member of the <strong style={{ color: "#1a1815" }}>DJ Appz</strong> team will be in touch at <strong style={{ color: "rgba(140,100,30,0.95)" }}>{form.email}</strong> within <strong style={{ color: "#1a1815" }}>24 hours</strong>. A confirmation has also been sent to your email.
@@ -610,7 +610,7 @@ function PrivacyPolicy() {
       <div style={{ maxWidth: 760, margin: "0 auto" }}>
         <Reveal>
           <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 10, letterSpacing: 3, color: "rgba(140,100,30,0.75)", marginBottom: 12 }}>LEGAL</div>
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 24, color: "#1a1815", margin: "0 0 8px" }}>Privacy Policy</h1>
+          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 34, color: "#1a1815", margin: "0 0 8px" }}>Privacy Policy</h1>
           <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 12, color: "rgba(26,24,21,0.45)", margin: "0 0 48px" }}>Last updated: May 2026</p>
         </Reveal>
         <div style={{ display: "flex", flexDirection: "column", gap: 36 }}>
@@ -694,7 +694,7 @@ export default function App() {
               <div style={{ position: "absolute", inset: 0, backgroundImage: `url(${heroPhoto})`, backgroundSize: "cover", backgroundPosition: "center 30%", opacity: 0.05 }} />
               <Reveal>
                 <div style={{ position: "relative" }}>
-                  <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 24, color: "#1a1815", margin: "0 0 16px" }}>Ready to <em>book?</em></h2>
+                  <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 34, color: "#1a1815", margin: "0 0 16px" }}>Ready to <em>book?</em></h2>
                   <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 30, color: "rgba(26,24,21,0.4)", margin: "0 0 32px" }}>Let's talk about your event.</p>
                   <button onClick={() => goBook()} style={{ background: "#1a1815", color: "#f5f0e8", border: "none", padding: "15px 48px", fontFamily: "'Outfit', sans-serif", fontSize: 12, letterSpacing: 3, textTransform: "uppercase", cursor: "pointer", borderRadius: 1, fontWeight: 500 }}>Get in Touch</button>
                 </div>
