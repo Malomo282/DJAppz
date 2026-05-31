@@ -225,8 +225,8 @@ function AboutSection() {
         <Reveal delay={isMobile ? 0 : 0.2}>
           <div>
             <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 20 }}>ABOUT</div>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 34, color: "#1a1815", margin: "0 0 16px", lineHeight: 1.15 }}>The Sound of<br /><em>Every Room</em></h2>
-            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 16, color: "rgba(26,24,21,0.65)", lineHeight: 1.7, margin: "0 0 20px" }}>{DJ.bio}</p>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, color: "#1a1815", margin: "0 0 14px", lineHeight: 1.15 }}>The Sound of<br /><em>Every Room</em></h2>
+            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(26,24,21,0.65)", lineHeight: 1.65, margin: "0 0 18px" }}>{DJ.bio}</p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 36 }}>
               {GENRES.map(g => <span key={g} style={{ fontFamily: "'Outfit', sans-serif", fontSize: 10, letterSpacing: 2, color: "rgba(140,100,30,0.85)", border: "1px solid rgba(180,140,80,0.2)", borderRadius: 1, padding: "5px 12px" }}>{g}</span>)}
             </div>
@@ -254,8 +254,8 @@ function MixesSection() {
         <Reveal>
           <div style={{ marginBottom: 48 }}>
             <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 16 }}>LISTEN</div>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 34, color: "#1a1815", margin: "0 0 10px" }}>Hear the Sound</h2>
-            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 16, color: "rgba(26,24,21,0.55)", lineHeight: 1.7, maxWidth: 480 }}>A selection of recorded sets — the best way to get a feel for the vibe before you book.</p>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, color: "#1a1815", margin: "0 0 8px" }}>Hear the Sound</h2>
+            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(26,24,21,0.55)", lineHeight: 1.65, maxWidth: 480 }}>A selection of recorded sets — the best way to get a feel for the vibe before you book.</p>
           </div>
         </Reveal>
         <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)", gap: isMobile ? 16 : 1, background: isMobile ? "transparent" : "rgba(26,24,21,0.08)" }}>
@@ -293,7 +293,7 @@ function ServicesSection({ onBook }) {
         <Reveal>
           <div style={{ marginBottom: 48 }}>
             <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 16 }}>SERVICES</div>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 34, color: "#1a1815", margin: 0 }}>What I Do</h2>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, color: "#1a1815", margin: 0 }}>What I Do</h2>
           </div>
         </Reveal>
         <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)", gap: isMobile ? 12 : 1, background: isMobile ? "transparent" : "rgba(26,24,21,0.08)" }}>
@@ -339,7 +339,7 @@ function TestimonialsSection() {
         <Reveal>
           <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 40 }}>KIND WORDS</div>
           <div style={{ minHeight: 160 }}>
-            <p key={active} style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(16px, 2vw, 22px)", color: "rgba(26,24,21,0.9)", lineHeight: 1.65, margin: "0 0 28px", fontStyle: "italic", animation: "fadeUp 0.5s ease" }}>"{t.quote}"</p>
+            <p key={active} style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(14px, 1.8vw, 18px)", color: "rgba(26,24,21,0.9)", lineHeight: 1.65, margin: "0 0 28px", fontStyle: "italic", animation: "fadeUp 0.5s ease" }}>"{t.quote}"</p>
             <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(26,24,21,0.4)", letterSpacing: 2 }}>{t.name} — {t.event}</div>
           </div>
           <div style={{ display: "flex", justifyContent: "center", gap: 8, marginTop: 36 }}>
@@ -544,7 +544,7 @@ function SuccessSection({ form }) {
       <div style={{ maxWidth: 580, margin: "0 auto", textAlign: "center", opacity: show ? 1 : 0, transform: show ? "none" : "translateY(24px)", transition: "opacity 0.7s ease, transform 0.7s ease" }}>
         <div style={{ width: 80, height: 80, borderRadius: "50%", background: "rgba(140,100,30,0.1)", border: "1px solid rgba(180,140,80,0.4)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 72, color: "rgba(140,100,30,0.95)", margin: "0 auto 28px", animation: "pulseRing 2s ease-in-out infinite" }}>✓</div>
         <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 16 }}>ENQUIRY RECEIVED</div>
-        <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 34, color: "#1a1815", margin: "0 0 20px", lineHeight: 1.2 }}>You're on our <em>radar</em>, {form.name.split(" ")[0]}.</h2>
+        <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, color: "#1a1815", margin: "0 0 20px", lineHeight: 1.2 }}>You're on our <em>radar</em>, {form.name.split(" ")[0]}.</h2>
         <div style={{ background: "rgba(140,100,30,0.06)", border: "1px solid rgba(180,140,80,0.2)", borderRadius: 4, padding: "20px 24px", marginBottom: 20, textAlign: "left" }}>
           <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(26,24,21,0.65)", lineHeight: 1.9, margin: 0 }}>
             Your booking enquiry has been successfully submitted. A member of the <strong style={{ color: "#1a1815" }}>DJ Appz</strong> team will be in touch at <strong style={{ color: "rgba(140,100,30,0.95)" }}>{form.email}</strong> within <strong style={{ color: "#1a1815" }}>24 hours</strong>. A confirmation has also been sent to your email.
@@ -575,7 +575,7 @@ function SuccessSection({ form }) {
 }
 
 // ─── FOOTER ────────────────────────────────────────────────────────────────
-function FooterBar() {
+function FooterBar({ onPrivacy }) {
   const isMobile = useIsMobile();
   return (
     <footer style={{ borderTop: "1px solid rgba(26,24,21,0.08)", padding: isMobile ? "32px 24px" : "40px 48px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 16 }}>
@@ -588,6 +588,62 @@ function FooterBar() {
   );
 }
 
+
+
+// ─── PRIVACY MODAL ─────────────────────────────────────────────────────────
+function PrivacyModal({ onClose }) {
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = ""; };
+  }, []);
+
+  const sections = [
+    { title: "1. Who We Are", body: "DJ Appz (\"we\", \"us\", \"our\") provides professional DJ and entertainment services across the UK.\n\nData Controller\nName: Jesse Appiah (DJ Appz)\nEmail: dj-appz@outlook.com\nPhone: Available on request\nBusiness: London, UK\nWebsite: www.dj-appz.com" },
+    { title: "2. Personal Information We Collect", body: "When you contact us through our website, email, phone, social media, or booking forms, we may collect:\n\n• Name\n• Email address\n• Telephone number\n• Event details (date, venue, type of event, requirements)\n• Any other information you choose to provide\n\nWe may also collect limited technical information when you visit our website, such as IP address, browser type, and website usage data." },
+    { title: "3. How We Use Your Information", body: "We use your personal information to:\n\n• Respond to enquiries and booking requests\n• Provide quotations\n• Communicate regarding potential or confirmed bookings\n• Prepare and perform contracts for DJ services\n• Manage payments and invoices\n• Meet legal, accounting, and tax obligations\n• Improve our services and website\n\nWe do not sell your personal information to third parties." },
+    { title: "4. Our Legal Basis for Processing", body: "Under the UK GDPR and EU GDPR, we rely on the following lawful bases:\n\nContract — Processing is necessary to take steps at your request before entering into a contract or to perform a contract with you. This includes responding to booking enquiries, preparing quotes, and managing confirmed bookings.\n\nLegitimate Interests — We may process information where it is necessary for our legitimate business interests, including managing customer relationships, maintaining business records, and improving our services.\n\nLegal Obligations — We may process personal information where required to comply with legal obligations, including tax and accounting requirements." },
+    { title: "5. How Long We Keep Your Information", body: "Enquiry data that does not result in a booking will generally be retained for up to 12 months.\n\nBooking, contract, and financial records may be retained for up to 7 years to comply with legal, tax, and accounting requirements.\n\nWe will not keep personal data longer than necessary." },
+    { title: "6. Sharing Your Information", body: "We may share information with:\n\n• Accountants and professional advisers\n• Payment providers\n• Website hosting providers\n• Cloud storage and business software providers\n• Government authorities where required by law\n\nWe only share information where necessary and appropriate safeguards are in place." },
+    { title: "7. International Transfers", body: "Where service providers process data outside the UK or European Economic Area, we will ensure appropriate safeguards are in place, including approved contractual protections where required." },
+    { title: "8. Your Rights", body: "Under applicable data protection laws, you may have the right to:\n\n• Access your personal information\n• Correct inaccurate information\n• Request deletion of your information\n• Restrict processing\n• Object to processing\n• Request transfer of your data where applicable\n• Lodge a complaint with a supervisory authority" },
+    { title: "9. Complaints", body: "If you have concerns about how we process your personal information, please contact us first at dj-appz@outlook.com.\n\nUK residents may also complain to the Information Commissioner's Office (ICO) at ico.org.uk." },
+    { title: "10. Contact Us", body: "DJ Appz\nEmail: dj-appz@outlook.com\nWebsite: www.dj-appz.com\nLocation: London, UK\n\nFor any questions about this Privacy Policy or your personal information, please contact us directly." },
+  ];
+
+  return (
+    <div
+      onClick={e => { if (e.target === e.currentTarget) onClose(); }}
+      style={{ position: "fixed", inset: 0, zIndex: 500, background: "rgba(26,24,21,0.6)", backdropFilter: "blur(4px)", display: "flex", alignItems: "center", justifyContent: "center", padding: "24px 16px" }}
+    >
+      <div style={{ background: "#faf7f2", borderRadius: 4, width: "100%", maxWidth: 640, maxHeight: "85vh", display: "flex", flexDirection: "column", boxShadow: "0 24px 80px rgba(0,0,0,0.2)" }}>
+        {/* Header */}
+        <div style={{ padding: "24px 28px 20px", borderBottom: "1px solid rgba(26,24,21,0.1)", display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexShrink: 0 }}>
+          <div>
+            <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 10, letterSpacing: 3, color: "rgba(140,100,30,0.8)", marginBottom: 6, textTransform: "uppercase" }}>Legal</div>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, color: "#1a1815", margin: "0 0 4px", fontWeight: 500 }}>Privacy Policy</h2>
+            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, color: "rgba(26,24,21,0.4)", margin: 0 }}>DJ Appz · Last updated May 2026</p>
+          </div>
+          <button onClick={onClose} style={{ background: "none", border: "1px solid rgba(26,24,21,0.15)", borderRadius: 2, width: 36, height: 36, cursor: "pointer", fontSize: 16, color: "#1a1815", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginLeft: 16 }}>✕</button>
+        </div>
+        {/* Scrollable content */}
+        <div style={{ overflowY: "auto", padding: "24px 28px", flex: 1 }}>
+          {sections.map((s, i) => (
+            <div key={i} style={{ marginBottom: 28 }}>
+              <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 14, color: "#1a1815", margin: "0 0 10px", fontWeight: 500, borderBottom: "1px solid rgba(26,24,21,0.08)", paddingBottom: 8 }}>{s.title}</h3>
+              <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 12, color: "rgba(26,24,21,0.65)", lineHeight: 1.8, margin: 0, whiteSpace: "pre-line" }}>{s.body}</p>
+            </div>
+          ))}
+        </div>
+        {/* Footer */}
+        <div style={{ padding: "16px 28px", borderTop: "1px solid rgba(26,24,21,0.08)", flexShrink: 0 }}>
+          <button onClick={onClose} style={{ background: "#1a1815", color: "#f5f0e8", border: "none", borderRadius: 2, padding: "11px 28px", fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 2, textTransform: "uppercase", cursor: "pointer", width: "100%" }}>
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 // ─── PRIVACY POLICY ────────────────────────────────────────────────────────
 function PrivacyPolicy() {
@@ -610,7 +666,7 @@ function PrivacyPolicy() {
       <div style={{ maxWidth: 760, margin: "0 auto" }}>
         <Reveal>
           <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 10, letterSpacing: 3, color: "rgba(140,100,30,0.75)", marginBottom: 12 }}>LEGAL</div>
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 34, color: "#1a1815", margin: "0 0 8px" }}>Privacy Policy</h1>
+          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, color: "#1a1815", margin: "0 0 8px" }}>Privacy Policy</h1>
           <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 12, color: "rgba(26,24,21,0.45)", margin: "0 0 48px" }}>Last updated: May 2026</p>
         </Reveal>
         <div style={{ display: "flex", flexDirection: "column", gap: 36 }}>
@@ -644,6 +700,7 @@ export default function App() {
   const [section, setSection] = useState("home");
   const [bookPrefill, setBookPrefill] = useState("");
   const [submitted, setSubmitted] = useState(null);
+  const [showPrivacy, setShowPrivacy] = useState(false);
   const isMobile = useIsMobile();
   const goBook = (service = "") => { setBookPrefill(service); setSection("book"); window.scrollTo({ top: 0, behavior: "smooth" }); };
 
@@ -694,7 +751,7 @@ export default function App() {
               <div style={{ position: "absolute", inset: 0, backgroundImage: `url(${heroPhoto})`, backgroundSize: "cover", backgroundPosition: "center 30%", opacity: 0.05 }} />
               <Reveal>
                 <div style={{ position: "relative" }}>
-                  <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 34, color: "#1a1815", margin: "0 0 16px" }}>Ready to <em>book?</em></h2>
+                  <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, color: "#1a1815", margin: "0 0 14px" }}>Ready to <em>book?</em></h2>
                   <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 30, color: "rgba(26,24,21,0.4)", margin: "0 0 32px" }}>Let's talk about your event.</p>
                   <button onClick={() => goBook()} style={{ background: "#1a1815", color: "#f5f0e8", border: "none", padding: "15px 48px", fontFamily: "'Outfit', sans-serif", fontSize: 12, letterSpacing: 3, textTransform: "uppercase", cursor: "pointer", borderRadius: 1, fontWeight: 500 }}>Get in Touch</button>
                 </div>
@@ -706,11 +763,12 @@ export default function App() {
         {section === "about" && (<><div style={{ paddingTop: 80 }} /><AboutSection /></>)}
         {section === "services" && (<><div style={{ paddingTop: 80 }} /><ServicesSection onBook={goBook} /></>)}
         {section === "faq" && (<><div style={{ paddingTop: 80 }} /><FAQSection /></>)}
-        {section === "book" && (<><div style={{ paddingTop: 80 }} />{submitted ? <SuccessSection form={submitted} /> : <BookingSection prefill={bookPrefill} onSuccess={setSubmitted} onPrivacyClick={() => setSection("privacy")} />}</>)}
+        {section === "book" && (<><div style={{ paddingTop: 80 }} />{submitted ? <SuccessSection form={submitted} /> : <BookingSection prefill={bookPrefill} onSuccess={setSubmitted} onPrivacyClick={() => setShowPrivacy(true)} />}</>)}
         {section === "privacy" && (<><div style={{ paddingTop: 80 }} /><PrivacyPolicy /></>)}
 
-        <FooterBar />
+        <FooterBar onPrivacy={() => setShowPrivacy(true)} />
       </div>
+      {showPrivacy && <PrivacyModal onClose={() => setShowPrivacy(false)} />}
     </>
   );
 }
