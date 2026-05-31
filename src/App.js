@@ -225,10 +225,10 @@ function AboutSection() {
         <Reveal delay={isMobile ? 0 : 0.2}>
           <div>
             <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 20 }}>ABOUT</div>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, color: "#1a1815", margin: "0 0 14px", lineHeight: 1.15 }}>The Sound of<br /><em>Every Room</em></h2>
-            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(26,24,21,0.65)", lineHeight: 1.65, margin: "0 0 18px" }}>{DJ.bio}</p>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 32, color: "#1a1815", margin: "0 0 14px", lineHeight: 1.15 }}>The Sound of<br /><em>Every Room</em></h2>
+            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 17, color: "rgba(26,24,21,0.65)", lineHeight: 1.65, margin: "0 0 18px" }}>{DJ.bio}</p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 36 }}>
-              {GENRES.map(g => <span key={g} style={{ fontFamily: "'Outfit', sans-serif", fontSize: 10, letterSpacing: 2, color: "rgba(140,100,30,0.85)", border: "1px solid rgba(180,140,80,0.2)", borderRadius: 1, padding: "5px 12px" }}>{g}</span>)}
+              {GENRES.map(g => <span key={g} style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, letterSpacing: 2, color: "rgba(140,100,30,0.85)", border: "1px solid rgba(180,140,80,0.2)", borderRadius: 1, padding: "5px 12px" }}>{g}</span>)}
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 1, background: "rgba(26,24,21,0.08)" }}>
               {[["4+", "Years"], ["4.9★", "Rated"], ["UK", "& Beyond"]].map(([val, label]) => (
@@ -254,8 +254,8 @@ function MixesSection() {
         <Reveal>
           <div style={{ marginBottom: 48 }}>
             <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 16 }}>LISTEN</div>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, color: "#1a1815", margin: "0 0 8px" }}>Hear the Sound</h2>
-            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(26,24,21,0.55)", lineHeight: 1.65, maxWidth: 480 }}>A selection of recorded sets — the best way to get a feel for the vibe before you book.</p>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 32, color: "#1a1815", margin: "0 0 8px" }}>Hear the Sound</h2>
+            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 17, color: "rgba(26,24,21,0.55)", lineHeight: 1.65, maxWidth: 480 }}>A selection of recorded sets — the best way to get a feel for the vibe before you book.</p>
           </div>
         </Reveal>
         <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)", gap: isMobile ? 16 : 1, background: isMobile ? "transparent" : "rgba(26,24,21,0.08)" }}>
@@ -293,7 +293,7 @@ function ServicesSection({ onBook }) {
         <Reveal>
           <div style={{ marginBottom: 48 }}>
             <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 16 }}>SERVICES</div>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, color: "#1a1815", margin: 0 }}>What I Do</h2>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 32, color: "#1a1815", margin: 0 }}>What I Do</h2>
           </div>
         </Reveal>
         <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)", gap: isMobile ? 12 : 1, background: isMobile ? "transparent" : "rgba(26,24,21,0.08)" }}>
@@ -339,7 +339,7 @@ function TestimonialsSection() {
         <Reveal>
           <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 40 }}>KIND WORDS</div>
           <div style={{ minHeight: 160 }}>
-            <p key={active} style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(14px, 1.8vw, 18px)", color: "rgba(26,24,21,0.9)", lineHeight: 1.65, margin: "0 0 28px", fontStyle: "italic", animation: "fadeUp 0.5s ease" }}>"{t.quote}"</p>
+            <p key={active} style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(16px, 2vw, 20px)", color: "rgba(26,24,21,0.9)", lineHeight: 1.65, margin: "0 0 28px", fontStyle: "italic", animation: "fadeUp 0.5s ease" }}>"{t.quote}"</p>
             <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(26,24,21,0.4)", letterSpacing: 2 }}>{t.name} — {t.event}</div>
           </div>
           <div style={{ display: "flex", justifyContent: "center", gap: 8, marginTop: 36 }}>
@@ -473,7 +473,7 @@ function BookingForm({ prefill, onSuccess, onPrivacyClick }) {
     else setSendError(true);
   };
 
-  const iStyle = (k) => ({ width: "100%", background: "none", border: "none", borderBottom: `1px solid ${errors[k] ? "rgba(200,80,80,0.7)" : "rgba(26,24,21,0.2)"}`, padding: "12px 0", fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "#1a1815", outline: "none", boxSizing: "border-box", transition: "border-color 0.2s" });
+  const iStyle = (k) => ({ width: "100%", background: "none", border: "none", borderBottom: `1px solid ${errors[k] ? "rgba(200,80,80,0.7)" : "rgba(26,24,21,0.2)"}`, padding: "12px 0", fontFamily: "'Outfit', sans-serif", fontSize: 15, color: "#1a1815", outline: "none", boxSizing: "border-box", transition: "border-color 0.2s" });
   const Label = ({ c }) => <label style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 3, color: "rgba(26,24,21,0.4)", textTransform: "uppercase", display: "block", marginBottom: 4 }}>{c}</label>;
 
   return (
@@ -510,6 +510,18 @@ function BookingForm({ prefill, onSuccess, onPrivacyClick }) {
         <Label c="Music Preferences & Notes" />
         <textarea value={f.notes} onChange={e => set("notes", e.target.value)} rows={3} placeholder="Genres, must-plays, vibe you're going for…" style={{ ...iStyle("notes"), resize: "none", fontFamily: "'Outfit', sans-serif" }} />
       </div>
+      {/* Privacy Notice */}
+      <div style={{ borderTop: "1px solid rgba(26,24,21,0.1)", paddingTop: 20 }}>
+        <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 12, color: "rgba(26,24,21,0.55)", lineHeight: 1.8, margin: "0 0 12px" }}>
+          We will use the information you provide to respond to your enquiry, discuss your event requirements, and where applicable take steps towards entering into a contract for DJ services. For more information, please see our{" "}
+          <button type="button" onClick={() => onPrivacyClick && onPrivacyClick()} style={{ background: "none", border: "none", padding: 0, fontFamily: "'Outfit', sans-serif", fontSize: 12, color: "rgba(140,100,30,0.9)", cursor: "pointer", textDecoration: "underline" }}>Privacy Policy</button>.
+        </p>
+        <label style={{ display: "flex", alignItems: "flex-start", gap: 10, cursor: "pointer" }}>
+          <input type="checkbox" checked={privacyAccepted} onChange={e => setPrivacyAccepted(e.target.checked)} style={{ marginTop: 3, width: 15, height: 15, cursor: "pointer", accentColor: "#8c6414", flexShrink: 0 }} />
+          <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 12, color: "rgba(26,24,21,0.7)", lineHeight: 1.6 }}>I have read and understood the Privacy Policy.</span>
+        </label>
+        {errors.privacy && <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, color: "rgba(200,80,80,0.9)", margin: "8px 0 0 26px" }}>{errors.privacy}</p>}
+      </div>
       {sendError && <div style={{ background: "rgba(200,80,80,0.1)", border: "1px solid rgba(200,80,80,0.3)", borderRadius: 2, padding: "12px 16px", fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(255,150,150,0.9)" }}>Something went wrong sending your enquiry. Please email us directly at {DJ.email}</div>}
       <button onClick={submit} disabled={sending} style={{ alignSelf: isMobile ? "stretch" : "flex-start", background: sending ? "rgba(26,24,21,0.12)" : "#1a1815", color: "#f5f0e8", border: "none", padding: "16px 48px", fontFamily: "'Outfit', sans-serif", fontSize: 12, letterSpacing: 3, textTransform: "uppercase", cursor: sending ? "not-allowed" : "pointer", borderRadius: 1, fontWeight: 500, textAlign: "center" }}>
         {sending ? "Sending…" : "Send Enquiry"}
@@ -544,7 +556,7 @@ function SuccessSection({ form }) {
       <div style={{ maxWidth: 580, margin: "0 auto", textAlign: "center", opacity: show ? 1 : 0, transform: show ? "none" : "translateY(24px)", transition: "opacity 0.7s ease, transform 0.7s ease" }}>
         <div style={{ width: 80, height: 80, borderRadius: "50%", background: "rgba(140,100,30,0.1)", border: "1px solid rgba(180,140,80,0.4)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 72, color: "rgba(140,100,30,0.95)", margin: "0 auto 28px", animation: "pulseRing 2s ease-in-out infinite" }}>✓</div>
         <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 16 }}>ENQUIRY RECEIVED</div>
-        <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, color: "#1a1815", margin: "0 0 20px", lineHeight: 1.2 }}>You're on our <em>radar</em>, {form.name.split(" ")[0]}.</h2>
+        <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 32, color: "#1a1815", margin: "0 0 20px", lineHeight: 1.2 }}>You're on our <em>radar</em>, {form.name.split(" ")[0]}.</h2>
         <div style={{ background: "rgba(140,100,30,0.06)", border: "1px solid rgba(180,140,80,0.2)", borderRadius: 4, padding: "20px 24px", marginBottom: 20, textAlign: "left" }}>
           <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(26,24,21,0.65)", lineHeight: 1.9, margin: 0 }}>
             Your booking enquiry has been successfully submitted. A member of the <strong style={{ color: "#1a1815" }}>DJ Appz</strong> team will be in touch at <strong style={{ color: "rgba(140,100,30,0.95)" }}>{form.email}</strong> within <strong style={{ color: "#1a1815" }}>24 hours</strong>. A confirmation has also been sent to your email.
@@ -553,7 +565,7 @@ function SuccessSection({ form }) {
         <div style={{ background: "rgba(26,24,21,0.02)", border: "1px solid rgba(26,24,21,0.1)", borderRadius: 4, padding: "20px 24px", textAlign: "left", marginBottom: 20 }}>
           <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 3, color: "rgba(26,24,21,0.3)", marginBottom: 14 }}>YOUR BOOKING SUMMARY</div>
           {[["Event Type", form.eventType], ["Date", form.date], ["Venue", form.venue || "TBC"], ["Guests", form.guests || "TBC"], ["Budget", form.budget || "TBC"]].map(([k, v]) => (
-            <div key={k} style={{ display: "flex", justifyContent: "space-between", padding: "9px 0", borderBottom: "1px solid rgba(26,24,21,0.08)", fontFamily: "'Outfit', sans-serif", fontSize: 27 }}>
+            <div key={k} style={{ display: "flex", justifyContent: "space-between", padding: "9px 0", borderBottom: "1px solid rgba(26,24,21,0.08)", fontFamily: "'Outfit', sans-serif", fontSize: 15 }}>
               <span style={{ color: "rgba(26,24,21,0.35)" }}>{k}</span>
               <span style={{ color: "rgba(26,24,21,0.8)", fontWeight: 500 }}>{v}</span>
             </div>
@@ -620,7 +632,7 @@ function PrivacyModal({ onClose }) {
         <div style={{ padding: "24px 28px 20px", borderBottom: "1px solid rgba(26,24,21,0.1)", display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexShrink: 0 }}>
           <div>
             <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 10, letterSpacing: 3, color: "rgba(140,100,30,0.8)", marginBottom: 6, textTransform: "uppercase" }}>Legal</div>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, color: "#1a1815", margin: "0 0 4px", fontWeight: 500 }}>Privacy Policy</h2>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 32, color: "#1a1815", margin: "0 0 4px", fontWeight: 500 }}>Privacy Policy</h2>
             <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, color: "rgba(26,24,21,0.4)", margin: 0 }}>DJ Appz · Last updated May 2026</p>
           </div>
           <button onClick={onClose} style={{ background: "none", border: "1px solid rgba(26,24,21,0.15)", borderRadius: 2, width: 36, height: 36, cursor: "pointer", fontSize: 16, color: "#1a1815", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginLeft: 16 }}>✕</button>
@@ -665,8 +677,8 @@ function PrivacyPolicy() {
     <section style={{ padding: isMobile ? "80px 24px" : "100px 48px" }}>
       <div style={{ maxWidth: 760, margin: "0 auto" }}>
         <Reveal>
-          <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 10, letterSpacing: 3, color: "rgba(140,100,30,0.75)", marginBottom: 12 }}>LEGAL</div>
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, color: "#1a1815", margin: "0 0 8px" }}>Privacy Policy</h1>
+          <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, letterSpacing: 3, color: "rgba(140,100,30,0.75)", marginBottom: 12 }}>LEGAL</div>
+          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 32, color: "#1a1815", margin: "0 0 8px" }}>Privacy Policy</h1>
           <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 12, color: "rgba(26,24,21,0.45)", margin: "0 0 48px" }}>Last updated: May 2026</p>
         </Reveal>
         <div style={{ display: "flex", flexDirection: "column", gap: 36 }}>
@@ -751,7 +763,7 @@ export default function App() {
               <div style={{ position: "absolute", inset: 0, backgroundImage: `url(${heroPhoto})`, backgroundSize: "cover", backgroundPosition: "center 30%", opacity: 0.05 }} />
               <Reveal>
                 <div style={{ position: "relative" }}>
-                  <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, color: "#1a1815", margin: "0 0 14px" }}>Ready to <em>book?</em></h2>
+                  <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 32, color: "#1a1815", margin: "0 0 14px" }}>Ready to <em>book?</em></h2>
                   <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 30, color: "rgba(26,24,21,0.4)", margin: "0 0 32px" }}>Let's talk about your event.</p>
                   <button onClick={() => goBook()} style={{ background: "#1a1815", color: "#f5f0e8", border: "none", padding: "15px 48px", fontFamily: "'Outfit', sans-serif", fontSize: 12, letterSpacing: 3, textTransform: "uppercase", cursor: "pointer", borderRadius: 1, fontWeight: 500 }}>Get in Touch</button>
                 </div>
