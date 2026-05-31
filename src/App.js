@@ -90,21 +90,6 @@ async function submitEnquiry(data) {
 }
 
 // ─── AI CHAT ───────────────────────────────────────────────────────────────
-async function askAI(messages) {
-  const sys = `You are the booking assistant for DJ Appz — a professional DJ based in London specialising in R&B, Hip-Hop, Neo-Soul, Afrobeats and Dancehall.
-Personality: calm, confident, professional. Like a luxury concierge — warm but measured. Short sentences.
-Pricing: Private from £350, Weddings from £800, Corporate from £600, Club from £250.
-UK-wide travel. Fully insured. Professional controller setup. Music consultation included.
-Keep replies to 2–3 sentences max. When you have event type + date + contact info, say exactly: "Perfect — let me bring up the booking form so we can get this confirmed for you."
-Never invent details. If unsure, direct them to ${DJ.email}.`;
-  const res = await fetch("https://api.anthropic.com/v1/messages", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ model: "claude-sonnet-4-20250514", max_tokens: 1000, system: sys, messages }),
-  });
-  const d = await res.json();
-  return d.content?.[0]?.text || `Drop me a message at ${DJ.email} and I'll get back to you shortly.`;
-}
 
 // ─── HOOKS ─────────────────────────────────────────────────────────────────
 function useInView(threshold = 0.15) {
@@ -202,7 +187,7 @@ function HeroSection({ onBook }) {
         <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 4, color: "rgba(140,100,30,0.9)", marginBottom: 24, opacity: 0, animation: "fadeUp 0.8s 0.2s forwards" }}>
           LONDON · UK-WIDE · INTERNATIONAL
         </div>
-        <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? "80px" : "clamp(88px, 12vw, 128px)", lineHeight: 0.9, margin: "0 0 28px", color: "#1a1815", opacity: 0, animation: "fadeUp 0.8s 0.4s forwards" }}>
+        <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? "52px" : "clamp(48px, 6vw, 72px)", lineHeight: 0.9, margin: "0 0 28px", color: "#1a1815", opacity: 0, animation: "fadeUp 0.8s 0.4s forwards" }}>
           DJ<br /><em style={{ color: "#1a1815" }}>Appz</em>
         </h1>
         <div style={{ height: 28, overflow: "hidden", marginBottom: 40, opacity: 0, animation: "fadeUp 0.8s 0.6s forwards" }}>
@@ -240,10 +225,10 @@ function AboutSection() {
         <Reveal delay={isMobile ? 0 : 0.2}>
           <div>
             <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 20 }}>ABOUT</div>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(42px, 5vw, 64px)", color: "#1a1815", margin: "0 0 24px", lineHeight: 1.15 }}>The Sound of<br /><em>Every Room</em></h2>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(26px, 3.5vw, 38px)", color: "#1a1815", margin: "0 0 20px", lineHeight: 1.15 }}>The Sound of<br /><em>Every Room</em></h2>
             <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 32, color: "rgba(26,24,21,0.65)", lineHeight: 1.9, margin: "0 0 32px" }}>{DJ.bio}</p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 36 }}>
-              {GENRES.map(g => <span key={g} style={{ fontFamily: "'Outfit', sans-serif", fontSize: 22, letterSpacing: 2.6, color: "rgba(140,100,30,0.85)", border: "1px solid rgba(180,140,80,0.2)", borderRadius: 1, padding: "5px 12px" }}>{g}</span>)}
+              {GENRES.map(g => <span key={g} style={{ fontFamily: "'Outfit', sans-serif", fontSize: 10, letterSpacing: 2, color: "rgba(140,100,30,0.85)", border: "1px solid rgba(180,140,80,0.2)", borderRadius: 1, padding: "5px 12px" }}>{g}</span>)}
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 1, background: "rgba(26,24,21,0.08)" }}>
               {[["4+", "Years"], ["4.9★", "Rated"], ["UK", "& Beyond"]].map(([val, label]) => (
@@ -269,7 +254,7 @@ function MixesSection() {
         <Reveal>
           <div style={{ marginBottom: 48 }}>
             <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 16 }}>LISTEN</div>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(42px, 5vw, 64px)", color: "#1a1815", margin: "0 0 12px" }}>Hear the Sound</h2>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(22px, 3vw, 32px)", color: "#1a1815", margin: "0 0 12px" }}>Hear the Sound</h2>
             <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 16, color: "rgba(26,24,21,0.55)", lineHeight: 1.7, maxWidth: 480 }}>A selection of recorded sets — the best way to get a feel for the vibe before you book.</p>
           </div>
         </Reveal>
@@ -308,7 +293,7 @@ function ServicesSection({ onBook }) {
         <Reveal>
           <div style={{ marginBottom: 48 }}>
             <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 16 }}>SERVICES</div>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(42px, 5vw, 64px)", color: "#1a1815", margin: 0 }}>What I Do</h2>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(26px, 3.5vw, 38px)", color: "#1a1815", margin: 0 }}>What I Do</h2>
           </div>
         </Reveal>
         <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)", gap: isMobile ? 12 : 1, background: isMobile ? "transparent" : "rgba(26,24,21,0.08)" }}>
@@ -354,7 +339,7 @@ function TestimonialsSection() {
         <Reveal>
           <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 40 }}>KIND WORDS</div>
           <div style={{ minHeight: 160 }}>
-            <p key={active} style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(36px, 2.5vw, 54px)", color: "rgba(26,24,21,0.9)", lineHeight: 1.65, margin: "0 0 28px", fontStyle: "italic", animation: "fadeUp 0.5s ease" }}>"{t.quote}"</p>
+            <p key={active} style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(16px, 2vw, 22px)", color: "rgba(26,24,21,0.9)", lineHeight: 1.65, margin: "0 0 28px", fontStyle: "italic", animation: "fadeUp 0.5s ease" }}>"{t.quote}"</p>
             <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(26,24,21,0.4)", letterSpacing: 2 }}>{t.name} — {t.event}</div>
           </div>
           <div style={{ display: "flex", justifyContent: "center", gap: 8, marginTop: 36 }}>
@@ -432,7 +417,7 @@ function DatePicker({ value, onChange, error }) {
             <button type="button" onClick={nextMonth} style={{ background: "none", border: "none", color: "rgba(26,24,21,0.5)", cursor: "pointer", fontSize: 40, padding: "4px 10px" }}>›</button>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: 2, marginBottom: 6 }}>
-            {DAYS.map(d => <div key={d} style={{ fontFamily: "'Outfit', sans-serif", fontSize: 21, letterSpacing: 1.3, color: "rgba(26,24,21,0.3)", textAlign: "center", padding: "4px 0" }}>{d}</div>)}
+            {DAYS.map(d => <div key={d} style={{ fontFamily: "'Outfit', sans-serif", fontSize: 9, letterSpacing: 1, color: "rgba(26,24,21,0.3)", textAlign: "center", padding: "4px 0" }}>{d}</div>)}
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: 2 }}>
             {Array.from({ length: offset }).map((_, i) => <div key={`e${i}`} />)}
@@ -458,8 +443,9 @@ function DatePicker({ value, onChange, error }) {
 }
 
 // ─── BOOKING FORM ──────────────────────────────────────────────────────────
-function BookingForm({ prefill, onSuccess }) {
+function BookingForm({ prefill, onSuccess, onPrivacyClick }) {
   const [f, setF] = useState({ name: "", email: "", phone: "", eventType: prefill || "", date: "", venue: "", guests: "", budget: "", notes: "" });
+  const [privacyAccepted, setPrivacyAccepted] = useState(false);
   const [errors, setErrors] = useState({});
   const [sending, setSending] = useState(false);
   const [sendError, setSendError] = useState(false);
@@ -472,6 +458,7 @@ function BookingForm({ prefill, onSuccess }) {
     if (!f.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) e.email = "Valid email needed";
     if (!f.eventType || f.eventType.trim() === "") e.eventType = "Please select an event type";
     if (!f.date) e.date = "Please select a date";
+    if (!privacyAccepted) e.privacy = "Please accept our Privacy Policy to continue";
     return e;
   };
 
@@ -523,7 +510,7 @@ function BookingForm({ prefill, onSuccess }) {
         <Label c="Music Preferences & Notes" />
         <textarea value={f.notes} onChange={e => set("notes", e.target.value)} rows={3} placeholder="Genres, must-plays, vibe you're going for…" style={{ ...iStyle("notes"), resize: "none", fontFamily: "'Outfit', sans-serif" }} />
       </div>
-      {sendError && <div style={{ background: "rgba(200,80,80,0.1)", border: "1px solid rgba(200,80,80,0.3)", borderRadius: 2, padding: "12px 16px", fontFamily: "'Outfit', sans-serif", fontSize: 27, color: "rgba(255,150,150,0.9)" }}>Something went wrong sending your enquiry. Please email us directly at {DJ.email}</div>}
+      {sendError && <div style={{ background: "rgba(200,80,80,0.1)", border: "1px solid rgba(200,80,80,0.3)", borderRadius: 2, padding: "12px 16px", fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(255,150,150,0.9)" }}>Something went wrong sending your enquiry. Please email us directly at {DJ.email}</div>}
       <button onClick={submit} disabled={sending} style={{ alignSelf: isMobile ? "stretch" : "flex-start", background: sending ? "rgba(26,24,21,0.12)" : "#1a1815", color: "#f5f0e8", border: "none", padding: "16px 48px", fontFamily: "'Outfit', sans-serif", fontSize: 12, letterSpacing: 3, textTransform: "uppercase", cursor: sending ? "not-allowed" : "pointer", borderRadius: 1, fontWeight: 500, textAlign: "center" }}>
         {sending ? "Sending…" : "Send Enquiry"}
       </button>
@@ -531,7 +518,7 @@ function BookingForm({ prefill, onSuccess }) {
   );
 }
 
-function BookingSection({ prefill, onSuccess }) {
+function BookingSection({ prefill, onSuccess, onPrivacyClick }) {
   const isMobile = useIsMobile();
   return (
     <section style={{ padding: isMobile ? "80px 24px" : "120px 48px" }}>
@@ -541,7 +528,7 @@ function BookingSection({ prefill, onSuccess }) {
           <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(32px, 4vw, 50px)", color: "#1a1815", margin: "0 0 12px" }}>Let's Make It Happen</h2>
           <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 16, color: "rgba(26,24,21,0.55)", margin: "0 0 48px", lineHeight: 1.7 }}>Fill in the form and I'll be in touch within 24 hours to discuss your event.</p>
         </Reveal>
-        <BookingForm prefill={prefill} onSuccess={onSuccess} />
+        <BookingForm prefill={prefill} onSuccess={onSuccess} onPrivacyClick={onPrivacyClick} />
       </div>
     </section>
   );
@@ -557,9 +544,9 @@ function SuccessSection({ form }) {
       <div style={{ maxWidth: 580, margin: "0 auto", textAlign: "center", opacity: show ? 1 : 0, transform: show ? "none" : "translateY(24px)", transition: "opacity 0.7s ease, transform 0.7s ease" }}>
         <div style={{ width: 80, height: 80, borderRadius: "50%", background: "rgba(140,100,30,0.1)", border: "1px solid rgba(180,140,80,0.4)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 72, color: "rgba(140,100,30,0.95)", margin: "0 auto 28px", animation: "pulseRing 2s ease-in-out infinite" }}>✓</div>
         <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 16 }}>ENQUIRY RECEIVED</div>
-        <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(28px, 4vw, 40px)", color: "#1a1815", margin: "0 0 20px", lineHeight: 1.2 }}>You're on our <em>radar</em>, {form.name.split(" ")[0]}.</h2>
+        <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(22px, 3vw, 32px)", color: "#1a1815", margin: "0 0 20px", lineHeight: 1.2 }}>You're on our <em>radar</em>, {form.name.split(" ")[0]}.</h2>
         <div style={{ background: "rgba(140,100,30,0.06)", border: "1px solid rgba(180,140,80,0.2)", borderRadius: 4, padding: "20px 24px", marginBottom: 20, textAlign: "left" }}>
-          <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14, color: "rgba(26,24,21,0.65)", lineHeight: 1.9, margin: 0 }}>
+          <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(26,24,21,0.65)", lineHeight: 1.9, margin: 0 }}>
             Your booking enquiry has been successfully submitted. A member of the <strong style={{ color: "#1a1815" }}>DJ Appz</strong> team will be in touch at <strong style={{ color: "rgba(140,100,30,0.95)" }}>{form.email}</strong> within <strong style={{ color: "#1a1815" }}>24 hours</strong>. A confirmation has also been sent to your email.
           </p>
         </div>
@@ -601,64 +588,43 @@ function FooterBar() {
   );
 }
 
-// ─── CHATBOT ───────────────────────────────────────────────────────────────
-function ChatBot({ onOpenBook }) {
-  const [open, setOpen] = useState(false);
-  const [msgs, setMsgs] = useState([{ role: "assistant", content: "Hey — I'm here to help with any questions about bookings or DJ Appz. What are you looking for?" }]);
-  const [input, setInput] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [badge, setBadge] = useState(0);
-  const endRef = useRef(null);
-  useEffect(() => { if (open) { setBadge(0); setTimeout(() => endRef.current?.scrollIntoView({ behavior: "smooth" }), 50); } }, [msgs, open]);
-  const send = async (text) => {
-    const msg = text || input.trim();
-    if (!msg) return;
-    setInput("");
-    const next = [...msgs, { role: "user", content: msg }];
-    setMsgs(next);
-    setLoading(true);
-    const reply = await askAI(next.map(m => ({ role: m.role, content: m.content })));
-    const final = [...next, { role: "assistant", content: reply }];
-    setMsgs(final);
-    setLoading(false);
-    if (!open) setBadge(b => b + 1);
-    if (reply.toLowerCase().includes("booking form")) setTimeout(() => onOpenBook(), 900);
-  };
-  const quickReplies = ["What's your price?", "Do you travel?", "How do I book?", "What genres?"];
+
+// ─── PRIVACY POLICY ────────────────────────────────────────────────────────
+function PrivacyPolicy() {
+  const isMobile = useIsMobile();
+  const sections = [
+    { title: "1. Who We Are", content: `DJ Appz ("we", "us", "our") provides professional DJ and entertainment services.\n\nData Controller:\nName: Jesse Appiah (DJ Appz)\nEmail: dj-appz@outlook.com\nBusiness: London, UK` },
+    { title: "2. Personal Information We Collect", content: `When you contact us through our website, email, phone, or booking forms, we may collect:\n\n• Name\n• Email address\n• Telephone number\n• Event details (date, venue, type of event, requirements)\n• Any other information you choose to provide\n\nWe may also collect limited technical information when you visit our website, such as IP address, browser type, and website usage data.` },
+    { title: "3. How We Use Your Information", content: `We use your personal information to:\n\n• Respond to enquiries and booking requests\n• Provide quotations\n• Communicate regarding potential or confirmed bookings\n• Prepare and perform contracts for DJ services\n• Manage payments and invoices\n• Meet legal, accounting, and tax obligations\n• Improve our services and website\n\nWe do not sell your personal information to third parties.` },
+    { title: "4. Our Legal Basis for Processing", content: `Under the UK GDPR and EU GDPR, we rely on the following lawful bases:\n\nContract — Processing is necessary to take steps at your request before entering into a contract or to perform a contract with you, including responding to booking enquiries, preparing quotes, and managing confirmed bookings.\n\nLegitimate Interests — We may process information where it is necessary for our legitimate business interests, including managing customer relationships, maintaining business records, and improving our services.\n\nLegal Obligations — We may process personal information where required to comply with legal obligations, including tax and accounting requirements.` },
+    { title: "5. How Long We Keep Your Information", content: `Enquiry data that does not result in a booking will generally be retained for up to 12 months.\n\nBooking, contract, and financial records may be retained for up to 7 years to comply with legal, tax, and accounting requirements.\n\nWe will not keep personal data longer than necessary.` },
+    { title: "6. Sharing Your Information", content: `We may share information with:\n\n• Accountants and professional advisers\n• Payment providers\n• Website hosting providers\n• Cloud storage and business software providers\n• Government authorities where required by law\n\nWe only share information where necessary and appropriate safeguards are in place.` },
+    { title: "7. International Transfers", content: `Where service providers process data outside the UK or European Economic Area, we will ensure appropriate safeguards are in place, including approved contractual protections where required.` },
+    { title: "8. Your Rights", content: `Under applicable data protection laws, you may have the right to:\n\n• Access your personal information\n• Correct inaccurate information\n• Request deletion of your information\n• Restrict processing\n• Object to processing\n• Request transfer of your data where applicable\n• Lodge a complaint with a supervisory authority` },
+    { title: "9. Complaints", content: `If you have concerns about how we process your personal information, please contact us first.\n\nUK residents may also complain to the Information Commissioner's Office (ICO) at ico.org.uk.` },
+    { title: "10. Contact Us", content: `If you have any questions about this Privacy Policy or your personal information, please contact:\n\nDJ Appz\nEmail: dj-appz@outlook.com\nWebsite: www.dj-appz.com` },
+  ];
+
   return (
-    <>
-      <button onClick={() => setOpen(o => !o)} style={{ position: "fixed", bottom: 24, right: 24, zIndex: 200, width: 52, height: 52, borderRadius: "50%", background: "#1a1815", border: "none", cursor: "pointer", fontSize: 40, display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 4px 32px rgba(0,0,0,0.2)", color: "#f5f0e8", transition: "transform 0.2s" }}>
-        {open ? <span style={{ fontSize: 30, fontWeight: 700, color: "#f5f0e8" }}>✕</span> : "💬"}
-        {badge > 0 && !open && <span style={{ position: "absolute", top: -3, right: -3, background: "rgba(140,100,30,0.95)", color: "#1a1815", width: 18, height: 18, borderRadius: "50%", fontSize: 22, display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 700 }}>{badge}</span>}
-      </button>
-      {open && (
-        <div style={{ position: "fixed", bottom: 88, right: 24, zIndex: 199, width: "min(360px, calc(100vw - 48px))", maxHeight: 500, background: "#faf7f2", border: "1px solid rgba(26,24,21,0.12)", borderRadius: 4, display: "flex", flexDirection: "column", boxShadow: "0 8px 40px rgba(0,0,0,0.12)", animation: "fadeUp 0.2s ease" }}>
-          <div style={{ padding: "14px 16px", borderBottom: "1px solid rgba(26,24,21,0.1)", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-            <img src={logo} alt="" style={{ height: 22, opacity: 0.9, filter: "none" }} />
-            <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-              <div style={{ width: 6, height: 6, borderRadius: "50%", background: "rgba(100,200,100,0.8)" }} />
-              <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 21, letterSpacing: 2.6, color: "rgba(26,24,21,0.4)" }}>ONLINE</span>
-            </div>
-          </div>
-          <div style={{ flex: 1, overflowY: "auto", padding: "14px 14px 8px", display: "flex", flexDirection: "column", gap: 10 }}>
-            {msgs.map((m, i) => (
-              <div key={i} style={{ display: "flex", justifyContent: m.role === "user" ? "flex-end" : "flex-start" }}>
-                <div style={{ maxWidth: "85%", background: m.role === "user" ? "#1a1815" : "rgba(26,24,21,0.06)", color: m.role === "user" ? "#f5f0e8" : "rgba(26,24,21,0.8)", padding: "10px 13px", borderRadius: 2, fontFamily: "'Outfit', sans-serif", fontSize: 13, lineHeight: 1.65 }}>{m.content}</div>
+    <section style={{ padding: isMobile ? "80px 24px" : "100px 48px" }}>
+      <div style={{ maxWidth: 760, margin: "0 auto" }}>
+        <Reveal>
+          <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 10, letterSpacing: 3, color: "rgba(140,100,30,0.75)", marginBottom: 12 }}>LEGAL</div>
+          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(26px, 3.5vw, 38px)", color: "#1a1815", margin: "0 0 8px" }}>Privacy Policy</h1>
+          <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 12, color: "rgba(26,24,21,0.45)", margin: "0 0 48px" }}>Last updated: May 2026</p>
+        </Reveal>
+        <div style={{ display: "flex", flexDirection: "column", gap: 36 }}>
+          {sections.map((s, i) => (
+            <Reveal key={i} delay={i * 0.03}>
+              <div style={{ borderTop: "1px solid rgba(26,24,21,0.1)", paddingTop: 28 }}>
+                <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, color: "#1a1815", margin: "0 0 14px", fontWeight: 500 }}>{s.title}</h2>
+                <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(26,24,21,0.65)", lineHeight: 1.85, margin: 0, whiteSpace: "pre-line" }}>{s.content}</p>
               </div>
-            ))}
-            {loading && <div style={{ display: "flex", gap: 5, padding: "10px 13px" }}>{[0, 0.2, 0.4].map((d, i) => <div key={i} style={{ width: 5, height: 5, borderRadius: "50%", background: "rgba(26,24,21,0.3)", animation: `blink 1s ${d}s infinite` }} />)}</div>}
-            <div ref={endRef} />
-          </div>
-          <div style={{ padding: "8px 12px 0", display: "flex", gap: 6, overflowX: "auto" }}>
-            {quickReplies.map((q, i) => <button key={i} onClick={() => send(q)} style={{ background: "none", border: "1px solid rgba(180,140,80,0.4)", borderRadius: 1, padding: "5px 10px", color: "rgba(140,100,30,0.9)", fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 1, whiteSpace: "nowrap", cursor: "pointer", flexShrink: 0 }}>{q}</button>)}
-          </div>
-          <div style={{ padding: "10px 12px 14px", display: "flex", gap: 8 }}>
-            <input value={input} onChange={e => setInput(e.target.value)} onKeyDown={e => e.key === "Enter" && send()} placeholder="Ask me anything…" style={{ flex: 1, background: "rgba(26,24,21,0.04)", border: "1px solid rgba(26,24,21,0.12)", borderRadius: 2, padding: "9px 12px", color: "#1a1815", fontSize: 27, outline: "none", fontFamily: "'Outfit', sans-serif" }} />
-            <button onClick={() => send()} style={{ background: "#1a1815", border: "none", borderRadius: 2, width: 36, height: 36, cursor: "pointer", fontSize: 30, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, color: "#f5f0e8" }}>→</button>
-          </div>
+            </Reveal>
+          ))}
         </div>
-      )}
-    </>
+      </div>
+    </section>
   );
 }
 
@@ -728,7 +694,7 @@ export default function App() {
               <div style={{ position: "absolute", inset: 0, backgroundImage: `url(${heroPhoto})`, backgroundSize: "cover", backgroundPosition: "center 30%", opacity: 0.05 }} />
               <Reveal>
                 <div style={{ position: "relative" }}>
-                  <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(28px, 4vw, 40px)", color: "#1a1815", margin: "0 0 16px" }}>Ready to <em>book?</em></h2>
+                  <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(22px, 3vw, 32px)", color: "#1a1815", margin: "0 0 16px" }}>Ready to <em>book?</em></h2>
                   <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 30, color: "rgba(26,24,21,0.4)", margin: "0 0 32px" }}>Let's talk about your event.</p>
                   <button onClick={() => goBook()} style={{ background: "#1a1815", color: "#f5f0e8", border: "none", padding: "15px 48px", fontFamily: "'Outfit', sans-serif", fontSize: 12, letterSpacing: 3, textTransform: "uppercase", cursor: "pointer", borderRadius: 1, fontWeight: 500 }}>Get in Touch</button>
                 </div>
@@ -740,11 +706,11 @@ export default function App() {
         {section === "about" && (<><div style={{ paddingTop: 80 }} /><AboutSection /></>)}
         {section === "services" && (<><div style={{ paddingTop: 80 }} /><ServicesSection onBook={goBook} /></>)}
         {section === "faq" && (<><div style={{ paddingTop: 80 }} /><FAQSection /></>)}
-        {section === "book" && (<><div style={{ paddingTop: 80 }} />{submitted ? <SuccessSection form={submitted} /> : <BookingSection prefill={bookPrefill} onSuccess={setSubmitted} />}</>)}
+        {section === "book" && (<><div style={{ paddingTop: 80 }} />{submitted ? <SuccessSection form={submitted} /> : <BookingSection prefill={bookPrefill} onSuccess={setSubmitted} onPrivacyClick={() => setSection("privacy")} />}</>)}
+        {section === "privacy" && (<><div style={{ paddingTop: 80 }} /><PrivacyPolicy /></>)}
 
         <FooterBar />
       </div>
-      <ChatBot onOpenBook={goBook} />
     </>
   );
 }
