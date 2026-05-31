@@ -226,7 +226,7 @@ function AboutSection() {
           <div>
             <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 20 }}>ABOUT</div>
             <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(22px, 2.8vw, 30px)", color: "#1a1815", margin: "0 0 16px", lineHeight: 1.15 }}>The Sound of<br /><em>Every Room</em></h2>
-            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 32, color: "rgba(26,24,21,0.65)", lineHeight: 1.9, margin: "0 0 32px" }}>{DJ.bio}</p>
+            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, color: "rgba(26,24,21,0.65)", lineHeight: 1.7, margin: "0 0 20px" }}>{DJ.bio}</p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 36 }}>
               {GENRES.map(g => <span key={g} style={{ fontFamily: "'Outfit', sans-serif", fontSize: 10, letterSpacing: 2, color: "rgba(140,100,30,0.85)", border: "1px solid rgba(180,140,80,0.2)", borderRadius: 1, padding: "5px 12px" }}>{g}</span>)}
             </div>
