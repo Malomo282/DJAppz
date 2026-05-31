@@ -174,7 +174,7 @@ function HeroSection({ onBook }) {
     <section style={{ minHeight: "calc(var(--vh, 1vh) * 100)", display: "flex", alignItems: "center", position: "relative", overflow: "hidden" }}>
       {/* Background photo — full bleed on mobile, right-side on desktop */}
       <div style={{ position: "absolute", inset: 0 }}>
-        <img src={heroPhoto} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: isMobile ? "center 35%" : "center 30%" }} />
+        <img src={heroPhoto} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: isMobile ? "center 65%" : "center 60%", transform: "scale(0.85)", transformOrigin: "center 60%" }} />
         {/* Dark overlay — stronger on mobile for text readability */}
         <div style={{ position: "absolute", inset: 0, background: isMobile ? "linear-gradient(to bottom, rgba(245,240,232,0.55) 0%, rgba(245,240,232,0.72) 50%, rgba(245,240,232,0.97) 100%)" : "linear-gradient(to right, rgba(245,240,232,0.95) 0%, rgba(245,240,232,0.8) 40%, rgba(245,240,232,0.15) 100%)" }} />
       </div>
@@ -225,7 +225,7 @@ function AboutSection() {
         <Reveal delay={isMobile ? 0 : 0.2}>
           <div>
             <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 20 }}>ABOUT</div>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(26px, 3.5vw, 38px)", color: "#1a1815", margin: "0 0 20px", lineHeight: 1.15 }}>The Sound of<br /><em>Every Room</em></h2>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(22px, 2.8vw, 30px)", color: "#1a1815", margin: "0 0 16px", lineHeight: 1.15 }}>The Sound of<br /><em>Every Room</em></h2>
             <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 32, color: "rgba(26,24,21,0.65)", lineHeight: 1.9, margin: "0 0 32px" }}>{DJ.bio}</p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 36 }}>
               {GENRES.map(g => <span key={g} style={{ fontFamily: "'Outfit', sans-serif", fontSize: 10, letterSpacing: 2, color: "rgba(140,100,30,0.85)", border: "1px solid rgba(180,140,80,0.2)", borderRadius: 1, padding: "5px 12px" }}>{g}</span>)}
@@ -254,7 +254,7 @@ function MixesSection() {
         <Reveal>
           <div style={{ marginBottom: 48 }}>
             <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 16 }}>LISTEN</div>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(22px, 3vw, 32px)", color: "#1a1815", margin: "0 0 12px" }}>Hear the Sound</h2>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(20px, 2.5vw, 28px)", color: "#1a1815", margin: "0 0 10px" }}>Hear the Sound</h2>
             <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 16, color: "rgba(26,24,21,0.55)", lineHeight: 1.7, maxWidth: 480 }}>A selection of recorded sets — the best way to get a feel for the vibe before you book.</p>
           </div>
         </Reveal>
@@ -318,7 +318,7 @@ function ServicesSection({ onBook }) {
             <img
               src={weddingPhoto}
               alt="DJ Appz at a wedding"
-              style={{ width: "100%", height: isMobile ? 260 : 340, objectFit: "cover", objectPosition: "center 40%", display: "block", opacity: 0.9 }}
+              style={{ width: "100%", height: isMobile ? 260 : 340, objectFit: "cover", objectPosition: "center 55%", display: "block", opacity: 0.9, transform: "scale(0.88)", transformOrigin: "center 55%" }}
             />
           </div>
         </Reveal>
