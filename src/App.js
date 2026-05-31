@@ -318,7 +318,7 @@ function ServicesSection({ onBook }) {
             <img
               src={weddingPhoto}
               alt="DJ Appz at a wedding"
-              style={{ width: "100%", height: isMobile ? 320 : 460, objectFit: "cover", objectPosition: "center 25%", display: "block", opacity: 1 }}
+              style={{ width: "100%", height: isMobile ? 320 : 460, objectFit: "contain", objectPosition: "center 25%", display: "block", opacity: 1 }}
             />
           </div>
         </Reveal>
