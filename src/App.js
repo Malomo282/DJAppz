@@ -171,7 +171,7 @@ function HeroSection({ onBook }) {
   useEffect(() => { const t = setInterval(() => setTick(x => x + 1), 1950); return () => clearInterval(t); }, []);
   const words = GENRES;
   return (
-    <section style={{ minHeight: isMobile ? "100svh" : "100vh", display: "flex", alignItems: "center", position: "relative", overflow: "hidden" }}>
+    <section style={{ minHeight: isMobile ? "70svh" : "75vh", display: "flex", alignItems: "center", position: "relative", overflow: "hidden" }}>
       {/* Background photo — full bleed on mobile, right-side on desktop */}
       <div style={{ position: "absolute", inset: 0 }}>
         <img src={heroPhoto} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: isMobile ? "center 40%" : "center 60%", transform: isMobile ? "scale(1)" : "scale(0.85)", transformOrigin: "center 60%" }} />
@@ -183,11 +183,11 @@ function HeroSection({ onBook }) {
       <div style={{ position: "absolute", inset: 0, backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(26,24,21,0.02) 80px), repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(26,24,21,0.02) 80px)", pointerEvents: "none" }} />
 
       {/* Content */}
-      <div style={{ position: "relative", zIndex: 2, padding: isMobile ? "100px 24px 60px" : "120px 48px 80px", maxWidth: 640, width: "100%" }}>
+      <div style={{ position: "relative", zIndex: 2, padding: isMobile ? "90px 24px 48px" : "100px 48px 60px", maxWidth: 640, width: "100%" }}>
         <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 4, color: "rgba(140,100,30,0.9)", marginBottom: 24, opacity: 0, animation: "fadeUp 0.8s 0.2s forwards" }}>
           LONDON · UK-WIDE · INTERNATIONAL
         </div>
-        <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? "52px" : "clamp(48px, 6vw, 72px)", lineHeight: 0.9, margin: "0 0 28px", color: "#1a1815", opacity: 0, animation: "fadeUp 0.8s 0.4s forwards" }}>
+        <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? "40px" : "clamp(36px, 5vw, 56px)", lineHeight: 0.9, margin: "0 0 28px", color: "#1a1815", opacity: 0, animation: "fadeUp 0.8s 0.4s forwards" }}>
           DJ<br /><em style={{ color: "#1a1815" }}>Appz</em>
         </h1>
         <div style={{ overflow: "hidden", marginBottom: 40, opacity: 0, animation: "fadeUp 0.8s 0.6s forwards", width: "100%" }}>
@@ -249,7 +249,7 @@ function AboutSection() {
 function MixesSection() {
   const isMobile = useIsMobile();
   return (
-    <section style={{ padding: isMobile ? "80px 24px" : "120px 48px", background: "rgba(26,24,21,0.03)" }}>
+    <section style={{ padding: isMobile ? "64px 24px" : "96px 48px", background: "rgba(26,24,21,0.03)" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <Reveal>
           <div style={{ marginBottom: 48 }}>
@@ -284,6 +284,27 @@ function MixesSection() {
   );
 }
 
+
+
+// ─── WELCOME SECTION ───────────────────────────────────────────────────────
+function WelcomeSection() {
+  const isMobile = useIsMobile();
+  return (
+    <section style={{ padding: isMobile ? "56px 24px" : "80px 48px", textAlign: "center", background: "#f5f0e8" }}>
+      <div style={{ maxWidth: 720, margin: "0 auto" }}>
+        <Reveal>
+          <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 16, textTransform: "uppercase" }}>Welcome</div>
+          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? 26 : 34, color: "#1a1815", margin: "0 0 20px", lineHeight: 1.25 }}>
+            London's DJ for <em>Every Occasion</em>
+          </h2>
+          <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: isMobile ? 13 : 15, color: "rgba(26,24,21,0.6)", lineHeight: 1.8, margin: "0 auto", maxWidth: 580 }}>
+            From intimate private events to weddings, corporate functions and club nights — DJ Appz delivers seamless sets rooted in R&B, Hip-Hop, Afrobeats and Soul. Based in London, available UK-wide and internationally.
+          </p>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
 
 // ─── QUICK NAV SECTION ─────────────────────────────────────────────────────
 function QuickNavSection({ onBook, setSection }) {
@@ -332,30 +353,30 @@ function QuickNavSection({ onBook, setSection }) {
   ];
 
   return (
-    <section style={{ padding: isMobile ? "80px 24px" : "120px 48px", background: "rgba(26,24,21,0.03)" }}>
+    <section style={{ padding: isMobile ? "64px 24px" : "96px 48px", background: "rgba(26,24,21,0.03)" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <Reveal>
           <div style={{ marginBottom: 48 }}>
             <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 16 }}>EXPLORE</div>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 32, color: "#1a1815", margin: 0 }}>What Would You Like to Do?</h2>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? 24 : 32, color: "#1a1815", margin: 0 }}>What Would You Like to Do?</h2>
           </div>
         </Reveal>
-        <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr 1fr" : "repeat(5, 1fr)", gap: isMobile ? 12 : 1, background: isMobile ? "transparent" : "rgba(26,24,21,0.08)" }}>
+        <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr 1fr" : "repeat(5, 1fr)", gap: isMobile ? 12 : 16, background: "transparent" }}>
           {cards.map((c, i) => (
             <Reveal key={c.id} delay={i * 0.1}>
               <div
                 onClick={c.action}
-                style={{ background: "#fff", padding: isMobile ? "24px 18px" : "40px 32px", cursor: "pointer", transition: "background 0.3s", borderRadius: isMobile ? 4 : 0, border: isMobile ? "1px solid rgba(26,24,21,0.06)" : "none", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between" }}
-                onMouseEnter={e => e.currentTarget.style.background = "#ede8df"}
-                onMouseLeave={e => e.currentTarget.style.background = "#fff"}
+                style={{ background: "#fff", padding: isMobile ? "28px 20px" : "48px 36px", cursor: "pointer", transition: "all 0.3s", borderRadius: isMobile ? 6 : 2, border: "1px solid rgba(26,24,21,0.08)", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between", boxShadow: "0 2px 12px rgba(26,24,21,0.04)" }}
+                onMouseEnter={e => { e.currentTarget.style.background = "#ede8df"; e.currentTarget.style.boxShadow = "0 8px 32px rgba(26,24,21,0.12)"; e.currentTarget.style.transform = "translateY(-4px)"; }}
+                onMouseLeave={e => { e.currentTarget.style.background = "#fff"; e.currentTarget.style.boxShadow = "0 2px 12px rgba(26,24,21,0.04)"; e.currentTarget.style.transform = "none"; }}
               >
                 <div>
-                  <div style={{ fontSize: isMobile ? 28 : 36, marginBottom: 16 }}>{c.icon}</div>
+                  <div style={{ fontSize: isMobile ? 32 : 44, marginBottom: 18 }}>{c.icon}</div>
                   <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 10, letterSpacing: 2.5, color: "rgba(140,100,30,0.8)", marginBottom: 8, textTransform: "uppercase" }}>{c.tag}</div>
-                  <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? 18 : 22, color: "#1a1815", margin: "0 0 10px", fontWeight: 400 }}>{c.label}</h3>
-                  <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 12, color: "rgba(26,24,21,0.5)", lineHeight: 1.65, margin: 0 }}>{c.desc}</p>
+                  <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? 20 : 24, color: "#1a1815", margin: "0 0 10px", fontWeight: 400 }}>{c.label}</h3>
+                  <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(26,24,21,0.5)", lineHeight: 1.65, margin: 0 }}>{c.desc}</p>
                 </div>
-                <div style={{ marginTop: 24, fontFamily: "'Outfit', sans-serif", fontSize: 10, letterSpacing: 2, color: "rgba(140,100,30,0.8)" }}>
+                <div style={{ marginTop: 28, fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 2, color: "rgba(140,100,30,0.9)", fontWeight: 500 }}>
                   {c.label === "Enquire" ? "GET IN TOUCH →" : c.label === "Mixes" ? "LISTEN NOW →" : `VIEW ${c.label.toUpperCase()} →`}
                 </div>
               </div>
@@ -379,7 +400,7 @@ function ServicesSection({ onBook }) {
             <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 32, color: "#1a1815", margin: 0 }}>What I Do</h2>
           </div>
         </Reveal>
-        <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)", gap: isMobile ? 12 : 1, background: isMobile ? "transparent" : "rgba(26,24,21,0.08)" }}>
+        <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)", gap: isMobile ? 12 : 16, background: "transparent" }}>
           {SERVICES.map((s, i) => (
             <Reveal key={s.id} delay={i * 0.1}>
               <div onClick={() => onBook(s.id)} style={{ background: "#fff", padding: isMobile ? "28px 24px" : "44px 40px", cursor: "pointer", transition: "background 0.3s", borderRadius: isMobile ? 4 : 0, border: "1px solid rgba(26,24,21,0.06)" }} onMouseEnter={e => e.currentTarget.style.background = "#ede8df"} onMouseLeave={e => e.currentTarget.style.background = "#fff"}>
@@ -417,7 +438,7 @@ function TestimonialsSection() {
   useEffect(() => { const t = setInterval(() => setActive(x => (x + 1) % TESTIMONIALS.length), 5000); return () => clearInterval(t); }, []);
   const t = TESTIMONIALS[active];
   return (
-    <section style={{ padding: isMobile ? "80px 24px" : "120px 48px", background: "rgba(26,24,21,0.03)" }}>
+    <section style={{ padding: isMobile ? "64px 24px" : "96px 48px", background: "rgba(26,24,21,0.03)" }}>
       <div style={{ maxWidth: 700, margin: "0 auto", textAlign: "center" }}>
         <Reveal>
           <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 40 }}>KIND WORDS</div>
@@ -907,7 +928,7 @@ export default function App() {
         {section === "home" && (
           <>
             <HeroSection onBook={() => goBook()} />
-            <AboutSection />
+            <WelcomeSection />
             <QuickNavSection onBook={goBook} setSection={setSection} />
             <MixesSection />
             <TestimonialsSection />
