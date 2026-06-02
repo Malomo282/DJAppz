@@ -132,8 +132,8 @@ function NavBar({ active, setActive }) {
     window.addEventListener("scroll", fn);
     return () => window.removeEventListener("scroll", fn);
   }, []);
-  const links = ["home", "about", "services", "faq", "book"];
-  const nav = (l) => { setActive(l); setMenuOpen(false); window.scrollTo({ top: 0, behavior: "smooth" }); };
+  const links = ["home", "about", "services", "faq", "enquire"];
+  const nav = (l) => { setActive(l === "enquire" ? "book" : l); setMenuOpen(false); window.scrollTo({ top: 0, behavior: "smooth" }); };
   return (
     <>
       <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, padding: "0 24px", height: 80, display: "flex", alignItems: "center", justifyContent: "space-between", background: "rgba(245,240,232,0.97)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(26,24,21,0.1)", transition: "all 0.4s ease" }}>
@@ -147,7 +147,7 @@ function NavBar({ active, setActive }) {
         ) : (
           <div style={{ display: "flex", gap: 36 }}>
             {links.map(l => (
-              <button key={l} onClick={() => nav(l)} style={{ background: "none", border: "none", cursor: "pointer", fontFamily: "'Outfit', sans-serif", fontSize: 14, letterSpacing: 2, textTransform: "uppercase", color: active === l ? "#1a1815" : "rgba(26,24,21,0.5)", transition: "color 0.2s", padding: 0 }}>{l}</button>
+              <button key={l} onClick={() => nav(l)} style={{ background: "none", border: "none", cursor: "pointer", fontFamily: "'Outfit', sans-serif", fontSize: 14, letterSpacing: 2, textTransform: "uppercase", color: (l === "enquire" ? active === "book" : active === l) ? "#1a1815" : "rgba(26,24,21,0.5)", transition: "color 0.2s", padding: 0 }}>{l}</button>
             ))}
           </div>
         )}
@@ -156,7 +156,7 @@ function NavBar({ active, setActive }) {
       {isMobile && menuOpen && (
         <div style={{ position: "fixed", top: 68, left: 0, right: 0, zIndex: 99, background: "rgba(245,240,232,0.99)", borderBottom: "1px solid rgba(26,24,21,0.12)", padding: "16px 0" }}>
           {links.map(l => (
-            <button key={l} onClick={() => nav(l)} style={{ display: "block", width: "100%", background: "none", border: "none", cursor: "pointer", fontFamily: "'Outfit', sans-serif", fontSize: 20, letterSpacing: 2, textTransform: "uppercase", color: active === l ? "#1a1815" : "rgba(26,24,21,0.5)", padding: "16px 24px", textAlign: "left" }}>{l}</button>
+            <button key={l} onClick={() => nav(l)} style={{ display: "block", width: "100%", background: "none", border: "none", cursor: "pointer", fontFamily: "'Outfit', sans-serif", fontSize: 20, letterSpacing: 2, textTransform: "uppercase", color: (l === "enquire" ? active === "book" : active === l) ? "#1a1815" : "rgba(26,24,21,0.5)", padding: "16px 24px", textAlign: "left" }}>{l}</button>
           ))}
         </div>
       )}
@@ -168,22 +168,22 @@ function NavBar({ active, setActive }) {
 function HeroSection({ onBook }) {
   const [tick, setTick] = useState(0);
   const isMobile = useIsMobile();
-  useEffect(() => { const t = setInterval(() => setTick(x => x + 1), 3000); return () => clearInterval(t); }, []);
+  useEffect(() => { const t = setInterval(() => setTick(x => x + 1), 1500); return () => clearInterval(t); }, []);
   const words = ["R&B", "Hip-Hop", "Neo-Soul", "Afrobeats"];
   return (
-    <section style={{ minHeight: "calc(var(--vh, 1vh) * 100)", display: "flex", alignItems: "center", position: "relative", overflow: "hidden" }}>
+    <section style={{ minHeight: isMobile ? "100svh" : "100vh", display: "flex", alignItems: "center", position: "relative", overflow: "hidden" }}>
       {/* Background photo — full bleed on mobile, right-side on desktop */}
       <div style={{ position: "absolute", inset: 0 }}>
-        <img src={heroPhoto} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: isMobile ? "center 65%" : "center 60%", transform: "scale(0.85)", transformOrigin: "center 60%" }} />
+        <img src={heroPhoto} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: isMobile ? "center 40%" : "center 60%", transform: isMobile ? "scale(1)" : "scale(0.85)", transformOrigin: "center 60%" }} />
         {/* Dark overlay — stronger on mobile for text readability */}
-        <div style={{ position: "absolute", inset: 0, background: isMobile ? "linear-gradient(to bottom, rgba(245,240,232,0.55) 0%, rgba(245,240,232,0.72) 50%, rgba(245,240,232,0.97) 100%)" : "linear-gradient(to right, rgba(245,240,232,0.95) 0%, rgba(245,240,232,0.8) 40%, rgba(245,240,232,0.15) 100%)" }} />
+        <div style={{ position: "absolute", inset: 0, background: isMobile ? "linear-gradient(to bottom, rgba(245,240,232,0.45) 0%, rgba(245,240,232,0.65) 45%, rgba(245,240,232,0.97) 100%)" : "linear-gradient(to right, rgba(245,240,232,0.95) 0%, rgba(245,240,232,0.8) 40%, rgba(245,240,232,0.15) 100%)" }} />
       </div>
 
       {/* Grid overlay */}
       <div style={{ position: "absolute", inset: 0, backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(26,24,21,0.02) 80px), repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(26,24,21,0.02) 80px)", pointerEvents: "none" }} />
 
       {/* Content */}
-      <div style={{ position: "relative", zIndex: 2, padding: isMobile ? "120px 24px 80px" : "120px 48px 80px", maxWidth: 640, width: "100%" }}>
+      <div style={{ position: "relative", zIndex: 2, padding: isMobile ? "100px 24px 60px" : "120px 48px 80px", maxWidth: 640, width: "100%" }}>
         <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 4, color: "rgba(140,100,30,0.9)", marginBottom: 24, opacity: 0, animation: "fadeUp 0.8s 0.2s forwards" }}>
           LONDON · UK-WIDE · INTERNATIONAL
         </div>
@@ -198,7 +198,7 @@ function HeroSection({ onBook }) {
           ))}
         </div>
         <div style={{ display: "flex", gap: 12, flexWrap: "wrap", opacity: 0, animation: "fadeUp 0.8s 0.8s forwards" }}>
-          <button onClick={onBook} style={{ background: "#fff", color: "#1a1815", border: "none", borderRadius: 2, padding: "14px 36px", fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 2.5, textTransform: "uppercase", cursor: "pointer", fontWeight: 500 }}>Book Now</button>
+          <button onClick={onBook} style={{ background: "#fff", color: "#1a1815", border: "none", borderRadius: 2, padding: "14px 36px", fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 2.5, textTransform: "uppercase", cursor: "pointer", fontWeight: 500 }}>Enquire Now</button>
           <button onClick={() => document.getElementById("about-section")?.scrollIntoView({ behavior: "smooth" })} style={{ background: "none", color: "rgba(26,24,21,0.65)", border: "1px solid rgba(26,24,21,0.3)", borderRadius: 2, padding: "14px 36px", fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 2.5, textTransform: "uppercase", cursor: "pointer" }}>About</button>
         </div>
       </div>
@@ -318,7 +318,7 @@ function ServicesSection({ onBook }) {
             <img
               src={weddingPhoto}
               alt="DJ Appz at a wedding"
-              style={{ width: "100%", height: isMobile ? 320 : 460, objectFit: "contain", objectPosition: "center 25%", display: "block", opacity: 1 }}
+              style={{ width: "100%", height: isMobile ? 320 : 460, objectFit: "cover", objectPosition: "center 25%", display: "block", opacity: 1 }}
             />
           </div>
         </Reveal>
