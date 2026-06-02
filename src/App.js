@@ -168,8 +168,8 @@ function NavBar({ active, setActive }) {
 function HeroSection({ onBook }) {
   const [tick, setTick] = useState(0);
   const isMobile = useIsMobile();
-  useEffect(() => { const t = setInterval(() => setTick(x => x + 1), 1500); return () => clearInterval(t); }, []);
-  const words = ["R&B", "Hip-Hop", "Neo-Soul", "Afrobeats"];
+  useEffect(() => { const t = setInterval(() => setTick(x => x + 1), 1950); return () => clearInterval(t); }, []);
+  const words = GENRES;
   return (
     <section style={{ minHeight: isMobile ? "100svh" : "100vh", display: "flex", alignItems: "center", position: "relative", overflow: "hidden" }}>
       {/* Background photo — full bleed on mobile, right-side on desktop */}
@@ -190,12 +190,12 @@ function HeroSection({ onBook }) {
         <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? "52px" : "clamp(48px, 6vw, 72px)", lineHeight: 0.9, margin: "0 0 28px", color: "#1a1815", opacity: 0, animation: "fadeUp 0.8s 0.4s forwards" }}>
           DJ<br /><em style={{ color: "#1a1815" }}>Appz</em>
         </h1>
-        <div style={{ height: 28, overflow: "hidden", marginBottom: 40, opacity: 0, animation: "fadeUp 0.8s 0.6s forwards" }}>
-          {words.map((w, i) => (
-            <div key={w} style={{ height: 28, display: "flex", alignItems: "center", transform: `translateY(${(i - tick % words.length) * 28}px)`, transition: "transform 0.5s cubic-bezier(0.4,0,0.2,1)" }}>
-              <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14, letterSpacing: 3, color: "rgba(120,85,15,0.9)", textTransform: "uppercase" }}>{w}</span>
-            </div>
-          ))}
+        <div style={{ overflow: "hidden", marginBottom: 40, opacity: 0, animation: "fadeUp 0.8s 0.6s forwards", width: "100%" }}>
+          <div style={{ display: "flex", transform: `translateX(-${(tick % words.length) * 120}px)`, transition: "transform 0.6s cubic-bezier(0.4,0,0.2,1)", whiteSpace: "nowrap" }}>
+            {[...words, ...words].map((w, i) => (
+              <span key={i} style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, letterSpacing: 3, color: "rgba(120,85,15,0.9)", textTransform: "uppercase", marginRight: 32, display: "inline-block", minWidth: 88 }}>{w}</span>
+            ))}
+          </div>
         </div>
         <div style={{ display: "flex", gap: 12, flexWrap: "wrap", opacity: 0, animation: "fadeUp 0.8s 0.8s forwards" }}>
           <button onClick={onBook} style={{ background: "#fff", color: "#1a1815", border: "none", borderRadius: 2, padding: "14px 36px", fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 2.5, textTransform: "uppercase", cursor: "pointer", fontWeight: 500 }}>Enquire Now</button>
@@ -274,6 +274,89 @@ function MixesSection() {
                 </div>
                 <div style={{ marginTop: 12, textAlign: "right" }}>
                   <a href="https://www.mixcloud.com/DJAppz/" target="_blank" rel="noopener noreferrer" style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 2, color: "rgba(140,100,30,0.7)", textDecoration: "none" }}>MORE ON MIXCLOUD →</a>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+// ─── QUICK NAV SECTION ─────────────────────────────────────────────────────
+function QuickNavSection({ onBook, setSection }) {
+  const isMobile = useIsMobile();
+  const cards = [
+    {
+      id: "services",
+      label: "Services",
+      tag: "What I Offer",
+      desc: "Private events, weddings, corporate functions, club & bar residencies.",
+      icon: "🎧",
+      action: () => setSection("services"),
+    },
+    {
+      id: "mixes",
+      label: "Mixes",
+      tag: "Listen",
+      desc: "Recorded sets across R&B, Hip-Hop, Dancehall and more.",
+      icon: "🎵",
+      action: () => setSection("mixes"),
+    },
+    {
+      id: "enquire",
+      label: "Enquire",
+      tag: "Book a Date",
+      desc: "Tell me about your event and I'll be in touch within 24 hours.",
+      icon: "📩",
+      action: () => onBook(),
+    },
+    {
+      id: "faq",
+      label: "FAQ",
+      tag: "Common Questions",
+      desc: "Pricing, equipment, travel, music consultation and more.",
+      icon: "💬",
+      action: () => setSection("faq"),
+    },
+    {
+      id: "about",
+      label: "About",
+      tag: "The DJ",
+      desc: "London-based DJ, entertainer and former professional dancer.",
+      icon: "🎤",
+      action: () => setSection("about"),
+    },
+  ];
+
+  return (
+    <section style={{ padding: isMobile ? "80px 24px" : "120px 48px", background: "rgba(26,24,21,0.03)" }}>
+      <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+        <Reveal>
+          <div style={{ marginBottom: 48 }}>
+            <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 16 }}>EXPLORE</div>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 32, color: "#1a1815", margin: 0 }}>What Would You Like to Do?</h2>
+          </div>
+        </Reveal>
+        <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr 1fr" : "repeat(5, 1fr)", gap: isMobile ? 12 : 1, background: isMobile ? "transparent" : "rgba(26,24,21,0.08)" }}>
+          {cards.map((c, i) => (
+            <Reveal key={c.id} delay={i * 0.1}>
+              <div
+                onClick={c.action}
+                style={{ background: "#fff", padding: isMobile ? "24px 18px" : "40px 32px", cursor: "pointer", transition: "background 0.3s", borderRadius: isMobile ? 4 : 0, border: isMobile ? "1px solid rgba(26,24,21,0.06)" : "none", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between" }}
+                onMouseEnter={e => e.currentTarget.style.background = "#ede8df"}
+                onMouseLeave={e => e.currentTarget.style.background = "#fff"}
+              >
+                <div>
+                  <div style={{ fontSize: isMobile ? 28 : 36, marginBottom: 16 }}>{c.icon}</div>
+                  <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 10, letterSpacing: 2.5, color: "rgba(140,100,30,0.8)", marginBottom: 8, textTransform: "uppercase" }}>{c.tag}</div>
+                  <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? 18 : 22, color: "#1a1815", margin: "0 0 10px", fontWeight: 400 }}>{c.label}</h3>
+                  <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 12, color: "rgba(26,24,21,0.5)", lineHeight: 1.65, margin: 0 }}>{c.desc}</p>
+                </div>
+                <div style={{ marginTop: 24, fontFamily: "'Outfit', sans-serif", fontSize: 10, letterSpacing: 2, color: "rgba(140,100,30,0.8)" }}>
+                  {c.label === "Enquire" ? "GET IN TOUCH →" : c.label === "Mixes" ? "LISTEN NOW →" : `VIEW ${c.label.toUpperCase()} →`}
                 </div>
               </div>
             </Reveal>
@@ -696,6 +779,76 @@ function PrivacyPolicy() {
   );
 }
 
+
+// ─── MIXES PAGE ─────────────────────────────────────────────────────────────
+function MixesPage() {
+  const isMobile = useIsMobile();
+
+  const allMixes = [
+    ...MIXES,
+    // Add more mixes here as you upload them to Mixcloud
+  ];
+
+  return (
+    <section style={{ padding: isMobile ? "80px 24px" : "100px 48px" }}>
+      <div style={{ maxWidth: 900, margin: "0 auto" }}>
+        <Reveal>
+          <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 16 }}>LISTEN</div>
+          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 32, color: "#1a1815", margin: "0 0 12px" }}>Mixes</h1>
+          <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14, color: "rgba(26,24,21,0.55)", lineHeight: 1.7, margin: "0 0 48px", maxWidth: 560 }}>
+            A selection of recorded sets — the best way to hear the sound before you book. More mixes available on Mixcloud.
+          </p>
+        </Reveal>
+
+        <div style={{ display: "flex", flexDirection: "column", gap: 1, background: "rgba(26,24,21,0.08)" }}>
+          {allMixes.map((mix, i) => (
+            <Reveal key={mix.id} delay={i * 0.1}>
+              <div style={{ background: "#fff", padding: isMobile ? "24px 20px" : "32px 40px", display: "flex", flexDirection: isMobile ? "column" : "row", gap: isMobile ? 20 : 40, alignItems: isMobile ? "flex-start" : "center" }}>
+                {/* Mix info */}
+                <div style={{ flex: "0 0 auto", width: isMobile ? "100%" : 260 }}>
+                  <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 10, letterSpacing: 2, color: "rgba(140,100,30,0.85)", border: "1px solid rgba(180,140,80,0.25)", padding: "3px 10px", borderRadius: 1, display: "inline-block", marginBottom: 10 }}>{mix.tag}</span>
+                  <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, color: "#1a1815", margin: "0 0 6px", fontWeight: 400, lineHeight: 1.3 }}>{mix.title}</h3>
+                  <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 12, color: "rgba(26,24,21,0.45)", letterSpacing: 1, margin: 0 }}>{mix.subtitle}</p>
+                </div>
+
+                {/* Mixcloud player */}
+                <div style={{ flex: 1, width: "100%", borderRadius: 2, overflow: "hidden", border: "1px solid rgba(26,24,21,0.08)" }}>
+                  <iframe
+                    width="100%"
+                    height="120"
+                    src={mix.src}
+                    frameBorder="0"
+                    allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share"
+                    title={mix.title}
+                    style={{ display: "block", width: "100%" }}
+                  />
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        {/* Mixcloud CTA */}
+        <Reveal delay={0.3}>
+          <div style={{ marginTop: 40, textAlign: "center", padding: "40px 32px", background: "#fff", border: "1px solid rgba(26,24,21,0.08)", borderRadius: 2 }}>
+            <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 3, color: "rgba(140,100,30,0.8)", marginBottom: 12 }}>MORE SETS</div>
+            <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, color: "#1a1815", margin: "0 0 10px", fontWeight: 400 }}>Find More on Mixcloud</h3>
+            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(26,24,21,0.5)", lineHeight: 1.7, margin: "0 0 24px" }}>Full archive of mixes, radio sets and live recordings available on the DJ Appz Mixcloud profile.</p>
+            <a
+              href="https://www.mixcloud.com/DJAppz/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ display: "inline-block", background: "#1a1815", color: "#f5f0e8", padding: "12px 32px", fontFamily: "'Outfit', sans-serif", fontSize: 10, letterSpacing: 3, textTransform: "uppercase", textDecoration: "none", borderRadius: 1 }}
+            >
+              Visit Mixcloud →
+            </a>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
 // ─── APP ───────────────────────────────────────────────────────────────────
 export default function App() {
   // Fix mobile 100vh blank space bug
@@ -755,8 +908,8 @@ export default function App() {
           <>
             <HeroSection onBook={() => goBook()} />
             <AboutSection />
+            <QuickNavSection onBook={goBook} setSection={setSection} />
             <MixesSection />
-            <ServicesSection onBook={goBook} />
             <TestimonialsSection />
             <FAQSection />
             <section style={{ padding: isMobile ? "80px 24px" : "100px 48px", textAlign: "center", borderTop: "1px solid rgba(26,24,21,0.08)", position: "relative", overflow: "hidden" }}>
@@ -777,6 +930,7 @@ export default function App() {
         {section === "faq" && (<><div style={{ paddingTop: 80 }} /><FAQSection /></>)}
         {section === "book" && (<><div style={{ paddingTop: 80 }} />{submitted ? <SuccessSection form={submitted} /> : <BookingSection prefill={bookPrefill} onSuccess={setSubmitted} onPrivacyClick={() => setShowPrivacy(true)} />}</>)}
         {section === "privacy" && (<><div style={{ paddingTop: 80 }} /><PrivacyPolicy /></>)}
+        {section === "mixes" && (<><div style={{ paddingTop: 80 }} /><MixesPage /></>)}
 
         <FooterBar onPrivacy={() => setShowPrivacy(true)} />
       </div>
