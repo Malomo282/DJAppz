@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 import logo from "./Assets/djappz-logo.png";
 import heroPhoto from "./Assets/djappz-bio.jpeg";
+import showreel from "./Assets/Showreel - DJ Appz.mp4";
 import mixerPhoto from "./Assets/djappz-photo.jpg";
 import streetPhoto from "./Assets/djappz-mixer.jpeg";
 import weddingPhoto from "./Assets/djappz-wedding.jpeg";
@@ -172,11 +173,24 @@ function HeroSection({ onBook }) {
   const words = GENRES;
   return (
     <section style={{ minHeight: isMobile ? "70svh" : "75vh", display: "flex", alignItems: "center", position: "relative", overflow: "hidden" }}>
-      {/* Background photo — full bleed on mobile, right-side on desktop */}
-      <div style={{ position: "absolute", inset: 0 }}>
-        <img src={heroPhoto} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: isMobile ? "center 40%" : "center 60%", transform: isMobile ? "scale(1)" : "scale(0.85)", transformOrigin: "center 60%" }} />
-        {/* Dark overlay — stronger on mobile for text readability */}
-        <div style={{ position: "absolute", inset: 0, background: isMobile ? "linear-gradient(to bottom, rgba(245,240,232,0.45) 0%, rgba(245,240,232,0.65) 45%, rgba(245,240,232,0.97) 100%)" : "linear-gradient(to right, rgba(245,240,232,0.95) 0%, rgba(245,240,232,0.8) 40%, rgba(245,240,232,0.15) 100%)" }} />
+      {/* Showreel video background */}
+      <div style={{ position: "absolute", inset: 0, overflow: "hidden" }}>
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center center" }}
+        >
+          <source src={showreel} type="video/mp4" />
+          {/* Fallback to photo if video fails */}
+          <img src={heroPhoto} alt="DJ Appz" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+        </video>
+        {/* Overlay — light ivory wash so text stays readable */}
+        <div style={{ position: "absolute", inset: 0, background: isMobile
+          ? "linear-gradient(to bottom, rgba(245,240,232,0.45) 0%, rgba(245,240,232,0.6) 50%, rgba(245,240,232,0.95) 100%)"
+          : "linear-gradient(to right, rgba(245,240,232,0.88) 0%, rgba(245,240,232,0.6) 45%, rgba(245,240,232,0.1) 100%)"
+        }} />
       </div>
 
       {/* Grid overlay */}
@@ -640,7 +654,7 @@ function BookingSection({ prefill, onSuccess, onPrivacyClick }) {
     <section style={{ padding: isMobile ? "80px 24px" : "120px 48px" }}>
       <div style={{ maxWidth: 700, margin: "0 auto" }}>
         <Reveal>
-          <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 15, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 16 }}>BOOKINGS</div>
+          <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 15, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 16 }}>ENQUIRIES</div>
           <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(32px, 4vw, 50px)", color: "#1a1815", margin: "0 0 12px" }}>Let's Make It Happen</h2>
           <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 16, color: "rgba(26,24,21,0.55)", margin: "0 0 48px", lineHeight: 1.7 }}>Fill in the form and I'll be in touch within 24 hours to discuss your event.</p>
         </Reveal>
