@@ -6,6 +6,7 @@ import showreel from "./Assets/showreel-djappz.mp4";
 import mixerPhoto from "./Assets/djappz-photo.jpg";
 import streetPhoto from "./Assets/djappz-mixer.jpeg";
 import weddingPhoto from "./Assets/djappz-wedding.jpeg";
+import crowdPhoto from "./Assets/djappz - Crowd Shot.png";
 
 // ─── EMAILJS CONFIG ────────────────────────────────────────────────────────
 const EMAILJS = {
@@ -172,7 +173,7 @@ function HeroSection({ onBook }) {
   useEffect(() => { const t = setInterval(() => setTick(x => x + 1), 1950); return () => clearInterval(t); }, []);
   const words = GENRES;
   return (
-    <section style={{ minHeight: isMobile ? "70svh" : "75vh", display: "flex", alignItems: "center", position: "relative", overflow: "hidden" }}>
+    <section style={{ minHeight: isMobile ? "55svh" : "60vh", display: "flex", alignItems: "center", position: "relative", overflow: "hidden" }}>
       {/* Showreel video background */}
       <div style={{ position: "absolute", inset: 0, overflow: "hidden" }}>
         <video
@@ -197,7 +198,7 @@ function HeroSection({ onBook }) {
       <div style={{ position: "absolute", inset: 0, backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(26,24,21,0.02) 80px), repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(26,24,21,0.02) 80px)", pointerEvents: "none" }} />
 
       {/* Content */}
-      <div style={{ position: "relative", zIndex: 2, padding: isMobile ? "90px 24px 48px" : "100px 48px 60px", maxWidth: 640, width: "100%" }}>
+      <div style={{ position: "relative", zIndex: 2, padding: isMobile ? "80px 24px 40px" : "88px 48px 48px", maxWidth: 640, width: "100%" }}>
         <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 15, letterSpacing: 4, color: "rgba(140,100,30,0.9)", marginBottom: 24, opacity: 0, animation: "fadeUp 0.8s 0.2s forwards" }}>
           LONDON · UK-WIDE · INTERNATIONAL
         </div>
@@ -224,7 +225,7 @@ function HeroSection({ onBook }) {
 function AboutSection() {
   const isMobile = useIsMobile();
   return (
-    <section id="about-section" style={{ padding: isMobile ? "80px 24px" : "120px 48px" }}>
+    <section id="about-section" style={{ padding: isMobile ? "64px 24px" : "108px 48px" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: isMobile ? 48 : 80, alignItems: "center" }}>
         <Reveal>
           <div style={{ position: "relative" }}>
@@ -263,7 +264,7 @@ function AboutSection() {
 function MixesSection() {
   const isMobile = useIsMobile();
   return (
-    <section style={{ padding: isMobile ? "64px 24px" : "96px 48px", background: "rgba(26,24,21,0.03)" }}>
+    <section style={{ padding: isMobile ? "58px 24px" : "86px 48px", background: "rgba(26,24,21,0.03)" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <Reveal>
           <div style={{ marginBottom: 48 }}>
@@ -304,7 +305,7 @@ function MixesSection() {
 function WelcomeSection() {
   const isMobile = useIsMobile();
   return (
-    <section style={{ padding: isMobile ? "56px 24px" : "80px 48px", textAlign: "center", background: "#f5f0e8" }}>
+    <section style={{ padding: isMobile ? "50px 24px" : "72px 48px", textAlign: "center", background: "#f5f0e8" }}>
       <div style={{ maxWidth: 720, margin: "0 auto" }}>
         <Reveal>
           <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 25, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 16, textTransform: "uppercase" }}>Welcome</div>
@@ -367,7 +368,7 @@ function QuickNavSection({ onBook, setSection }) {
   ];
 
   return (
-    <section style={{ padding: isMobile ? "64px 24px" : "96px 48px", background: "rgba(26,24,21,0.03)" }}>
+    <section style={{ padding: isMobile ? "58px 24px" : "86px 48px", background: "rgba(26,24,21,0.03)" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <Reveal>
           <div style={{ marginBottom: 48 }}>
@@ -406,7 +407,7 @@ function QuickNavSection({ onBook, setSection }) {
 function ServicesSection({ onBook }) {
   const isMobile = useIsMobile();
   return (
-    <section style={{ padding: isMobile ? "80px 24px" : "120px 48px" }}>
+    <section style={{ padding: isMobile ? "64px 24px" : "108px 48px" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <Reveal>
           <div style={{ marginBottom: 48 }}>
@@ -436,7 +437,7 @@ function ServicesSection({ onBook }) {
             <img
               src={weddingPhoto}
               alt="DJ Appz at a wedding"
-              style={{ width: "100%", height: isMobile ? 320 : 460, objectFit: "cover", objectPosition: "center 25%", display: "block", opacity: 1 }}
+              style={{ width: "100%", height: isMobile ? 320 : 460, objectFit: "cover", objectPosition: "center 65%", display: "block", opacity: 1 }}
             />
           </div>
         </Reveal>
@@ -452,7 +453,7 @@ function TestimonialsSection() {
   useEffect(() => { const t = setInterval(() => setActive(x => (x + 1) % TESTIMONIALS.length), 5000); return () => clearInterval(t); }, []);
   const t = TESTIMONIALS[active];
   return (
-    <section style={{ padding: isMobile ? "64px 24px" : "96px 48px", background: "rgba(26,24,21,0.03)" }}>
+    <section style={{ padding: isMobile ? "58px 24px" : "86px 48px", background: "rgba(26,24,21,0.03)" }}>
       <div style={{ maxWidth: 700, margin: "0 auto", textAlign: "center" }}>
         <Reveal>
           <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 25, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 40 }}>KIND WORDS</div>
@@ -474,7 +475,7 @@ function FAQSection() {
   const [open, setOpen] = useState(null);
   const isMobile = useIsMobile();
   return (
-    <section style={{ padding: isMobile ? "80px 24px" : "120px 48px" }}>
+    <section style={{ padding: isMobile ? "64px 24px" : "108px 48px" }}>
       <div style={{ maxWidth: 700, margin: "0 auto" }}>
         <Reveal>
           <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 25, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 16 }}>FAQ</div>
@@ -651,7 +652,7 @@ function BookingForm({ prefill, onSuccess, onPrivacyClick }) {
 function BookingSection({ prefill, onSuccess, onPrivacyClick }) {
   const isMobile = useIsMobile();
   return (
-    <section style={{ padding: isMobile ? "80px 24px" : "120px 48px" }}>
+    <section style={{ padding: isMobile ? "64px 24px" : "108px 48px" }}>
       <div style={{ maxWidth: 700, margin: "0 auto" }}>
         <Reveal>
           <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 25, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 16 }}>ENQUIRIES</div>
@@ -670,7 +671,7 @@ function SuccessSection({ form }) {
   const isMobile = useIsMobile();
   useEffect(() => { setTimeout(() => setShow(true), 100); }, []);
   return (
-    <section style={{ padding: isMobile ? "80px 24px" : "120px 48px", minHeight: "80vh", display: "flex", alignItems: "center" }}>
+    <section style={{ padding: isMobile ? "64px 24px" : "108px 48px", minHeight: "80vh", display: "flex", alignItems: "center" }}>
       <div style={{ maxWidth: 580, margin: "0 auto", textAlign: "center", opacity: show ? 1 : 0, transform: show ? "none" : "translateY(24px)", transition: "opacity 0.7s ease, transform 0.7s ease" }}>
         <div style={{ width: 80, height: 80, borderRadius: "50%", background: "rgba(140,100,30,0.1)", border: "1px solid rgba(180,140,80,0.4)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 72, color: "rgba(140,100,30,0.95)", margin: "0 auto 28px", animation: "pulseRing 2s ease-in-out infinite" }}>✓</div>
         <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 25, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 16 }}>ENQUIRY RECEIVED</div>
@@ -792,7 +793,7 @@ function PrivacyPolicy() {
   ];
 
   return (
-    <section style={{ padding: isMobile ? "80px 24px" : "100px 48px" }}>
+    <section style={{ padding: isMobile ? "64px 24px" : "80px 48px" }}>
       <div style={{ maxWidth: 760, margin: "0 auto" }}>
         <Reveal>
           <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 15, letterSpacing: 3, color: "rgba(140,100,30,0.75)", marginBottom: 12 }}>LEGAL</div>
@@ -825,7 +826,7 @@ function MixesPage() {
   ];
 
   return (
-    <section style={{ padding: isMobile ? "80px 24px" : "100px 48px" }}>
+    <section style={{ padding: isMobile ? "64px 24px" : "80px 48px" }}>
       <div style={{ maxWidth: 900, margin: "0 auto" }}>
         <Reveal>
           <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 25, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 16 }}>LISTEN</div>
@@ -879,6 +880,33 @@ function MixesPage() {
             </a>
           </div>
         </Reveal>
+      </div>
+    </section>
+  );
+}
+
+
+// ─── CROWD SECTION ─────────────────────────────────────────────────────────
+function CrowdSection() {
+  const isMobile = useIsMobile();
+  return (
+    <section style={{ position: "relative", overflow: "hidden", height: isMobile ? 280 : 420 }}>
+      <img
+        src={crowdPhoto}
+        alt="DJ Appz live"
+        style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center center", display: "block" }}
+      />
+      {/* Overlay with text */}
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(26,24,21,0.75) 0%, rgba(26,24,21,0.3) 60%, rgba(26,24,21,0.1) 100%)", display: "flex", alignItems: "center", padding: isMobile ? "0 24px" : "0 80px" }}>
+        <div>
+          <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 20, letterSpacing: 4, color: "rgba(200,165,80,0.9)", marginBottom: 14, textTransform: "uppercase" }}>Live Experience</div>
+          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? 28 : 42, color: "#fff", margin: "0 0 14px", lineHeight: 1.2 }}>
+            Every Room.<br /><em>Every Crowd.</em>
+          </h2>
+          <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: isMobile ? 13 : 15, color: "rgba(255,255,255,0.7)", lineHeight: 1.7, maxWidth: 420, margin: 0 }}>
+            From intimate gatherings to packed floors — the energy is always right.
+          </p>
+        </div>
       </div>
     </section>
   );
@@ -946,8 +974,9 @@ export default function App() {
             <QuickNavSection onBook={goBook} setSection={setSection} />
             <MixesSection />
             <TestimonialsSection />
+            <CrowdSection />
             <FAQSection />
-            <section style={{ padding: isMobile ? "80px 24px" : "100px 48px", textAlign: "center", borderTop: "1px solid rgba(26,24,21,0.08)", position: "relative", overflow: "hidden" }}>
+            <section style={{ padding: isMobile ? "64px 24px" : "80px 48px", textAlign: "center", borderTop: "1px solid rgba(26,24,21,0.08)", position: "relative", overflow: "hidden" }}>
               <div style={{ position: "absolute", inset: 0, backgroundImage: `url(${heroPhoto})`, backgroundSize: "cover", backgroundPosition: "center 30%", opacity: 0.05 }} />
               <Reveal>
                 <div style={{ position: "relative" }}>
