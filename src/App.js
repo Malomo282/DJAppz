@@ -179,7 +179,7 @@ function HeroSection({ onBook }) {
   useEffect(() => { const t = setInterval(() => setTick(x => x + 1), 1950); return () => clearInterval(t); }, []);
   const words = GENRES;
   return (
-    <section style={{ minHeight: isMobile ? "55svh" : "60vh", display: "flex", alignItems: "center", position: "relative", overflow: "hidden" }}>
+    <section style={{ minHeight: isMobile ? "55svh" : "60vh", display: "flex", alignItems: "center", position: "relative", overflow: "hidden", width: "100%" }}>
       {/* Showreel video background */}
       <div style={{ position: "absolute", inset: 0, overflow: "hidden" }}>
         <video
@@ -204,7 +204,7 @@ function HeroSection({ onBook }) {
       <div style={{ position: "absolute", inset: 0, backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(26,24,21,0.02) 80px), repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(26,24,21,0.02) 80px)", pointerEvents: "none" }} />
 
       {/* Content */}
-      <div style={{ position: "relative", zIndex: 2, padding: isMobile ? "80px 24px 40px" : "88px 48px 48px", maxWidth: 640, width: "100%" }}>
+      <div style={{ position: "relative", zIndex: 2, padding: isMobile ? "80px 24px 40px" : "88px 48px 48px", maxWidth: isMobile ? "100%" : 640, width: "100%", boxSizing: "border-box" }}>
         <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 15, letterSpacing: 4, color: "rgba(140,100,30,0.9)", marginBottom: 24, opacity: 0, animation: "fadeUp 0.8s 0.2s forwards" }}>
           LONDON · UK-WIDE · INTERNATIONAL
         </div>
@@ -903,15 +903,17 @@ function CrowdSection() {
         style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center center", display: "block" }}
       />
       {/* Overlay with text */}
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(26,24,21,0.8) 0%, rgba(26,24,21,0.4) 55%, rgba(26,24,21,0.1) 100%)", display: "flex", alignItems: "center", padding: isMobile ? "0 24px" : "0 56px", boxSizing: "border-box", width: "100%" }}>
-        <div>
-          <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 20, letterSpacing: 4, color: "rgba(200,165,80,0.9)", marginBottom: 14, textTransform: "uppercase" }}>Live Experience</div>
-          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? 28 : 42, color: "#fff", margin: "0 0 14px", lineHeight: 1.2 }}>
-            Every Room.<br /><em>Every Crowd.</em>
-          </h2>
-          <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: isMobile ? 13 : 15, color: "rgba(255,255,255,0.7)", lineHeight: 1.7, maxWidth: 420, margin: 0 }}>
-            From intimate gatherings to packed floors — the energy is always right.
-          </p>
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(26,24,21,0.8) 0%, rgba(26,24,21,0.4) 55%, rgba(26,24,21,0.1) 100%)" }}>
+        <div style={{ height: "100%", display: "flex", alignItems: "center", padding: isMobile ? "0 24px" : "0 56px", boxSizing: "border-box", width: "100%", overflow: "hidden" }}>
+          <div style={{ maxWidth: isMobile ? "100%" : 500 }}>
+            <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 20, letterSpacing: 4, color: "rgba(200,165,80,0.9)", marginBottom: 14, textTransform: "uppercase" }}>Live Experience</div>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? 24 : 38, color: "#fff", margin: "0 0 14px", lineHeight: 1.2 }}>
+              Every Room.<br /><em>Every Crowd.</em>
+            </h2>
+            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: isMobile ? 12 : 14, color: "rgba(255,255,255,0.7)", lineHeight: 1.7, maxWidth: 380, margin: 0 }}>
+              From intimate gatherings to packed floors — the energy is always right.
+            </p>
+          </div>
         </div>
       </div>
     </section>
