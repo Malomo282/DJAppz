@@ -936,8 +936,8 @@ function VenueLogosSection() {
   const allLogos = [...logos, ...logos];
 
   return (
-    <section style={{ padding: "48px 0", borderTop: "1px solid rgba(26,24,21,0.08)", borderBottom: "1px solid rgba(26,24,21,0.08)", background: "#f5f0e8", overflow: "hidden" }}>
-      <div style={{ textAlign: "center", marginBottom: 28 }}>
+    <section style={{ padding: "72px 0", borderTop: "1px solid rgba(26,24,21,0.08)", borderBottom: "1px solid rgba(26,24,21,0.08)", background: "#f5f0e8", overflow: "hidden" }}>
+      <div style={{ textAlign: "center", marginBottom: 42 }}>
         <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 4, color: "rgba(26,24,21,0.35)", textTransform: "uppercase" }}>As Seen At</div>
       </div>
       <div style={{ overflow: "hidden", position: "relative" }}>
@@ -945,13 +945,13 @@ function VenueLogosSection() {
         <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 80, background: "linear-gradient(to right, #f5f0e8, transparent)", zIndex: 2, pointerEvents: "none" }} />
         <div style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: 80, background: "linear-gradient(to left, #f5f0e8, transparent)", zIndex: 2, pointerEvents: "none" }} />
         {/* Marquee track */}
-        <div style={{ display: "flex", animation: "marquee 18s linear infinite", width: "max-content" }}>
+        <div style={{ display: "flex", animation: "marquee 22s linear infinite", width: "max-content" }}>
           {allLogos.map((logo, i) => (
-            <div key={i} style={{ flexShrink: 0, width: 160, height: 80, display: "flex", alignItems: "center", justifyContent: "center", padding: "0 24px", marginRight: 16 }}>
+            <div key={i} style={{ flexShrink: 0, width: 240, height: 120, display: "flex", alignItems: "center", justifyContent: "center", padding: "0 32px", marginRight: 24 }}>
               <img
                 src={logo.src}
                 alt={logo.alt}
-                style={{ maxHeight: 56, maxWidth: 120, objectFit: "contain", mixBlendMode: "multiply", opacity: 0.7, filter: "grayscale(100%)", transition: "opacity 0.3s, filter 0.3s" }}
+                style={{ maxHeight: 84, maxWidth: 180, objectFit: "contain", mixBlendMode: "multiply", opacity: 0.7, filter: "grayscale(100%)", transition: "opacity 0.3s, filter 0.3s" }}
                 onMouseEnter={e => { e.currentTarget.style.opacity = "1"; e.currentTarget.style.filter = "grayscale(0%)"; }}
                 onMouseLeave={e => { e.currentTarget.style.opacity = "0.7"; e.currentTarget.style.filter = "grayscale(100%)"; }}
               />
