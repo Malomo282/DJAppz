@@ -196,7 +196,7 @@ function HeroSection({ onBook }) {
         {/* Overlay — light ivory wash so text stays readable */}
         <div style={{ position: "absolute", inset: 0, background: isMobile
           ? "linear-gradient(to bottom, rgba(245,240,232,0.45) 0%, rgba(245,240,232,0.6) 50%, rgba(245,240,232,0.95) 100%)"
-          : "linear-gradient(to right, rgba(245,240,232,0.88) 0%, rgba(245,240,232,0.6) 45%, rgba(245,240,232,0.1) 100%)"
+          : "linear-gradient(to right, rgba(245,240,232,0.92) 0%, rgba(245,240,232,0.7) 50%, rgba(245,240,232,0.05) 100%)"
         }} />
       </div>
 
@@ -208,7 +208,7 @@ function HeroSection({ onBook }) {
         <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 15, letterSpacing: 4, color: "rgba(140,100,30,0.9)", marginBottom: 24, opacity: 0, animation: "fadeUp 0.8s 0.2s forwards" }}>
           LONDON · UK-WIDE · INTERNATIONAL
         </div>
-        <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? "40px" : "clamp(36px, 5vw, 56px)", lineHeight: 0.9, margin: "0 0 28px", color: "#1a1815", opacity: 0, animation: "fadeUp 0.8s 0.4s forwards" }}>
+        <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? "44px" : "clamp(44px, 6vw, 64px)", lineHeight: 0.9, margin: "0 0 28px", color: "#1a1815", opacity: 0, animation: "fadeUp 0.8s 0.4s forwards" }}>
           DJ<br /><em style={{ color: "#1a1815" }}>Appz</em>
         </h1>
         <div style={{ overflow: "hidden", marginBottom: 40, opacity: 0, animation: "fadeUp 0.8s 0.6s forwards", width: "100%" }}>
@@ -903,7 +903,7 @@ function CrowdSection() {
         style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center center", display: "block" }}
       />
       {/* Overlay with text */}
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(26,24,21,0.75) 0%, rgba(26,24,21,0.3) 60%, rgba(26,24,21,0.1) 100%)", display: "flex", alignItems: "center", padding: isMobile ? "0 24px" : "0 80px" }}>
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(26,24,21,0.8) 0%, rgba(26,24,21,0.4) 55%, rgba(26,24,21,0.1) 100%)", display: "flex", alignItems: "center", padding: isMobile ? "0 24px" : "0 56px", boxSizing: "border-box", width: "100%" }}>
         <div>
           <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 20, letterSpacing: 4, color: "rgba(200,165,80,0.9)", marginBottom: 14, textTransform: "uppercase" }}>Live Experience</div>
           <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? 28 : 42, color: "#fff", margin: "0 0 14px", lineHeight: 1.2 }}>
