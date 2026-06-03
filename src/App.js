@@ -204,7 +204,7 @@ function HeroSection({ onBook }) {
       <div style={{ position: "absolute", inset: 0, backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(26,24,21,0.02) 80px), repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(26,24,21,0.02) 80px)", pointerEvents: "none" }} />
 
       {/* Content */}
-      <div style={{ position: "relative", zIndex: 2, padding: isMobile ? "80px 24px 40px" : "88px 48px 48px", maxWidth: isMobile ? "100%" : 640, width: "100%", boxSizing: "border-box" }}>
+      <div style={{ position: "relative", zIndex: 2, padding: isMobile ? "77px 24px 36px" : "82px 48px 45px", maxWidth: isMobile ? "100%" : 640, width: "100%", boxSizing: "border-box" }}>
         <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 15, letterSpacing: 4, color: "rgba(140,100,30,0.9)", marginBottom: 24, opacity: 0, animation: "fadeUp 0.8s 0.2s forwards" }}>
           LONDON · UK-WIDE · INTERNATIONAL
         </div>
@@ -231,7 +231,7 @@ function HeroSection({ onBook }) {
 function AboutSection() {
   const isMobile = useIsMobile();
   return (
-    <section id="about-section" style={{ padding: isMobile ? "64px 24px" : "108px 48px" }}>
+    <section id="about-section" style={{ padding: isMobile ? "61px 24px" : "68px 48px" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: isMobile ? 48 : 80, alignItems: "center" }}>
         <Reveal>
           <div style={{ position: "relative" }}>
@@ -270,7 +270,7 @@ function AboutSection() {
 function MixesSection() {
   const isMobile = useIsMobile();
   return (
-    <section style={{ padding: isMobile ? "58px 24px" : "86px 48px", background: "rgba(26,24,21,0.03)" }}>
+    <section style={{ padding: isMobile ? "50px 24px" : "73px 48px", background: "rgba(26,24,21,0.03)" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <Reveal>
           <div style={{ marginBottom: 48 }}>
@@ -311,7 +311,7 @@ function MixesSection() {
 function WelcomeSection() {
   const isMobile = useIsMobile();
   return (
-    <section style={{ padding: isMobile ? "50px 24px" : "72px 48px", textAlign: "center", background: "#f5f0e8" }}>
+    <section style={{ padding: isMobile ? "43px 24px" : "61px 48px", textAlign: "center", background: "#f5f0e8" }}>
       <div style={{ maxWidth: 720, margin: "0 auto" }}>
         <Reveal>
           <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 25, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 16, textTransform: "uppercase" }}>Welcome</div>
@@ -374,7 +374,7 @@ function QuickNavSection({ onBook, setSection }) {
   ];
 
   return (
-    <section style={{ padding: isMobile ? "58px 24px" : "86px 48px", background: "rgba(26,24,21,0.03)" }}>
+    <section style={{ padding: isMobile ? "50px 24px" : "73px 48px", background: "rgba(26,24,21,0.03)" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <Reveal>
           <div style={{ marginBottom: 48 }}>
@@ -413,7 +413,7 @@ function QuickNavSection({ onBook, setSection }) {
 function ServicesSection({ onBook }) {
   const isMobile = useIsMobile();
   return (
-    <section style={{ padding: isMobile ? "64px 24px" : "108px 48px" }}>
+    <section style={{ padding: isMobile ? "61px 24px" : "68px 48px" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <Reveal>
           <div style={{ marginBottom: 48 }}>
@@ -459,7 +459,7 @@ function TestimonialsSection() {
   useEffect(() => { const t = setInterval(() => setActive(x => (x + 1) % TESTIMONIALS.length), 5000); return () => clearInterval(t); }, []);
   const t = TESTIMONIALS[active];
   return (
-    <section style={{ padding: isMobile ? "58px 24px" : "86px 48px", background: "rgba(26,24,21,0.03)" }}>
+    <section style={{ padding: isMobile ? "50px 24px" : "73px 48px", background: "rgba(26,24,21,0.03)" }}>
       <div style={{ maxWidth: 700, margin: "0 auto", textAlign: "center" }}>
         <Reveal>
           <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 25, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 40 }}>KIND WORDS</div>
@@ -481,7 +481,7 @@ function FAQSection() {
   const [open, setOpen] = useState(null);
   const isMobile = useIsMobile();
   return (
-    <section style={{ padding: isMobile ? "64px 24px" : "108px 48px" }}>
+    <section style={{ padding: isMobile ? "61px 24px" : "68px 48px" }}>
       <div style={{ maxWidth: 700, margin: "0 auto" }}>
         <Reveal>
           <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 25, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 16 }}>FAQ</div>
@@ -658,7 +658,7 @@ function BookingForm({ prefill, onSuccess, onPrivacyClick }) {
 function BookingSection({ prefill, onSuccess, onPrivacyClick }) {
   const isMobile = useIsMobile();
   return (
-    <section style={{ padding: isMobile ? "64px 24px" : "108px 48px" }}>
+    <section style={{ padding: isMobile ? "61px 24px" : "68px 48px" }}>
       <div style={{ maxWidth: 700, margin: "0 auto" }}>
         <Reveal>
           <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 25, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 16 }}>ENQUIRIES</div>
@@ -677,7 +677,7 @@ function SuccessSection({ form }) {
   const isMobile = useIsMobile();
   useEffect(() => { setTimeout(() => setShow(true), 100); }, []);
   return (
-    <section style={{ padding: isMobile ? "64px 24px" : "108px 48px", minHeight: "80vh", display: "flex", alignItems: "center" }}>
+    <section style={{ padding: isMobile ? "61px 24px" : "68px 48px", minHeight: "80vh", display: "flex", alignItems: "center" }}>
       <div style={{ maxWidth: 580, margin: "0 auto", textAlign: "center", opacity: show ? 1 : 0, transform: show ? "none" : "translateY(24px)", transition: "opacity 0.7s ease, transform 0.7s ease" }}>
         <div style={{ width: 80, height: 80, borderRadius: "50%", background: "rgba(140,100,30,0.1)", border: "1px solid rgba(180,140,80,0.4)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 72, color: "rgba(140,100,30,0.95)", margin: "0 auto 28px", animation: "pulseRing 2s ease-in-out infinite" }}>✓</div>
         <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 25, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 16 }}>ENQUIRY RECEIVED</div>
@@ -799,7 +799,7 @@ function PrivacyPolicy() {
   ];
 
   return (
-    <section style={{ padding: isMobile ? "64px 24px" : "80px 48px" }}>
+    <section style={{ padding: isMobile ? "61px 24px" : "68px 48px" }}>
       <div style={{ maxWidth: 760, margin: "0 auto" }}>
         <Reveal>
           <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 15, letterSpacing: 3, color: "rgba(140,100,30,0.75)", marginBottom: 12 }}>LEGAL</div>
@@ -832,7 +832,7 @@ function MixesPage() {
   ];
 
   return (
-    <section style={{ padding: isMobile ? "64px 24px" : "80px 48px" }}>
+    <section style={{ padding: isMobile ? "61px 24px" : "68px 48px" }}>
       <div style={{ maxWidth: 900, margin: "0 auto" }}>
         <Reveal>
           <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 25, letterSpacing: 4, color: "rgba(140,100,30,0.85)", marginBottom: 16 }}>LISTEN</div>
@@ -936,7 +936,7 @@ function VenueLogosSection() {
   const allLogos = [...logos, ...logos];
 
   return (
-    <section style={{ padding: "72px 0", borderTop: "1px solid rgba(26,24,21,0.08)", borderBottom: "1px solid rgba(26,24,21,0.08)", background: "#f5f0e8", overflow: "hidden" }}>
+    <section style={{ padding: "59px 0", borderTop: "1px solid rgba(26,24,21,0.08)", borderBottom: "1px solid rgba(26,24,21,0.08)", background: "#f5f0e8", overflow: "hidden" }}>
       <div style={{ textAlign: "center", marginBottom: 42 }}>
         <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 4, color: "rgba(26,24,21,0.35)", textTransform: "uppercase" }}>As Seen At</div>
       </div>
@@ -1029,7 +1029,7 @@ export default function App() {
             <CrowdSection />
             <VenueLogosSection />
             <FAQSection />
-            <section style={{ padding: isMobile ? "64px 24px" : "80px 48px", textAlign: "center", borderTop: "1px solid rgba(26,24,21,0.08)", position: "relative", overflow: "hidden" }}>
+            <section style={{ padding: isMobile ? "61px 24px" : "68px 48px", textAlign: "center", borderTop: "1px solid rgba(26,24,21,0.08)", position: "relative", overflow: "hidden" }}>
               <div style={{ position: "absolute", inset: 0, backgroundImage: `url(${heroPhoto})`, backgroundSize: "cover", backgroundPosition: "center 30%", opacity: 0.05 }} />
               <Reveal>
                 <div style={{ position: "relative" }}>
