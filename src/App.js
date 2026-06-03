@@ -7,6 +7,12 @@ import mixerPhoto from "./Assets/djappz-photo.jpg";
 import streetPhoto from "./Assets/djappz-mixer.jpeg";
 import weddingPhoto from "./Assets/djappz-wedding.jpeg";
 import crowdPhoto from "./Assets/djappz - Crowd Shot.png";
+import logoDirtyMartini from "./Assets/brand-dirtymartini.png";
+import logoBelushis from "./Assets/brand-belushis.png";
+import logoBoxpark from "./Assets/brand-boxpark.png";
+import logoJubel from "./Assets/brand-jubel.png";
+import logoLightbox from "./Assets/brand-lightbox.png";
+import logoSimmons from "./Assets/brand-simmons.png";
 
 // ─── EMAILJS CONFIG ────────────────────────────────────────────────────────
 const EMAILJS = {
@@ -912,6 +918,49 @@ function CrowdSection() {
   );
 }
 
+
+// ─── VENUE LOGOS ───────────────────────────────────────────────────────────
+function VenueLogosSection() {
+  const logos = [
+    { src: logoBoxpark, alt: "Boxpark" },
+    { src: logoDirtyMartini, alt: "Dirty Martini" },
+    { src: logoBelushis, alt: "Belushi's" },
+    { src: logoJubel, alt: "Jubel" },
+    { src: logoLightbox, alt: "Lightbox" },
+    { src: logoSimmons, alt: "Simmons Bars" },
+  ];
+
+  // Duplicate for seamless loop
+  const allLogos = [...logos, ...logos];
+
+  return (
+    <section style={{ padding: "48px 0", borderTop: "1px solid rgba(26,24,21,0.08)", borderBottom: "1px solid rgba(26,24,21,0.08)", background: "#f5f0e8", overflow: "hidden" }}>
+      <div style={{ textAlign: "center", marginBottom: 28 }}>
+        <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 4, color: "rgba(26,24,21,0.35)", textTransform: "uppercase" }}>As Seen At</div>
+      </div>
+      <div style={{ overflow: "hidden", position: "relative" }}>
+        {/* Fade edges */}
+        <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 80, background: "linear-gradient(to right, #f5f0e8, transparent)", zIndex: 2, pointerEvents: "none" }} />
+        <div style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: 80, background: "linear-gradient(to left, #f5f0e8, transparent)", zIndex: 2, pointerEvents: "none" }} />
+        {/* Marquee track */}
+        <div style={{ display: "flex", animation: "marquee 18s linear infinite", width: "max-content" }}>
+          {allLogos.map((logo, i) => (
+            <div key={i} style={{ flexShrink: 0, width: 160, height: 80, display: "flex", alignItems: "center", justifyContent: "center", padding: "0 24px", marginRight: 16 }}>
+              <img
+                src={logo.src}
+                alt={logo.alt}
+                style={{ maxHeight: 56, maxWidth: 120, objectFit: "contain", mixBlendMode: "multiply", opacity: 0.7, filter: "grayscale(100%)", transition: "opacity 0.3s, filter 0.3s" }}
+                onMouseEnter={e => { e.currentTarget.style.opacity = "1"; e.currentTarget.style.filter = "grayscale(0%)"; }}
+                onMouseLeave={e => { e.currentTarget.style.opacity = "0.7"; e.currentTarget.style.filter = "grayscale(100%)"; }}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ─── APP ───────────────────────────────────────────────────────────────────
 export default function App() {
   // Fix mobile 100vh blank space bug
@@ -953,6 +1002,7 @@ export default function App() {
         input::placeholder, textarea::placeholder { color: rgba(26,24,21,0.3); }
         select option { background: #f5f0e8; color: #1a1815; }
         @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
         @keyframes blink { 0%,100% { opacity: 0.2; } 50% { opacity: 0.8; } }
         @keyframes pulseRing { 0%,100% { box-shadow: 0 0 0 0 rgba(180,140,80,0.3); } 50% { box-shadow: 0 0 0 12px rgba(180,140,80,0); } }
         button:hover { opacity: 0.82; }
@@ -975,6 +1025,7 @@ export default function App() {
             <MixesSection />
             <TestimonialsSection />
             <CrowdSection />
+            <VenueLogosSection />
             <FAQSection />
             <section style={{ padding: isMobile ? "64px 24px" : "80px 48px", textAlign: "center", borderTop: "1px solid rgba(26,24,21,0.08)", position: "relative", overflow: "hidden" }}>
               <div style={{ position: "absolute", inset: 0, backgroundImage: `url(${heroPhoto})`, backgroundSize: "cover", backgroundPosition: "center 30%", opacity: 0.05 }} />
