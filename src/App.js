@@ -32,7 +32,7 @@ const DJ = {
   instagram: "@djappz",
 };
 
-const GENRES = ["R&B", "Hip-Hop", "Neo-Soul", "Afrobeats", "Dancehall", "Old School", "House", "Commercial", "Disco", "Funk"];
+const GENRES = ["R&B", "Hip-Hop", "Neo-Soul", "Afrobeats", "Dancehall", "Old School", "House", "Commercial", "Funk"];
 
 const MIXES = [
   { id: "mix1", title: "Retune Episode 3", subtitle: "R&B · Hip-Hop · 90s & 2000s", tag: "R&B / Hip-Hop", src: "https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&light=1&feed=%2FDJAppz%2Fretune-episode-3-rnb-hip-hop-90s-2000s%2F" },
@@ -443,7 +443,7 @@ function ServicesSection({ onBook }) {
             <img
               src={weddingPhoto}
               alt="DJ Appz at a wedding"
-              style={{ width: "100%", height: isMobile ? 320 : 460, objectFit: "cover", objectPosition: "center 65%", display: "block", opacity: 1 }}
+              style={{ width: "100%", height: isMobile ? 220 : 320, objectFit: "cover", objectPosition: "center 50%", display: "block", opacity: 1, transform: "scale(0.7)", transformOrigin: "center 50%" }}
             />
           </div>
         </Reveal>
