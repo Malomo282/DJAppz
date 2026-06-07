@@ -205,13 +205,6 @@ function HeroSection({ onBook }) {
 
       {/* Content */}
       <div style={{ position: "relative", zIndex: 2, padding: isMobile ? "100px 24px 36px" : "150px 48px 45px", maxWidth: isMobile ? "100%" : 640, width: "100%", boxSizing: "border-box" }}>
-        
-
-
-        <div style={{ display: "flex", gap: 12, flexWrap: "wrap", opacity: 0, animation: "fadeUp 0.8s 0.8s forwards" }}>
-          <button onClick={onBook} style={{ background: "#fff", color: "#ffffff", border: "none", borderRadius: 2, padding: "14px 36px", fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 2.5, textTransform: "uppercase", cursor: "pointer", fontWeight: 500 }}>Enquire Now</button>
-          <button onClick={() => document.getElementById("about-section")?.scrollIntoView({ behavior: "smooth" })} style={{ background: "none", color: "rgba(255,255,255,0.8)", border: "1px solid rgba(255,255,255,0.4)", borderRadius: 2, padding: "14px 36px", fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 2.5, textTransform: "uppercase", cursor: "pointer" }}>About</button>
-        </div>
       </div>
     </section>
   );
@@ -237,10 +230,7 @@ function AboutSection() {
           <div>
             <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 25, letterSpacing: 4, color: "rgba(245,166,35,0.85)", marginBottom: 20 }}>ABOUT</div>
             <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, color: "#ffffff", margin: "0 0 14px", lineHeight: 1.15 }}>The Sound of<br /><em>Every Room</em></h2>
-            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.65)", lineHeight: 1.7, margin: "0 0 18px" }}>{DJ.bio}</p>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 36 }}>
-              {GENRES.map(g => <span key={g} style={{ fontFamily: "'Outfit', sans-serif", fontSize: 21, letterSpacing: 2, color: "rgba(245,166,35,0.85)", border: "1px solid rgba(245,166,35,0.2)", borderRadius: 1, padding: "5px 12px" }}>{g}</span>)}
-            </div>
+            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 18, color: "rgba(255,255,255,0.75)", lineHeight: 1.75, margin: "0 0 18px" }}>{DJ.bio}</p>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 1, background: "rgba(255,255,255,0.1)" }}>
               {[["4+", "Years"], ["4.9★", "Rated"], ["UK", "& Beyond"]].map(([val, label]) => (
                 <div key={label} style={{ background: "rgba(255,255,255,0.08)", padding: "20px 16px" }}>
@@ -390,7 +380,7 @@ function QuickNavSection({ onBook, setSection }) {
               <div
                 onClick={c.action}
                 style={{ background: "#fff", padding: isMobile ? "28px 20px" : "48px 36px", cursor: "pointer", transition: "all 0.3s", borderRadius: isMobile ? 6 : 2, border: "1px solid rgba(255,255,255,0.08)", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between", boxShadow: "0 2px 12px rgba(255,255,255,0.04)" }}
-                onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.08)"; e.currentTarget.style.boxShadow = "0 8px 32px rgba(240,240,240,0.1)"; e.currentTarget.style.transform = "translateY(-4px)"; }}
+                onMouseEnter={e => { e.currentTarget.style.background = "rgba(245,235,210,0.15)"; e.currentTarget.style.boxShadow = "0 8px 32px rgba(240,240,240,0.1)"; e.currentTarget.style.transform = "translateY(-4px)"; }}
                 onMouseLeave={e => { e.currentTarget.style.background = "#fff"; e.currentTarget.style.boxShadow = "0 2px 12px rgba(255,255,255,0.04)"; e.currentTarget.style.transform = "none"; }}
               >
                 <div>
@@ -399,7 +389,7 @@ function QuickNavSection({ onBook, setSection }) {
                   <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? 17 : 20, color: "#ffffff", margin: "0 0 8px", fontWeight: 500 }}>{c.label}</h3>
                   <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(255,255,255,0.55)", lineHeight: 1.65, margin: 0 }}>{c.desc}</p>
                 </div>
-                <div style={{ marginTop: 28, fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 2, color: "rgba(245,166,35,0.9)", fontWeight: 500 }}>
+                <div style={{ marginTop: 28, fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 2, color: "rgba(245,166,35,1)", fontWeight: 600 }}>
                   {c.label === "Enquire" ? "GET IN TOUCH →" : c.label === "Mixes" ? "LISTEN NOW →" : `VIEW ${c.label.toUpperCase()} →`}
                 </div>
               </div>
@@ -426,7 +416,7 @@ function ServicesSection({ onBook }) {
         <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)", gap: isMobile ? 12 : 16, background: "transparent" }}>
           {SERVICES.map((s, i) => (
             <Reveal key={s.id} delay={i * 0.1}>
-              <div onClick={() => onBook(s.id)} style={{ background: "#fff", padding: isMobile ? "28px 24px" : "44px 40px", cursor: "pointer", transition: "background 0.3s", borderRadius: isMobile ? 4 : 0, border: "1px solid rgba(255,255,255,0.06)" }} onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.08)"} onMouseLeave={e => e.currentTarget.style.background = "#fff"}>
+              <div onClick={() => onBook(s.id)} style={{ background: "rgba(245,235,210,0.08)", padding: isMobile ? "28px 24px" : "44px 40px", cursor: "pointer", transition: "all 0.3s", borderRadius: isMobile ? 4 : 0, border: "1px solid rgba(245,235,210,0.2)" }} onMouseEnter={e => e.currentTarget.style.background = "rgba(245,235,210,0.14)"} onMouseLeave={e => e.currentTarget.style.background = "rgba(245,235,210,0.07)"}>
                 <div style={{ fontSize: 36, marginBottom: 12, color: "rgba(255,255,255,0.3)" }}>{s.icon}</div>
                 <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, color: "#ffffff", margin: "0 0 8px", fontWeight: 400 }}>{s.title}</h3>
                 <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(255,255,255,0.45)", letterSpacing: 1.5, margin: "0 0 24px" }}>{s.sub}</p>
@@ -455,7 +445,7 @@ function TestimonialsSection() {
         <Reveal>
           <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 25, letterSpacing: 4, color: "rgba(245,166,35,0.85)", marginBottom: 40 }}>KIND WORDS</div>
           <div style={{ minHeight: 160 }}>
-            <p key={active} style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(16px, 2vw, 20px)", color: "rgba(17,17,17,0.9)", lineHeight: 1.65, margin: "0 0 28px", fontStyle: "italic", animation: "fadeUp 0.5s ease" }}>"{t.quote}"</p>
+            <p key={active} style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(18px, 2.2vw, 22px)", color: "rgba(255,255,255,0.92)", lineHeight: 1.65, margin: "0 0 28px", fontStyle: "italic", animation: "fadeUp 0.5s ease" }}>"{t.quote}"</p>
             <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(255,255,255,0.45)", letterSpacing: 2 }}>{t.name} — {t.event}</div>
           </div>
           <div style={{ display: "flex", justifyContent: "center", gap: 8, marginTop: 36 }}>
@@ -482,7 +472,7 @@ function FAQSection() {
           <Reveal key={i} delay={i * 0.05}>
             <div style={{ borderTop: "1px solid rgba(240,240,240,0.1)" }}>
               <button onClick={() => setOpen(open === i ? null : i)} style={{ width: "100%", background: "none", border: "none", padding: "20px 0", display: "flex", justifyContent: "space-between", alignItems: "center", cursor: "pointer", textAlign: "left", gap: 16 }}>
-                <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 15, color: "rgba(240,240,240,0.8)" }}>{f.q}</span>
+                <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 19, color: "rgba(255,255,255,0.85)" }}>{f.q}</span>
                 <span style={{ color: "rgba(245,166,35,0.85)", fontSize: 22, transform: open === i ? "rotate(45deg)" : "none", transition: "transform 0.25s", flexShrink: 0, lineHeight: 1 }}>+</span>
               </button>
               <div style={{ overflow: "hidden", maxHeight: open === i ? 300 : 0, transition: "max-height 0.35s ease", paddingBottom: open === i ? 20 : 0 }}>
@@ -913,6 +903,36 @@ function CrowdSection() {
 
 
 // ─── VENUE LOGOS ───────────────────────────────────────────────────────────
+// ─── CROWD SECTION ─────────────────────────────────────────────────────────
+function CrowdSection() {
+  const isMobile = useIsMobile();
+  return (
+    <section style={{ position: "relative", overflow: "hidden", height: isMobile ? 280 : 420 }}>
+      <img
+        src={crowdPhoto}
+        alt="DJ Appz live"
+        style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center center", display: "block" }}
+      />
+      {/* Overlay with text */}
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(240,240,240,0.8) 0%, rgba(240,240,240,0.4) 55%, rgba(240,240,240,0.1) 100%)" }}>
+        <div style={{ height: "100%", display: "flex", alignItems: "center", padding: isMobile ? "0 24px" : "0 56px", boxSizing: "border-box", width: "100%", overflow: "hidden" }}>
+          <div style={{ maxWidth: isMobile ? "100%" : 500 }}>
+            <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 20, letterSpacing: 4, color: "rgba(245,166,35,0.9)", marginBottom: 14, textTransform: "uppercase" }}>Live Experience</div>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? 24 : 38, color: "#fff", margin: "0 0 14px", lineHeight: 1.2 }}>
+              Every Room.<br /><em>Every Crowd.</em>
+            </h2>
+            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: isMobile ? 12 : 14, color: "rgba(255,255,255,0.7)", lineHeight: 1.7, maxWidth: 380, margin: 0 }}>
+              From intimate gatherings to packed floors — the energy is always right.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+// ─── VENUE LOGOS ───────────────────────────────────────────────────────────
 function VenueLogosSection() {
   const logos = [
     { src: logoBoxpark, alt: "Boxpark" },
@@ -927,24 +947,24 @@ function VenueLogosSection() {
   const allLogos = [...logos, ...logos];
 
   return (
-    <section style={{ padding: "59px 0", borderTop: "1px solid rgba(255,255,255,0.08)", borderBottom: "1px solid rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.05)", overflow: "hidden" }}>
-      <div style={{ textAlign: "center", marginBottom: 42 }}>
-        <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 4, color: "rgba(255,255,255,0.4)", textTransform: "uppercase" }}>As Seen At</div>
+    <section style={{ padding: "72px 0", borderTop: "1px solid rgba(245,166,35,0.35)", borderBottom: "1px solid rgba(245,166,35,0.35)", background: "rgba(0,0,0,0.5)", overflow: "hidden" }}>
+      <div style={{ textAlign: "center", marginBottom: 36 }}>
+        <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 16, letterSpacing: 5, color: "rgba(245,166,35,0.95)", textTransform: "uppercase", fontWeight: 500 }}>As Seen At</div>
       </div>
       <div style={{ overflow: "hidden", position: "relative" }}>
         {/* Fade edges */}
         <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 80, background: "linear-gradient(to right, #f5f0e8, transparent)", zIndex: 2, pointerEvents: "none" }} />
         <div style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: 80, background: "linear-gradient(to left, #f5f0e8, transparent)", zIndex: 2, pointerEvents: "none" }} />
         {/* Marquee track */}
-        <div style={{ display: "flex", animation: "marquee 22s linear infinite", width: "max-content" }}>
+        <div style={{ display: "flex", animation: "marquee 16.5s linear infinite", width: "max-content" }}>
           {allLogos.map((logo, i) => (
             <div key={i} style={{ flexShrink: 0, width: 240, height: 120, display: "flex", alignItems: "center", justifyContent: "center", padding: "0 32px", marginRight: 24 }}>
               <img
                 src={logo.src}
                 alt={logo.alt}
-                style={{ maxHeight: 84, maxWidth: 180, objectFit: "contain", filter: "invert(1) brightness(2)", opacity: 0.7, filter: "grayscale(100%)", transition: "opacity 0.3s, filter 0.3s" }}
+                style={{ maxHeight: 100, maxWidth: 200, objectFit: "contain", filter: "invert(1) brightness(2)", opacity: 0.7, filter: "grayscale(100%)", transition: "opacity 0.3s, filter 0.3s" }}
                 onMouseEnter={e => { e.currentTarget.style.opacity = "1"; e.currentTarget.style.filter = "grayscale(0%)"; }}
-                onMouseLeave={e => { e.currentTarget.style.opacity = "0.7"; e.currentTarget.style.filter = "grayscale(100%)"; }}
+                onMouseLeave={e => { e.currentTarget.style.opacity = "0.85"; e.currentTarget.style.filter = "grayscale(0%)"; }}
               />
             </div>
           ))}
