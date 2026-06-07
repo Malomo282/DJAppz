@@ -144,27 +144,27 @@ function NavBar({ active, setActive }) {
   const nav = (l) => { setActive(l === "enquire" ? "book" : l); setMenuOpen(false); window.scrollTo({ top: 0, behavior: "smooth" }); };
   return (
     <>
-      <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, padding: "0 24px", height: 80, display: "flex", alignItems: "center", justifyContent: "space-between", background: "rgba(255,255,255,0.98)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(17,17,17,0.08)", transition: "all 0.4s ease" }}>
+      <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, padding: "0 48px", height: 80, display: "flex", alignItems: "center", justifyContent: "space-between", background: "rgba(10,10,20,0.92)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(255,255,255,0.08)", transition: "all 0.4s ease" }}>
         <div onClick={() => nav("home")} style={{ cursor: "pointer", height: 44, display: "flex", alignItems: "center" }}>
-          <img src={logo} alt="DJ Appz" style={{ height: 44, objectFit: "contain", opacity: 1, mixBlendMode: "multiply" }} />
+          <img src={logo} alt="DJ Appz" style={{ height: 44, objectFit: "contain", filter: "invert(1) brightness(2)", opacity: 0.95 }} />
         </div>
         {isMobile ? (
-          <button onClick={() => setMenuOpen(o => !o)} style={{ background: "none", border: "none", cursor: "pointer", color: "#111111", fontSize: 14, padding: 4 }}>
+          <button onClick={() => setMenuOpen(o => !o)} style={{ background: "none", border: "none", cursor: "pointer", color: "#ffffff", fontSize: 14, padding: 4 }}>
             {menuOpen ? "✕" : "☰"}
           </button>
         ) : (
           <div style={{ display: "flex", gap: 36 }}>
             {links.map(l => (
-              <button key={l} onClick={() => nav(l)} style={{ background: "none", border: "none", cursor: "pointer", fontFamily: "'Outfit', sans-serif", fontSize: 14, letterSpacing: 2, textTransform: "uppercase", color: (l === "enquire" ? active === "book" : active === l) ? "#111111" : "rgba(17,17,17,0.5)", transition: "color 0.2s", padding: 0 }}>{l}</button>
+              <button key={l} onClick={() => nav(l)} style={{ background: "none", border: "none", cursor: "pointer", fontFamily: "'Outfit', sans-serif", fontSize: 14, letterSpacing: 2, textTransform: "uppercase", color: (l === "enquire" ? active === "book" : active === l) ? "#ffffff" : "rgba(255,255,255,0.55)", transition: "color 0.2s", padding: 0 }}>{l}</button>
             ))}
           </div>
         )}
       </nav>
       {/* Mobile menu dropdown */}
       {isMobile && menuOpen && (
-        <div style={{ position: "fixed", top: 68, left: 0, right: 0, zIndex: 99, background: "rgba(255,255,255,0.99)", borderBottom: "1px solid rgba(17,17,17,0.12)", padding: "16px 0" }}>
+        <div style={{ position: "fixed", top: 68, left: 0, right: 0, zIndex: 99, background: "rgba(255,255,255,0.99)", borderBottom: "1px solid rgba(240,240,240,0.1)", padding: "16px 0" }}>
           {links.map(l => (
-            <button key={l} onClick={() => nav(l)} style={{ display: "block", width: "100%", background: "none", border: "none", cursor: "pointer", fontFamily: "'Outfit', sans-serif", fontSize: 20, letterSpacing: 2, textTransform: "uppercase", color: (l === "enquire" ? active === "book" : active === l) ? "#111111" : "rgba(17,17,17,0.5)", padding: "16px 24px", textAlign: "left" }}>{l}</button>
+            <button key={l} onClick={() => nav(l)} style={{ display: "block", width: "100%", background: "none", border: "none", cursor: "pointer", fontFamily: "'Outfit', sans-serif", fontSize: 20, letterSpacing: 2, textTransform: "uppercase", color: (l === "enquire" ? active === "book" : active === l) ? "#ffffff" : "rgba(255,255,255,0.55)", padding: "16px 24px", textAlign: "left" }}>{l}</button>
           ))}
         </div>
       )}
@@ -205,15 +205,11 @@ function HeroSection({ onBook }) {
 
       {/* Content */}
       <div style={{ position: "relative", zIndex: 2, padding: isMobile ? "77px 24px 36px" : "82px 48px 45px", maxWidth: isMobile ? "100%" : 640, width: "100%", boxSizing: "border-box" }}>
-        <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 15, letterSpacing: 4, color: "rgba(120,90,20,0.9)", marginBottom: 24, opacity: 0, animation: "fadeUp 0.8s 0.2s forwards" }}>
-          LONDON · UK-WIDE · INTERNATIONAL
-        </div>
-        <h1 style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700, fontSize: isMobile ? "44px" : "clamp(44px, 6vw, 64px)", lineHeight: 1, margin: "0 0 28px", color: "#ffffff", opacity: 0, animation: "fadeUp 0.8s 0.4s forwards", letterSpacing: 2 }}>
-          DJ APPZ
-        </h1>
+        
+
 
         <div style={{ display: "flex", gap: 12, flexWrap: "wrap", opacity: 0, animation: "fadeUp 0.8s 0.8s forwards" }}>
-          <button onClick={onBook} style={{ background: "#fff", color: "#111111", border: "none", borderRadius: 2, padding: "14px 36px", fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 2.5, textTransform: "uppercase", cursor: "pointer", fontWeight: 500 }}>Enquire Now</button>
+          <button onClick={onBook} style={{ background: "#fff", color: "#ffffff", border: "none", borderRadius: 2, padding: "14px 36px", fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 2.5, textTransform: "uppercase", cursor: "pointer", fontWeight: 500 }}>Enquire Now</button>
           <button onClick={() => document.getElementById("about-section")?.scrollIntoView({ behavior: "smooth" })} style={{ background: "none", color: "rgba(255,255,255,0.8)", border: "1px solid rgba(255,255,255,0.4)", borderRadius: 2, padding: "14px 36px", fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 2.5, textTransform: "uppercase", cursor: "pointer" }}>About</button>
         </div>
       </div>
@@ -240,16 +236,16 @@ function AboutSection() {
         <Reveal delay={isMobile ? 0 : 0.2}>
           <div>
             <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 25, letterSpacing: 4, color: "rgba(120,90,20,0.85)", marginBottom: 20 }}>ABOUT</div>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, color: "#111111", margin: "0 0 14px", lineHeight: 1.15 }}>The Sound of<br /><em>Every Room</em></h2>
-            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14, color: "rgba(17,17,17,0.65)", lineHeight: 1.7, margin: "0 0 18px" }}>{DJ.bio}</p>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, color: "#ffffff", margin: "0 0 14px", lineHeight: 1.15 }}>The Sound of<br /><em>Every Room</em></h2>
+            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.65)", lineHeight: 1.7, margin: "0 0 18px" }}>{DJ.bio}</p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 36 }}>
               {GENRES.map(g => <span key={g} style={{ fontFamily: "'Outfit', sans-serif", fontSize: 21, letterSpacing: 2, color: "rgba(120,90,20,0.85)", border: "1px solid rgba(140,110,40,0.2)", borderRadius: 1, padding: "5px 12px" }}>{g}</span>)}
             </div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 1, background: "rgba(17,17,17,0.08)" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 1, background: "rgba(255,255,255,0.1)" }}>
               {[["4+", "Years"], ["4.9★", "Rated"], ["UK", "& Beyond"]].map(([val, label]) => (
-                <div key={label} style={{ background: "#f0f0f0", padding: "20px 16px" }}>
-                  <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, color: "#111111", fontStyle: "italic" }}>{val}</div>
-                  <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 2.5, color: "rgba(17,17,17,0.4)", marginTop: 4 }}>{label}</div>
+                <div key={label} style={{ background: "rgba(255,255,255,0.08)", padding: "20px 16px" }}>
+                  <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, color: "#ffffff", fontStyle: "italic" }}>{val}</div>
+                  <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 2.5, color: "rgba(255,255,255,0.45)", marginTop: 4 }}>{label}</div>
                 </div>
               ))}
             </div>
@@ -264,27 +260,27 @@ function AboutSection() {
 function MixesSection() {
   const isMobile = useIsMobile();
   return (
-    <section style={{ padding: isMobile ? "50px 24px" : "73px 48px", background: "rgba(17,17,17,0.03)" }}>
+    <section style={{ padding: isMobile ? "50px 24px" : "73px 48px", background: "rgba(255,255,255,0.03)" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <Reveal>
           <div style={{ marginBottom: 48 }}>
             <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 25, letterSpacing: 4, color: "rgba(120,90,20,0.85)", marginBottom: 16 }}>LISTEN</div>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, color: "#111111", margin: "0 0 8px" }}>Hear the Sound</h2>
-            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14, color: "rgba(17,17,17,0.6)", lineHeight: 1.7, maxWidth: 480 }}>A selection of recorded sets — the best way to get a feel for the vibe before you book.</p>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, color: "#ffffff", margin: "0 0 8px" }}>Hear the Sound</h2>
+            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.6)", lineHeight: 1.7, maxWidth: 480 }}>A selection of recorded sets — the best way to get a feel for the vibe before you book.</p>
           </div>
         </Reveal>
-        <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)", gap: isMobile ? 16 : 1, background: isMobile ? "transparent" : "rgba(17,17,17,0.08)" }}>
+        <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)", gap: isMobile ? 16 : 1, background: isMobile ? "transparent" : "rgba(255,255,255,0.1)" }}>
           {MIXES.map((mix, i) => (
             <Reveal key={mix.id} delay={i * 0.15}>
               <div style={{ background: "#fff", padding: isMobile ? "20px 18px" : "28px 28px 24px", borderRadius: isMobile ? 4 : 0, border: "1px solid rgba(17,17,17,0.07)", display: "flex", flexDirection: "column" }}>
                 <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: 16, flexDirection: "row", gap: 12 }}>
                   <div style={{ flex: 1 }}>
-                    <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 16, color: "#111111", margin: "0 0 4px", fontWeight: 400, lineHeight: 1.3 }}>{mix.title}</h3>
-                    <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, color: "rgba(17,17,17,0.45)", letterSpacing: 1, margin: 0 }}>{mix.subtitle}</p>
+                    <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 16, color: "#ffffff", margin: "0 0 4px", fontWeight: 400, lineHeight: 1.3 }}>{mix.title}</h3>
+                    <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, color: "rgba(255,255,255,0.5)", letterSpacing: 1, margin: 0 }}>{mix.subtitle}</p>
                   </div>
                   <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 16, letterSpacing: 1.5, color: "rgba(120,90,20,0.85)", border: "1px solid rgba(140,110,40,0.2)", padding: "4px 10px", borderRadius: 1, whiteSpace: "nowrap", flexShrink: 0 }}>{mix.tag}</span>
                 </div>
-                <div style={{ borderRadius: 2, overflow: "hidden", border: "1px solid rgba(17,17,17,0.08)" }}>
+                <div style={{ borderRadius: 2, overflow: "hidden", border: "1px solid rgba(255,255,255,0.08)" }}>
                   <iframe width="100%" height="120" src={mix.src} frameBorder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share" title={mix.title} style={{ display: "block", width: "100%" }} />
                 </div>
                 <div style={{ marginTop: 12, textAlign: "right" }}>
@@ -308,7 +304,7 @@ function GenreBanner() {
   useEffect(() => { const t = setInterval(() => setTick(x => x + 1), 1950); return () => clearInterval(t); }, []);
   const words = GENRES;
   return (
-    <div style={{ background: "#111111", padding: "14px 0", overflow: "hidden", position: "relative" }}>
+    <div style={{ background: "transparent", padding: "14px 0", overflow: "hidden", position: "relative" }}>
       <div style={{ display: "flex", transform: `translateX(-${(tick % words.length) * 140}px)`, transition: "transform 0.6s cubic-bezier(0.4,0,0.2,1)", whiteSpace: "nowrap" }}>
         {[...words, ...words, ...words].map((w, i) => (
           <span key={i} style={{ fontFamily: "'Outfit', sans-serif", fontSize: 12, letterSpacing: 3, color: "rgba(160,125,30,0.9)", textTransform: "uppercase", marginRight: 0, display: "inline-block", padding: "0 28px" }}>
@@ -324,14 +320,14 @@ function GenreBanner() {
 function WelcomeSection() {
   const isMobile = useIsMobile();
   return (
-    <section style={{ padding: isMobile ? "43px 24px" : "61px 48px", textAlign: "center", background: "#fafafa" }}>
+    <section style={{ padding: isMobile ? "43px 24px" : "61px 48px", textAlign: "center", background: "rgba(255,255,255,0.05)" }}>
       <div style={{ maxWidth: 720, margin: "0 auto" }}>
         <Reveal>
           <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 25, letterSpacing: 4, color: "rgba(120,90,20,0.85)", marginBottom: 16, textTransform: "uppercase" }}>Welcome</div>
-          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? 26 : 34, color: "#111111", margin: "0 0 20px", lineHeight: 1.25 }}>
+          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? 26 : 34, color: "#ffffff", margin: "0 0 20px", lineHeight: 1.25 }}>
             London's DJ for <em>Every Occasion</em>
           </h2>
-          <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: isMobile ? 13 : 15, color: "rgba(17,17,17,0.6)", lineHeight: 1.8, margin: "0 auto", maxWidth: 580 }}>
+          <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: isMobile ? 13 : 15, color: "rgba(255,255,255,0.6)", lineHeight: 1.8, margin: "0 auto", maxWidth: 580 }}>
             From intimate private events to weddings, corporate functions and club nights — DJ Appz delivers seamless sets rooted in R&B, Hip-Hop, Afrobeats and Soul. Based in London, available UK-wide and internationally.
           </p>
         </Reveal>
@@ -380,12 +376,12 @@ function QuickNavSection({ onBook, setSection }) {
   ];
 
   return (
-    <section style={{ padding: isMobile ? "50px 24px" : "73px 48px", background: "rgba(17,17,17,0.03)" }}>
+    <section style={{ padding: isMobile ? "50px 24px" : "73px 48px", background: "rgba(255,255,255,0.03)" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <Reveal>
           <div style={{ marginBottom: 48 }}>
             <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 25, letterSpacing: 4, color: "rgba(120,90,20,0.85)", marginBottom: 16 }}>EXPLORE</div>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? 24 : 32, color: "#111111", margin: 0 }}>What Would You Like to Do?</h2>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? 24 : 32, color: "#ffffff", margin: 0 }}>What Would You Like to Do?</h2>
           </div>
         </Reveal>
         <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr 1fr" : "repeat(4, 1fr)", gap: isMobile ? 12 : 16, background: "transparent" }}>
@@ -393,15 +389,15 @@ function QuickNavSection({ onBook, setSection }) {
             <Reveal key={c.id} delay={i * 0.1}>
               <div
                 onClick={c.action}
-                style={{ background: "#fff", padding: isMobile ? "28px 20px" : "48px 36px", cursor: "pointer", transition: "all 0.3s", borderRadius: isMobile ? 6 : 2, border: "1px solid rgba(17,17,17,0.08)", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between", boxShadow: "0 2px 12px rgba(17,17,17,0.04)" }}
-                onMouseEnter={e => { e.currentTarget.style.background = "#f0f0f0"; e.currentTarget.style.boxShadow = "0 8px 32px rgba(17,17,17,0.12)"; e.currentTarget.style.transform = "translateY(-4px)"; }}
-                onMouseLeave={e => { e.currentTarget.style.background = "#fff"; e.currentTarget.style.boxShadow = "0 2px 12px rgba(17,17,17,0.04)"; e.currentTarget.style.transform = "none"; }}
+                style={{ background: "#fff", padding: isMobile ? "28px 20px" : "48px 36px", cursor: "pointer", transition: "all 0.3s", borderRadius: isMobile ? 6 : 2, border: "1px solid rgba(255,255,255,0.08)", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between", boxShadow: "0 2px 12px rgba(255,255,255,0.04)" }}
+                onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.08)"; e.currentTarget.style.boxShadow = "0 8px 32px rgba(240,240,240,0.1)"; e.currentTarget.style.transform = "translateY(-4px)"; }}
+                onMouseLeave={e => { e.currentTarget.style.background = "#fff"; e.currentTarget.style.boxShadow = "0 2px 12px rgba(255,255,255,0.04)"; e.currentTarget.style.transform = "none"; }}
               >
                 <div>
                   <div style={{ fontSize: isMobile ? 32 : 44, marginBottom: 18 }}>{c.icon}</div>
                   <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, letterSpacing: 2.5, color: "rgba(120,90,20,0.8)", marginBottom: 8, textTransform: "uppercase" }}>{c.tag}</div>
-                  <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? 17 : 20, color: "#111111", margin: "0 0 8px", fontWeight: 500 }}>{c.label}</h3>
-                  <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(17,17,17,0.5)", lineHeight: 1.65, margin: 0 }}>{c.desc}</p>
+                  <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? 17 : 20, color: "#ffffff", margin: "0 0 8px", fontWeight: 500 }}>{c.label}</h3>
+                  <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(255,255,255,0.55)", lineHeight: 1.65, margin: 0 }}>{c.desc}</p>
                 </div>
                 <div style={{ marginTop: 28, fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 2, color: "rgba(120,90,20,0.9)", fontWeight: 500 }}>
                   {c.label === "Enquire" ? "GET IN TOUCH →" : c.label === "Mixes" ? "LISTEN NOW →" : `VIEW ${c.label.toUpperCase()} →`}
@@ -424,16 +420,16 @@ function ServicesSection({ onBook }) {
         <Reveal>
           <div style={{ marginBottom: 48 }}>
             <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 25, letterSpacing: 4, color: "rgba(120,90,20,0.85)", marginBottom: 16 }}>SERVICES</div>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, color: "#111111", margin: 0 }}>What I Do</h2>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, color: "#ffffff", margin: 0 }}>What I Do</h2>
           </div>
         </Reveal>
         <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)", gap: isMobile ? 12 : 16, background: "transparent" }}>
           {SERVICES.map((s, i) => (
             <Reveal key={s.id} delay={i * 0.1}>
-              <div onClick={() => onBook(s.id)} style={{ background: "#fff", padding: isMobile ? "28px 24px" : "44px 40px", cursor: "pointer", transition: "background 0.3s", borderRadius: isMobile ? 4 : 0, border: "1px solid rgba(17,17,17,0.06)" }} onMouseEnter={e => e.currentTarget.style.background = "#f0f0f0"} onMouseLeave={e => e.currentTarget.style.background = "#fff"}>
-                <div style={{ fontSize: 36, marginBottom: 12, color: "rgba(17,17,17,0.25)" }}>{s.icon}</div>
-                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, color: "#111111", margin: "0 0 8px", fontWeight: 400 }}>{s.title}</h3>
-                <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(17,17,17,0.4)", letterSpacing: 1.5, margin: "0 0 24px" }}>{s.sub}</p>
+              <div onClick={() => onBook(s.id)} style={{ background: "#fff", padding: isMobile ? "28px 24px" : "44px 40px", cursor: "pointer", transition: "background 0.3s", borderRadius: isMobile ? 4 : 0, border: "1px solid rgba(255,255,255,0.06)" }} onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.08)"} onMouseLeave={e => e.currentTarget.style.background = "#fff"}>
+                <div style={{ fontSize: 36, marginBottom: 12, color: "rgba(255,255,255,0.3)" }}>{s.icon}</div>
+                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, color: "#ffffff", margin: "0 0 8px", fontWeight: 400 }}>{s.title}</h3>
+                <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(255,255,255,0.45)", letterSpacing: 1.5, margin: "0 0 24px" }}>{s.sub}</p>
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                   <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14, color: "rgba(120,90,20,0.9)", letterSpacing: 1 }}>{s.price}</span>
                   <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 12, color: "rgba(120,90,20,0.8)", letterSpacing: 2 }}>ENQUIRE →</span>
@@ -445,7 +441,7 @@ function ServicesSection({ onBook }) {
 
         {/* Wedding venue photo strip */}
         <Reveal delay={0.2}>
-          <div style={{ marginTop: isMobile ? 16 : 1, overflow: "hidden", borderRadius: isMobile ? 4 : 0, background: "rgba(17,17,17,0.08)" }}>
+          <div style={{ marginTop: isMobile ? 16 : 1, overflow: "hidden", borderRadius: isMobile ? 4 : 0, background: "rgba(255,255,255,0.1)" }}>
             <img
               src={weddingPhoto}
               alt="DJ Appz at a wedding"
@@ -465,16 +461,16 @@ function TestimonialsSection() {
   useEffect(() => { const t = setInterval(() => setActive(x => (x + 1) % TESTIMONIALS.length), 5000); return () => clearInterval(t); }, []);
   const t = TESTIMONIALS[active];
   return (
-    <section style={{ padding: isMobile ? "50px 24px" : "73px 48px", background: "rgba(17,17,17,0.03)" }}>
+    <section style={{ padding: isMobile ? "50px 24px" : "73px 48px", background: "rgba(255,255,255,0.03)" }}>
       <div style={{ maxWidth: 700, margin: "0 auto", textAlign: "center" }}>
         <Reveal>
           <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 25, letterSpacing: 4, color: "rgba(120,90,20,0.85)", marginBottom: 40 }}>KIND WORDS</div>
           <div style={{ minHeight: 160 }}>
             <p key={active} style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(16px, 2vw, 20px)", color: "rgba(17,17,17,0.9)", lineHeight: 1.65, margin: "0 0 28px", fontStyle: "italic", animation: "fadeUp 0.5s ease" }}>"{t.quote}"</p>
-            <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(17,17,17,0.4)", letterSpacing: 2 }}>{t.name} — {t.event}</div>
+            <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(255,255,255,0.45)", letterSpacing: 2 }}>{t.name} — {t.event}</div>
           </div>
           <div style={{ display: "flex", justifyContent: "center", gap: 8, marginTop: 36 }}>
-            {TESTIMONIALS.map((_, i) => <button key={i} onClick={() => setActive(i)} style={{ width: i === active ? 28 : 6, height: 2, background: i === active ? "rgba(120,90,20,0.9)" : "rgba(17,17,17,0.15)", border: "none", cursor: "pointer", transition: "all 0.3s", padding: 0, borderRadius: 1 }} />)}
+            {TESTIMONIALS.map((_, i) => <button key={i} onClick={() => setActive(i)} style={{ width: i === active ? 28 : 6, height: 2, background: i === active ? "rgba(120,90,20,0.9)" : "rgba(255,255,255,0.2)", border: "none", cursor: "pointer", transition: "all 0.3s", padding: 0, borderRadius: 1 }} />)}
           </div>
         </Reveal>
       </div>
@@ -491,22 +487,22 @@ function FAQSection() {
       <div style={{ maxWidth: 700, margin: "0 auto" }}>
         <Reveal>
           <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 25, letterSpacing: 4, color: "rgba(120,90,20,0.85)", marginBottom: 16 }}>FAQ</div>
-          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(32px, 4vw, 50px)", color: "#111111", margin: "0 0 48px" }}>Common Questions</h2>
+          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(32px, 4vw, 50px)", color: "#ffffff", margin: "0 0 48px" }}>Common Questions</h2>
         </Reveal>
         {FAQS.map((f, i) => (
           <Reveal key={i} delay={i * 0.05}>
-            <div style={{ borderTop: "1px solid rgba(17,17,17,0.1)" }}>
+            <div style={{ borderTop: "1px solid rgba(240,240,240,0.1)" }}>
               <button onClick={() => setOpen(open === i ? null : i)} style={{ width: "100%", background: "none", border: "none", padding: "20px 0", display: "flex", justifyContent: "space-between", alignItems: "center", cursor: "pointer", textAlign: "left", gap: 16 }}>
-                <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 15, color: "rgba(17,17,17,0.8)" }}>{f.q}</span>
+                <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 15, color: "rgba(240,240,240,0.8)" }}>{f.q}</span>
                 <span style={{ color: "rgba(120,90,20,0.85)", fontSize: 22, transform: open === i ? "rotate(45deg)" : "none", transition: "transform 0.25s", flexShrink: 0, lineHeight: 1 }}>+</span>
               </button>
               <div style={{ overflow: "hidden", maxHeight: open === i ? 300 : 0, transition: "max-height 0.35s ease", paddingBottom: open === i ? 20 : 0 }}>
-                <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 15, color: "rgba(17,17,17,0.5)", lineHeight: 1.8, margin: 0 }}>{f.a}</p>
+                <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 15, color: "rgba(255,255,255,0.55)", lineHeight: 1.8, margin: 0 }}>{f.a}</p>
               </div>
             </div>
           </Reveal>
         ))}
-        <div style={{ borderTop: "1px solid rgba(17,17,17,0.1)" }} />
+        <div style={{ borderTop: "1px solid rgba(240,240,240,0.1)" }} />
       </div>
     </section>
   );
@@ -536,19 +532,19 @@ function DatePicker({ value, onChange, error }) {
   const isToday = (day) => day === today.getDate() && viewMonth === today.getMonth() && viewYear === today.getFullYear();
   return (
     <div style={{ position: "relative" }}>
-      <button type="button" onClick={() => setOpen(o => !o)} style={{ width: "100%", background: "none", border: "none", borderBottom: `1px solid ${error ? "rgba(200,80,80,0.6)" : "rgba(17,17,17,0.15)"}`, padding: "12px 0", fontFamily: "'Outfit', sans-serif", fontSize: 13, color: value ? "#111111" : "rgba(17,17,17,0.3)", cursor: "pointer", textAlign: "left", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+      <button type="button" onClick={() => setOpen(o => !o)} style={{ width: "100%", background: "none", border: "none", borderBottom: `1px solid ${error ? "rgba(200,80,80,0.6)" : "rgba(255,255,255,0.2)"}`, padding: "12px 0", fontFamily: "'Outfit', sans-serif", fontSize: 13, color: value ? "#ffffff" : "rgba(255,255,255,0.35)", cursor: "pointer", textAlign: "left", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <span>{value || "Select a date…"}</span>
         <span style={{ color: "rgba(120,90,20,0.75)", fontSize: 14 }}>📅</span>
       </button>
       {open && (
-        <div style={{ position: "absolute", top: "calc(100% + 8px)", left: isMobile ? "50%" : 0, transform: isMobile ? "translateX(-50%)" : "none", zIndex: 300, background: "#faf7f2", border: "1px solid rgba(17,17,17,0.15)", borderRadius: 4, padding: 16, width: isMobile ? "calc(100vw - 48px)" : 300, boxShadow: "0 20px 60px rgba(0,0,0,0.8)" }}>
+        <div style={{ position: "absolute", top: "calc(100% + 8px)", left: isMobile ? "50%" : 0, transform: isMobile ? "translateX(-50%)" : "none", zIndex: 300, background: "#1a1a2e", border: "1px solid rgba(240,240,240,0.15)", borderRadius: 4, padding: 16, width: isMobile ? "calc(100vw - 48px)" : 300, boxShadow: "0 20px 60px rgba(0,0,0,0.8)" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
-            <button type="button" onClick={prevMonth} style={{ background: "none", border: "none", color: "rgba(17,17,17,0.5)", cursor: "pointer", fontSize: 18, padding: "4px 10px" }}>‹</button>
-            <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 16, color: "#111111", fontStyle: "italic" }}>{MONTHS[viewMonth]} {viewYear}</span>
-            <button type="button" onClick={nextMonth} style={{ background: "none", border: "none", color: "rgba(17,17,17,0.5)", cursor: "pointer", fontSize: 18, padding: "4px 10px" }}>›</button>
+            <button type="button" onClick={prevMonth} style={{ background: "none", border: "none", color: "rgba(255,255,255,0.55)", cursor: "pointer", fontSize: 18, padding: "4px 10px" }}>‹</button>
+            <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 16, color: "#ffffff", fontStyle: "italic" }}>{MONTHS[viewMonth]} {viewYear}</span>
+            <button type="button" onClick={nextMonth} style={{ background: "none", border: "none", color: "rgba(255,255,255,0.55)", cursor: "pointer", fontSize: 18, padding: "4px 10px" }}>›</button>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: 2, marginBottom: 6 }}>
-            {DAYS.map(d => <div key={d} style={{ fontFamily: "'Outfit', sans-serif", fontSize: 9, letterSpacing: 1, color: "rgba(17,17,17,0.3)", textAlign: "center", padding: "4px 0" }}>{d}</div>)}
+            {DAYS.map(d => <div key={d} style={{ fontFamily: "'Outfit', sans-serif", fontSize: 9, letterSpacing: 1, color: "rgba(255,255,255,0.35)", textAlign: "center", padding: "4px 0" }}>{d}</div>)}
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: 2 }}>
             {Array.from({ length: offset }).map((_, i) => <div key={`e${i}`} />)}
@@ -556,7 +552,7 @@ function DatePicker({ value, onChange, error }) {
               const day = i + 1;
               const past = isPast(day); const sel = isSelected(day); const tod = isToday(day);
               return (
-                <button type="button" key={day} onClick={() => !past && selectDate(day)} style={{ background: sel ? "rgba(120,90,20,0.95)" : tod ? "rgba(17,17,17,0.1)" : "none", border: tod && !sel ? "1px solid rgba(140,110,40,0.3)" : "1px solid transparent", borderRadius: 2, padding: "8px 0", fontFamily: "'Outfit', sans-serif", fontSize: 14, color: past ? "rgba(17,17,17,0.2)" : sel ? "#fafafa" : "#111111", cursor: past ? "not-allowed" : "pointer", textAlign: "center", fontWeight: sel ? 600 : 400 }}
+                <button type="button" key={day} onClick={() => !past && selectDate(day)} style={{ background: sel ? "rgba(120,90,20,0.95)" : tod ? "rgba(255,255,255,0.12)" : "none", border: tod && !sel ? "1px solid rgba(140,110,40,0.3)" : "1px solid transparent", borderRadius: 2, padding: "8px 0", fontFamily: "'Outfit', sans-serif", fontSize: 14, color: past ? "rgba(255,255,255,0.25)" : sel ? "rgba(255,255,255,0.05)" : "#ffffff", cursor: past ? "not-allowed" : "pointer", textAlign: "center", fontWeight: sel ? 600 : 400 }}
                   onMouseEnter={e => { if (!past && !sel) e.currentTarget.style.background = "rgba(120,90,20,0.15)"; }}
                   onMouseLeave={e => { if (!past && !sel) e.currentTarget.style.background = "none"; }}>
                   {day}
@@ -565,7 +561,7 @@ function DatePicker({ value, onChange, error }) {
             })}
           </div>
           <div style={{ marginTop: 12, textAlign: "right" }}>
-            <button type="button" onClick={() => setOpen(false)} style={{ background: "none", border: "none", fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 2, color: "rgba(17,17,17,0.35)", cursor: "pointer" }}>CLOSE</button>
+            <button type="button" onClick={() => setOpen(false)} style={{ background: "none", border: "none", fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 2, color: "rgba(255,255,255,0.4)", cursor: "pointer" }}>CLOSE</button>
           </div>
         </div>
       )}
@@ -604,8 +600,8 @@ function BookingForm({ prefill, onSuccess, onPrivacyClick }) {
     else setSendError(true);
   };
 
-  const iStyle = (k) => ({ width: "100%", background: "none", border: "none", borderBottom: `1px solid ${errors[k] ? "rgba(200,80,80,0.7)" : "rgba(17,17,17,0.2)"}`, padding: "12px 0", fontFamily: "'Outfit', sans-serif", fontSize: 15, color: "#111111", outline: "none", boxSizing: "border-box", transition: "border-color 0.2s" });
-  const Label = ({ c }) => <label style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 3, color: "rgba(17,17,17,0.4)", textTransform: "uppercase", display: "block", marginBottom: 4 }}>{c}</label>;
+  const iStyle = (k) => ({ width: "100%", background: "none", border: "none", borderBottom: `1px solid ${errors[k] ? "rgba(200,80,80,0.7)" : "rgba(255,255,255,0.25)"}`, padding: "12px 0", fontFamily: "'Outfit', sans-serif", fontSize: 15, color: "#ffffff", outline: "none", boxSizing: "border-box", transition: "border-color 0.2s" });
+  const Label = ({ c }) => <label style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 3, color: "rgba(255,255,255,0.45)", textTransform: "uppercase", display: "block", marginBottom: 4 }}>{c}</label>;
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
@@ -619,9 +615,9 @@ function BookingForm({ prefill, onSuccess, onPrivacyClick }) {
         ))}
         <div>
           <Label c="Event Type" />
-          <select value={f.eventType} onChange={e => set("eventType", e.target.value)} style={{ ...iStyle("eventType"), color: f.eventType ? "#111111" : "rgba(17,17,17,0.3)", cursor: "pointer" }}>
+          <select value={f.eventType} onChange={e => set("eventType", e.target.value)} style={{ ...iStyle("eventType"), color: f.eventType ? "#ffffff" : "rgba(255,255,255,0.35)", cursor: "pointer" }}>
             <option value="">Select your event type…</option>
-            {SERVICES.map(s => <option key={s.id} value={s.title} style={{ background: "#fafafa" }}>{s.title}</option>)}
+            {SERVICES.map(s => <option key={s.id} value={s.title} style={{ background: "rgba(255,255,255,0.05)" }}>{s.title}</option>)}
           </select>
           {errors.eventType && <span style={{ fontSize: 11, color: "rgba(200,80,80,0.8)", marginTop: 4, display: "block" }}>{errors.eventType}</span>}
         </div>
@@ -642,19 +638,19 @@ function BookingForm({ prefill, onSuccess, onPrivacyClick }) {
         <textarea value={f.notes} onChange={e => set("notes", e.target.value)} rows={3} placeholder="Genres, must-plays, vibe you're going for…" style={{ ...iStyle("notes"), resize: "none", fontFamily: "'Outfit', sans-serif" }} />
       </div>
       {/* Privacy Notice */}
-      <div style={{ borderTop: "1px solid rgba(17,17,17,0.1)", paddingTop: 20 }}>
-        <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 12, color: "rgba(17,17,17,0.55)", lineHeight: 1.8, margin: "0 0 12px" }}>
+      <div style={{ borderTop: "1px solid rgba(240,240,240,0.1)", paddingTop: 20 }}>
+        <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 12, color: "rgba(255,255,255,0.6)", lineHeight: 1.8, margin: "0 0 12px" }}>
           We will use the information you provide to respond to your enquiry, discuss your event requirements, and where applicable take steps towards entering into a contract for DJ services. For more information, please see our{" "}
           <button type="button" onClick={() => onPrivacyClick && onPrivacyClick()} style={{ background: "none", border: "none", padding: 0, fontFamily: "'Outfit', sans-serif", fontSize: 12, color: "rgba(120,90,20,0.9)", cursor: "pointer", textDecoration: "underline" }}>Privacy Policy</button>.
         </p>
         <label style={{ display: "flex", alignItems: "flex-start", gap: 10, cursor: "pointer" }}>
           <input type="checkbox" checked={privacyAccepted} onChange={e => setPrivacyAccepted(e.target.checked)} style={{ marginTop: 3, width: 15, height: 15, cursor: "pointer", accentColor: "#8c6414", flexShrink: 0 }} />
-          <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 12, color: "rgba(17,17,17,0.7)", lineHeight: 1.6 }}>I have read and understood the Privacy Policy.</span>
+          <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 12, color: "rgba(240,240,240,0.7)", lineHeight: 1.6 }}>I have read and understood the Privacy Policy.</span>
         </label>
         {errors.privacy && <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, color: "rgba(200,80,80,0.9)", margin: "8px 0 0 26px" }}>{errors.privacy}</p>}
       </div>
       {sendError && <div style={{ background: "rgba(200,80,80,0.1)", border: "1px solid rgba(200,80,80,0.3)", borderRadius: 2, padding: "12px 16px", fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(255,150,150,0.9)" }}>Something went wrong sending your enquiry. Please email us directly at {DJ.email}</div>}
-      <button onClick={submit} disabled={sending} style={{ alignSelf: isMobile ? "stretch" : "flex-start", background: sending ? "rgba(17,17,17,0.12)" : "#111111", color: "#fafafa", border: "none", padding: "16px 48px", fontFamily: "'Outfit', sans-serif", fontSize: 12, letterSpacing: 3, textTransform: "uppercase", cursor: sending ? "not-allowed" : "pointer", borderRadius: 1, fontWeight: 500, textAlign: "center" }}>
+      <button onClick={submit} disabled={sending} style={{ alignSelf: isMobile ? "stretch" : "flex-start", background: sending ? "rgba(240,240,240,0.1)" : "#ffffff", color: "rgba(255,255,255,0.05)", border: "none", padding: "16px 48px", fontFamily: "'Outfit', sans-serif", fontSize: 12, letterSpacing: 3, textTransform: "uppercase", cursor: sending ? "not-allowed" : "pointer", borderRadius: 1, fontWeight: 500, textAlign: "center" }}>
         {sending ? "Sending…" : "Send Enquiry"}
       </button>
     </div>
@@ -668,8 +664,8 @@ function BookingSection({ prefill, onSuccess, onPrivacyClick }) {
       <div style={{ maxWidth: 700, margin: "0 auto" }}>
         <Reveal>
           <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 25, letterSpacing: 4, color: "rgba(120,90,20,0.85)", marginBottom: 16 }}>ENQUIRIES</div>
-          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(32px, 4vw, 50px)", color: "#111111", margin: "0 0 12px" }}>Let's Make It Happen</h2>
-          <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 16, color: "rgba(17,17,17,0.55)", margin: "0 0 48px", lineHeight: 1.7 }}>Fill in the form and I'll be in touch within 24 hours to discuss your event.</p>
+          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(32px, 4vw, 50px)", color: "#ffffff", margin: "0 0 12px" }}>Let's Make It Happen</h2>
+          <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 16, color: "rgba(255,255,255,0.6)", margin: "0 0 48px", lineHeight: 1.7 }}>Fill in the form and I'll be in touch within 24 hours to discuss your event.</p>
         </Reveal>
         <BookingForm prefill={prefill} onSuccess={onSuccess} onPrivacyClick={onPrivacyClick} />
       </div>
@@ -687,31 +683,31 @@ function SuccessSection({ form }) {
       <div style={{ maxWidth: 580, margin: "0 auto", textAlign: "center", opacity: show ? 1 : 0, transform: show ? "none" : "translateY(24px)", transition: "opacity 0.7s ease, transform 0.7s ease" }}>
         <div style={{ width: 80, height: 80, borderRadius: "50%", background: "rgba(120,90,20,0.1)", border: "1px solid rgba(140,110,40,0.4)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 72, color: "rgba(120,90,20,0.95)", margin: "0 auto 28px", animation: "pulseRing 2s ease-in-out infinite" }}>✓</div>
         <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 25, letterSpacing: 4, color: "rgba(120,90,20,0.85)", marginBottom: 16 }}>ENQUIRY RECEIVED</div>
-        <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, color: "#111111", margin: "0 0 20px", lineHeight: 1.2 }}>You're on our <em>radar</em>, {form.name.split(" ")[0]}.</h2>
+        <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, color: "#ffffff", margin: "0 0 20px", lineHeight: 1.2 }}>You're on our <em>radar</em>, {form.name.split(" ")[0]}.</h2>
         <div style={{ background: "rgba(120,90,20,0.06)", border: "1px solid rgba(140,110,40,0.2)", borderRadius: 4, padding: "20px 24px", marginBottom: 20, textAlign: "left" }}>
-          <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(17,17,17,0.65)", lineHeight: 1.9, margin: 0 }}>
-            Your booking enquiry has been successfully submitted. A member of the <strong style={{ color: "#111111" }}>DJ Appz</strong> team will be in touch at <strong style={{ color: "rgba(120,90,20,0.95)" }}>{form.email}</strong> within <strong style={{ color: "#111111" }}>24 hours</strong>. A confirmation has also been sent to your email.
+          <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(255,255,255,0.65)", lineHeight: 1.9, margin: 0 }}>
+            Your booking enquiry has been successfully submitted. A member of the <strong style={{ color: "#ffffff" }}>DJ Appz</strong> team will be in touch at <strong style={{ color: "rgba(120,90,20,0.95)" }}>{form.email}</strong> within <strong style={{ color: "#ffffff" }}>24 hours</strong>. A confirmation has also been sent to your email.
           </p>
         </div>
-        <div style={{ background: "rgba(17,17,17,0.02)", border: "1px solid rgba(17,17,17,0.1)", borderRadius: 4, padding: "20px 24px", textAlign: "left", marginBottom: 20 }}>
-          <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 3, color: "rgba(17,17,17,0.3)", marginBottom: 14 }}>YOUR BOOKING SUMMARY</div>
+        <div style={{ background: "rgba(17,17,17,0.02)", border: "1px solid rgba(240,240,240,0.1)", borderRadius: 4, padding: "20px 24px", textAlign: "left", marginBottom: 20 }}>
+          <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 3, color: "rgba(255,255,255,0.35)", marginBottom: 14 }}>YOUR BOOKING SUMMARY</div>
           {[["Event Type", form.eventType], ["Date", form.date], ["Venue", form.venue || "TBC"], ["Guests", form.guests || "TBC"], ["Budget", form.budget || "TBC"]].map(([k, v]) => (
-            <div key={k} style={{ display: "flex", justifyContent: "space-between", padding: "9px 0", borderBottom: "1px solid rgba(17,17,17,0.08)", fontFamily: "'Outfit', sans-serif", fontSize: 15 }}>
-              <span style={{ color: "rgba(17,17,17,0.35)" }}>{k}</span>
-              <span style={{ color: "rgba(17,17,17,0.8)", fontWeight: 500 }}>{v}</span>
+            <div key={k} style={{ display: "flex", justifyContent: "space-between", padding: "9px 0", borderBottom: "1px solid rgba(255,255,255,0.08)", fontFamily: "'Outfit', sans-serif", fontSize: 15 }}>
+              <span style={{ color: "rgba(255,255,255,0.4)" }}>{k}</span>
+              <span style={{ color: "rgba(240,240,240,0.8)", fontWeight: 500 }}>{v}</span>
             </div>
           ))}
         </div>
-        <div style={{ background: "rgba(17,17,17,0.02)", border: "1px solid rgba(17,17,17,0.1)", borderRadius: 4, padding: "20px 24px", textAlign: "left", marginBottom: 28 }}>
-          <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 3, color: "rgba(17,17,17,0.3)", marginBottom: 16 }}>WHAT HAPPENS NEXT</div>
+        <div style={{ background: "rgba(17,17,17,0.02)", border: "1px solid rgba(240,240,240,0.1)", borderRadius: 4, padding: "20px 24px", textAlign: "left", marginBottom: 28 }}>
+          <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 3, color: "rgba(255,255,255,0.35)", marginBottom: 16 }}>WHAT HAPPENS NEXT</div>
           {[["01", "We review your enquiry and check availability for your date"], ["02", "You'll receive a personalised response within 24 hours"], ["03", "We'll confirm details, discuss your music preferences, and send a quote"], ["04", "A 25% deposit secures your booking"]].map(([num, text]) => (
             <div key={num} style={{ display: "flex", gap: 14, marginBottom: 14, alignItems: "flex-start" }}>
               <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, color: "rgba(120,90,20,0.6)", fontStyle: "italic", flexShrink: 0, lineHeight: 1.4 }}>{num}</span>
-              <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14, color: "rgba(17,17,17,0.5)", lineHeight: 1.7 }}>{text}</span>
+              <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.55)", lineHeight: 1.7 }}>{text}</span>
             </div>
           ))}
         </div>
-        <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(17,17,17,0.3)", letterSpacing: 1 }}>Direct line: <span style={{ color: "rgba(120,90,20,0.75)" }}>{DJ.email}</span></p>
+        <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(255,255,255,0.35)", letterSpacing: 1 }}>Direct line: <span style={{ color: "rgba(120,90,20,0.75)" }}>{DJ.email}</span></p>
       </div>
     </section>
   );
@@ -721,12 +717,12 @@ function SuccessSection({ form }) {
 function FooterBar({ onPrivacy }) {
   const isMobile = useIsMobile();
   return (
-    <footer style={{ borderTop: "1px solid rgba(17,17,17,0.08)", padding: isMobile ? "32px 24px" : "40px 48px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 16 }}>
-      <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 16, color: "rgba(17,17,17,0.5)", fontStyle: "italic", letterSpacing: 2 }}>DJ Appz</span>
+    <footer style={{ borderTop: "1px solid rgba(255,255,255,0.1)", padding: isMobile ? "32px 24px" : "40px 48px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 16, background: "#0a0a0a" }}>
+      <img src={logo} alt="DJ Appz" style={{ height: 36, objectFit: "contain", filter: "brightness(10)", opacity: 0.8 }} />
       <div style={{ display: "flex", gap: isMobile ? 16 : 28, flexWrap: "wrap" }}>
-        {[DJ.instagram, DJ.email, DJ.location].map(l => <span key={l} style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 1.5, color: "rgba(17,17,17,0.3)" }}>{l}</span>)}
+        {[DJ.instagram, DJ.email, DJ.location].map(l => <span key={l} style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 1.5, color: "rgba(255,255,255,0.35)" }}>{l}</span>)}
       </div>
-      <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 1, color: "rgba(17,17,17,0.25)" }}>© 2026 DJ Appz</span>
+      <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 1, color: "rgba(255,255,255,0.3)" }}>© 2026 DJ Appz</span>
     </footer>
   );
 }
@@ -756,30 +752,30 @@ function PrivacyModal({ onClose }) {
   return (
     <div
       onClick={e => { if (e.target === e.currentTarget) onClose(); }}
-      style={{ position: "fixed", inset: 0, zIndex: 500, background: "rgba(17,17,17,0.6)", backdropFilter: "blur(4px)", display: "flex", alignItems: "center", justifyContent: "center", padding: "24px 16px" }}
+      style={{ position: "fixed", inset: 0, zIndex: 500, background: "rgba(255,255,255,0.6)", backdropFilter: "blur(4px)", display: "flex", alignItems: "center", justifyContent: "center", padding: "24px 16px" }}
     >
-      <div style={{ background: "#faf7f2", borderRadius: 4, width: "100%", maxWidth: 640, maxHeight: "85vh", display: "flex", flexDirection: "column", boxShadow: "0 24px 80px rgba(0,0,0,0.2)" }}>
+      <div style={{ background: "#1a1a2e", borderRadius: 4, width: "100%", maxWidth: 640, maxHeight: "85vh", display: "flex", flexDirection: "column", boxShadow: "0 24px 80px rgba(0,0,0,0.2)" }}>
         {/* Header */}
-        <div style={{ padding: "24px 28px 20px", borderBottom: "1px solid rgba(17,17,17,0.1)", display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexShrink: 0 }}>
+        <div style={{ padding: "24px 28px 20px", borderBottom: "1px solid rgba(240,240,240,0.1)", display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexShrink: 0 }}>
           <div>
             <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14, letterSpacing: 3, color: "rgba(120,90,20,0.8)", marginBottom: 6, textTransform: "uppercase" }}>Legal</div>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, color: "#111111", margin: "0 0 4px", fontWeight: 500 }}>Privacy Policy</h2>
-            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, color: "rgba(17,17,17,0.4)", margin: 0 }}>DJ Appz · Last updated May 2026</p>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, color: "#ffffff", margin: "0 0 4px", fontWeight: 500 }}>Privacy Policy</h2>
+            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, color: "rgba(255,255,255,0.45)", margin: 0 }}>DJ Appz · Last updated May 2026</p>
           </div>
-          <button onClick={onClose} style={{ background: "none", border: "1px solid rgba(17,17,17,0.15)", borderRadius: 2, width: 36, height: 36, cursor: "pointer", fontSize: 16, color: "#111111", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginLeft: 16 }}>✕</button>
+          <button onClick={onClose} style={{ background: "none", border: "1px solid rgba(240,240,240,0.15)", borderRadius: 2, width: 36, height: 36, cursor: "pointer", fontSize: 16, color: "#ffffff", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginLeft: 16 }}>✕</button>
         </div>
         {/* Scrollable content */}
         <div style={{ overflowY: "auto", padding: "24px 28px", flex: 1 }}>
           {sections.map((s, i) => (
             <div key={i} style={{ marginBottom: 28 }}>
-              <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 14, color: "#111111", margin: "0 0 10px", fontWeight: 500, borderBottom: "1px solid rgba(17,17,17,0.08)", paddingBottom: 8 }}>{s.title}</h3>
-              <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 12, color: "rgba(17,17,17,0.65)", lineHeight: 1.8, margin: 0, whiteSpace: "pre-line" }}>{s.body}</p>
+              <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 14, color: "#ffffff", margin: "0 0 10px", fontWeight: 500, borderBottom: "1px solid rgba(255,255,255,0.08)", paddingBottom: 8 }}>{s.title}</h3>
+              <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 12, color: "rgba(255,255,255,0.65)", lineHeight: 1.8, margin: 0, whiteSpace: "pre-line" }}>{s.body}</p>
             </div>
           ))}
         </div>
         {/* Footer */}
-        <div style={{ padding: "16px 28px", borderTop: "1px solid rgba(17,17,17,0.08)", flexShrink: 0 }}>
-          <button onClick={onClose} style={{ background: "#111111", color: "#fafafa", border: "none", borderRadius: 2, padding: "11px 28px", fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 2, textTransform: "uppercase", cursor: "pointer", width: "100%" }}>
+        <div style={{ padding: "16px 28px", borderTop: "1px solid rgba(255,255,255,0.08)", flexShrink: 0 }}>
+          <button onClick={onClose} style={{ background: "transparent", color: "rgba(255,255,255,0.05)", border: "none", borderRadius: 2, padding: "11px 28px", fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 2, textTransform: "uppercase", cursor: "pointer", width: "100%" }}>
             Close
           </button>
         </div>
@@ -809,15 +805,15 @@ function PrivacyPolicy() {
       <div style={{ maxWidth: 760, margin: "0 auto" }}>
         <Reveal>
           <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 15, letterSpacing: 3, color: "rgba(120,90,20,0.75)", marginBottom: 12 }}>LEGAL</div>
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, color: "#111111", margin: "0 0 8px" }}>Privacy Policy</h1>
-          <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 12, color: "rgba(17,17,17,0.45)", margin: "0 0 48px" }}>Last updated: May 2026</p>
+          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, color: "#ffffff", margin: "0 0 8px" }}>Privacy Policy</h1>
+          <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 12, color: "rgba(255,255,255,0.5)", margin: "0 0 48px" }}>Last updated: May 2026</p>
         </Reveal>
         <div style={{ display: "flex", flexDirection: "column", gap: 36 }}>
           {sections.map((s, i) => (
             <Reveal key={i} delay={i * 0.03}>
-              <div style={{ borderTop: "1px solid rgba(17,17,17,0.1)", paddingTop: 28 }}>
-                <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, color: "#111111", margin: "0 0 14px", fontWeight: 500 }}>{s.title}</h2>
-                <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(17,17,17,0.65)", lineHeight: 1.85, margin: 0, whiteSpace: "pre-line" }}>{s.content}</p>
+              <div style={{ borderTop: "1px solid rgba(240,240,240,0.1)", paddingTop: 28 }}>
+                <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, color: "#ffffff", margin: "0 0 14px", fontWeight: 500 }}>{s.title}</h2>
+                <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(255,255,255,0.65)", lineHeight: 1.85, margin: 0, whiteSpace: "pre-line" }}>{s.content}</p>
               </div>
             </Reveal>
           ))}
@@ -842,25 +838,25 @@ function MixesPage() {
       <div style={{ maxWidth: 900, margin: "0 auto" }}>
         <Reveal>
           <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 25, letterSpacing: 4, color: "rgba(120,90,20,0.85)", marginBottom: 16 }}>LISTEN</div>
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, color: "#111111", margin: "0 0 12px" }}>Mixes</h1>
-          <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14, color: "rgba(17,17,17,0.55)", lineHeight: 1.7, margin: "0 0 48px", maxWidth: 560 }}>
+          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, color: "#ffffff", margin: "0 0 12px" }}>Mixes</h1>
+          <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.6)", lineHeight: 1.7, margin: "0 0 48px", maxWidth: 560 }}>
             A selection of recorded sets — the best way to hear the sound before you book. More mixes available on Mixcloud.
           </p>
         </Reveal>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: 1, background: "rgba(17,17,17,0.08)" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 1, background: "rgba(255,255,255,0.1)" }}>
           {allMixes.map((mix, i) => (
             <Reveal key={mix.id} delay={i * 0.1}>
               <div style={{ background: "#fff", padding: isMobile ? "24px 20px" : "32px 40px", display: "flex", flexDirection: isMobile ? "column" : "row", gap: isMobile ? 20 : 40, alignItems: isMobile ? "flex-start" : "center" }}>
                 {/* Mix info */}
                 <div style={{ flex: "0 0 auto", width: isMobile ? "100%" : 260 }}>
                   <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 16, letterSpacing: 2, color: "rgba(120,90,20,0.85)", border: "1px solid rgba(140,110,40,0.25)", padding: "3px 10px", borderRadius: 1, display: "inline-block", marginBottom: 10 }}>{mix.tag}</span>
-                  <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, color: "#111111", margin: "0 0 6px", fontWeight: 400, lineHeight: 1.3 }}>{mix.title}</h3>
-                  <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 12, color: "rgba(17,17,17,0.45)", letterSpacing: 1, margin: 0 }}>{mix.subtitle}</p>
+                  <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, color: "#ffffff", margin: "0 0 6px", fontWeight: 400, lineHeight: 1.3 }}>{mix.title}</h3>
+                  <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 12, color: "rgba(255,255,255,0.5)", letterSpacing: 1, margin: 0 }}>{mix.subtitle}</p>
                 </div>
 
                 {/* Mixcloud player */}
-                <div style={{ flex: 1, width: "100%", borderRadius: 2, overflow: "hidden", border: "1px solid rgba(17,17,17,0.08)" }}>
+                <div style={{ flex: 1, width: "100%", borderRadius: 2, overflow: "hidden", border: "1px solid rgba(255,255,255,0.08)" }}>
                   <iframe
                     width="100%"
                     height="120"
@@ -878,15 +874,15 @@ function MixesPage() {
 
         {/* Mixcloud CTA */}
         <Reveal delay={0.3}>
-          <div style={{ marginTop: 40, textAlign: "center", padding: "40px 32px", background: "#fff", border: "1px solid rgba(17,17,17,0.08)", borderRadius: 2 }}>
+          <div style={{ marginTop: 40, textAlign: "center", padding: "40px 32px", background: "#fff", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 2 }}>
             <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 3, color: "rgba(120,90,20,0.8)", marginBottom: 12 }}>MORE SETS</div>
-            <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, color: "#111111", margin: "0 0 10px", fontWeight: 400 }}>Find More on Mixcloud</h3>
-            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(17,17,17,0.5)", lineHeight: 1.7, margin: "0 0 24px" }}>Full archive of mixes, radio sets and live recordings available on the DJ Appz Mixcloud profile.</p>
+            <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, color: "#ffffff", margin: "0 0 10px", fontWeight: 400 }}>Find More on Mixcloud</h3>
+            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(255,255,255,0.55)", lineHeight: 1.7, margin: "0 0 24px" }}>Full archive of mixes, radio sets and live recordings available on the DJ Appz Mixcloud profile.</p>
             <a
               href="https://www.mixcloud.com/DJAppz/"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ display: "inline-block", background: "#111111", color: "#fafafa", padding: "12px 32px", fontFamily: "'Outfit', sans-serif", fontSize: 10, letterSpacing: 3, textTransform: "uppercase", textDecoration: "none", borderRadius: 1 }}
+              style={{ display: "inline-block", background: "transparent", color: "rgba(255,255,255,0.05)", padding: "12px 32px", fontFamily: "'Outfit', sans-serif", fontSize: 10, letterSpacing: 3, textTransform: "uppercase", textDecoration: "none", borderRadius: 1 }}
             >
               Visit Mixcloud →
             </a>
@@ -909,7 +905,7 @@ function CrowdSection() {
         style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center center", display: "block" }}
       />
       {/* Overlay with text */}
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(17,17,17,0.8) 0%, rgba(17,17,17,0.4) 55%, rgba(17,17,17,0.1) 100%)" }}>
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(240,240,240,0.8) 0%, rgba(240,240,240,0.4) 55%, rgba(240,240,240,0.1) 100%)" }}>
         <div style={{ height: "100%", display: "flex", alignItems: "center", padding: isMobile ? "0 24px" : "0 56px", boxSizing: "border-box", width: "100%", overflow: "hidden" }}>
           <div style={{ maxWidth: isMobile ? "100%" : 500 }}>
             <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 20, letterSpacing: 4, color: "rgba(160,125,30,0.9)", marginBottom: 14, textTransform: "uppercase" }}>Live Experience</div>
@@ -942,9 +938,9 @@ function VenueLogosSection() {
   const allLogos = [...logos, ...logos];
 
   return (
-    <section style={{ padding: "59px 0", borderTop: "1px solid rgba(17,17,17,0.08)", borderBottom: "1px solid rgba(17,17,17,0.08)", background: "#fafafa", overflow: "hidden" }}>
+    <section style={{ padding: "59px 0", borderTop: "1px solid rgba(255,255,255,0.08)", borderBottom: "1px solid rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.05)", overflow: "hidden" }}>
       <div style={{ textAlign: "center", marginBottom: 42 }}>
-        <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 4, color: "rgba(17,17,17,0.35)", textTransform: "uppercase" }}>As Seen At</div>
+        <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 4, color: "rgba(255,255,255,0.4)", textTransform: "uppercase" }}>As Seen At</div>
       </div>
       <div style={{ overflow: "hidden", position: "relative" }}>
         {/* Fade edges */}
@@ -957,7 +953,7 @@ function VenueLogosSection() {
               <img
                 src={logo.src}
                 alt={logo.alt}
-                style={{ maxHeight: 84, maxWidth: 180, objectFit: "contain", mixBlendMode: "multiply", opacity: 0.7, filter: "grayscale(100%)", transition: "opacity 0.3s, filter 0.3s" }}
+                style={{ maxHeight: 84, maxWidth: 180, objectFit: "contain", filter: "invert(1) brightness(2)", opacity: 0.7, filter: "grayscale(100%)", transition: "opacity 0.3s, filter 0.3s" }}
                 onMouseEnter={e => { e.currentTarget.style.opacity = "1"; e.currentTarget.style.filter = "grayscale(0%)"; }}
                 onMouseLeave={e => { e.currentTarget.style.opacity = "0.7"; e.currentTarget.style.filter = "grayscale(100%)"; }}
               />
@@ -998,17 +994,17 @@ export default function App() {
         /* Fix mobile browser viewport height */
         :root { --vh: 1vh; }
         body {
-          background-color: #ffffff;
-          background-image:
-            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noise)' opacity='0.025'/%3E%3C/svg%3E");
-          color: #fff;
+          background: linear-gradient(160deg, #0d0d0d 0%, #1a1a2e 40%, #0d0d0d 70%, #16213e 100%);
+          background-attachment: fixed;
+          min-height: 100vh;
+          color: #ffffff;
           -webkit-font-smoothing: antialiased;
         }
         ::-webkit-scrollbar { width: 3px; }
-        ::-webkit-scrollbar-track { background: #ffffff; }
+        ::-webkit-scrollbar-track { background: #0d0d0d; }
         ::-webkit-scrollbar-thumb { background: rgba(120,90,20,0.35); }
-        input::placeholder, textarea::placeholder { color: rgba(17,17,17,0.3); }
-        select option { background: #ffffff; color: #111111; }
+        input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.3); }
+        select option { background: #1a1a2e; color: #ffffff; }
         @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
         @keyframes blink { 0%,100% { opacity: 0.2; } 50% { opacity: 0.8; } }
@@ -1037,13 +1033,13 @@ export default function App() {
             <CrowdSection />
             <VenueLogosSection />
             <FAQSection />
-            <section style={{ padding: isMobile ? "61px 24px" : "68px 48px", textAlign: "center", borderTop: "1px solid rgba(17,17,17,0.08)", position: "relative", overflow: "hidden" }}>
+            <section style={{ padding: isMobile ? "61px 24px" : "68px 48px", textAlign: "center", borderTop: "1px solid rgba(255,255,255,0.08)", position: "relative", overflow: "hidden" }}>
               <div style={{ position: "absolute", inset: 0, backgroundImage: `url(${heroPhoto})`, backgroundSize: "cover", backgroundPosition: "center 30%", opacity: 0.05 }} />
               <Reveal>
                 <div style={{ position: "relative" }}>
-                  <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, color: "#111111", margin: "0 0 14px" }}>Ready to <em>book?</em></h2>
-                  <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(17,17,17,0.4)", margin: "0 0 32px" }}>Let's talk about your event.</p>
-                  <button onClick={() => goBook()} style={{ background: "#111111", color: "#fafafa", border: "none", padding: "15px 48px", fontFamily: "'Outfit', sans-serif", fontSize: 12, letterSpacing: 3, textTransform: "uppercase", cursor: "pointer", borderRadius: 1, fontWeight: 500 }}>Get in Touch</button>
+                  <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, color: "#ffffff", margin: "0 0 14px" }}>Ready to <em>book?</em></h2>
+                  <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(255,255,255,0.45)", margin: "0 0 32px" }}>Let's talk about your event.</p>
+                  <button onClick={() => goBook()} style={{ background: "transparent", color: "rgba(255,255,255,0.05)", border: "none", padding: "15px 48px", fontFamily: "'Outfit', sans-serif", fontSize: 12, letterSpacing: 3, textTransform: "uppercase", cursor: "pointer", borderRadius: 1, fontWeight: 500 }}>Get in Touch</button>
                 </div>
               </Reveal>
             </section>
