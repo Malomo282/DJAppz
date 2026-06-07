@@ -187,7 +187,7 @@ function HeroSection({ onBook }) {
           muted
           loop
           playsInline
-          style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center center" }}
+          style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center center", transform: "scale(0.85)", transformOrigin: "center center" }}
         >
           <source src={showreel} type="video/mp4" />
           {/* Fallback to photo if video fails */}
