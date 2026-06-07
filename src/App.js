@@ -379,7 +379,7 @@ function QuickNavSection({ onBook, setSection }) {
             <Reveal key={c.id} delay={i * 0.1}>
               <div
                 onClick={c.action}
-                style={{ background: "#fff", padding: isMobile ? "28px 20px" : "48px 36px", cursor: "pointer", transition: "all 0.3s", borderRadius: isMobile ? 6 : 2, border: "1px solid rgba(255,255,255,0.08)", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between", boxShadow: "0 2px 12px rgba(255,255,255,0.04)" }}
+                style={{ background: "rgba(245,235,210,0.07)", padding: isMobile ? "28px 20px" : "48px 36px", cursor: "pointer", transition: "all 0.3s", borderRadius: isMobile ? 6 : 2, border: "1px solid rgba(245,235,210,0.2)", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between", boxShadow: "0 4px 20px rgba(0,0,0,0.3)" }}
                 onMouseEnter={e => { e.currentTarget.style.background = "rgba(245,235,210,0.15)"; e.currentTarget.style.boxShadow = "0 8px 32px rgba(240,240,240,0.1)"; e.currentTarget.style.transform = "translateY(-4px)"; }}
                 onMouseLeave={e => { e.currentTarget.style.background = "#fff"; e.currentTarget.style.boxShadow = "0 2px 12px rgba(255,255,255,0.04)"; e.currentTarget.style.transform = "none"; }}
               >
@@ -697,7 +697,7 @@ function FooterBar({ onPrivacy }) {
   const isMobile = useIsMobile();
   return (
     <footer style={{ borderTop: "1px solid rgba(255,255,255,0.1)", padding: isMobile ? "32px 24px" : "40px 48px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 16, background: "#0a0a0a" }}>
-      <img src={logo} alt="DJ Appz" style={{ height: 36, objectFit: "contain", filter: "brightness(10)", opacity: 0.8 }} />
+      <img src={logo} alt="DJ Appz" style={{ height: 44, objectFit: "contain", filter: "invert(1) brightness(2)", opacity: 0.95 }} />
       <div style={{ display: "flex", gap: isMobile ? 16 : 28, flexWrap: "wrap" }}>
         {[DJ.instagram, DJ.email, DJ.location].map(l => <span key={l} style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 1.5, color: "rgba(255,255,255,0.35)" }}>{l}</span>)}
       </div>
