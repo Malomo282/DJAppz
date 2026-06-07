@@ -904,34 +904,6 @@ function CrowdSection() {
 
 // ─── VENUE LOGOS ───────────────────────────────────────────────────────────
 // ─── CROWD SECTION ─────────────────────────────────────────────────────────
-function CrowdSection() {
-  const isMobile = useIsMobile();
-  return (
-    <section style={{ position: "relative", overflow: "hidden", height: isMobile ? 280 : 420 }}>
-      <img
-        src={crowdPhoto}
-        alt="DJ Appz live"
-        style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center center", display: "block" }}
-      />
-      {/* Overlay with text */}
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(240,240,240,0.8) 0%, rgba(240,240,240,0.4) 55%, rgba(240,240,240,0.1) 100%)" }}>
-        <div style={{ height: "100%", display: "flex", alignItems: "center", padding: isMobile ? "0 24px" : "0 56px", boxSizing: "border-box", width: "100%", overflow: "hidden" }}>
-          <div style={{ maxWidth: isMobile ? "100%" : 500 }}>
-            <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 20, letterSpacing: 4, color: "rgba(245,166,35,0.9)", marginBottom: 14, textTransform: "uppercase" }}>Live Experience</div>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? 24 : 38, color: "#fff", margin: "0 0 14px", lineHeight: 1.2 }}>
-              Every Room.<br /><em>Every Crowd.</em>
-            </h2>
-            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: isMobile ? 12 : 14, color: "rgba(255,255,255,0.7)", lineHeight: 1.7, maxWidth: 380, margin: 0 }}>
-              From intimate gatherings to packed floors — the energy is always right.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-
 // ─── VENUE LOGOS ───────────────────────────────────────────────────────────
 function VenueLogosSection() {
   const logos = [
