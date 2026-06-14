@@ -41,7 +41,7 @@ const MIXES = [
 
 const SERVICES = [
   { id: "private", icon: "🥂", title: "Private Events", sub: "Birthdays · House Parties · Celebrations", price: "From £350" },
-  { id: "wedding", icon: "💍", title: "Weddings", sub: "Ceremony · Reception · Evening", price: "From £800" },
+  { id: "wedding", icon: "💍", title: "Weddings", sub: "Ceremony · Reception · Evening", price: "Enquire for pricing" },
   { id: "corporate", icon: "◈", title: "Corporate", sub: "Launches · Parties · Brand Events", price: "From £600" },
   { id: "club", icon: "◉", title: "Club & Bar", sub: "Residencies · Guest Sets · Nights", price: "From £250" },
 ];
@@ -215,15 +215,10 @@ function AboutSection() {
   const isMobile = useIsMobile();
   return (
     <section id="about-section" style={{ padding: isMobile ? "61px 24px" : "68px 48px" }}>
-      <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: isMobile ? 48 : 80, alignItems: "center" }}>
+      <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: isMobile ? 28 : 80, alignItems: "center" }}>
         <Reveal>
           <div style={{ position: "relative" }}>
-            <img src={streetPhoto} alt="DJ Appz" style={{ width: "100%", aspectRatio: isMobile ? "4/3" : "3/4", objectFit: "cover", objectPosition: "center 15%", borderRadius: 2, display: "block" }} />
-            <div style={{ position: "absolute", bottom: -10, right: -10, width: "60%", height: "60%", border: "1px solid rgba(245,166,35,0.2)", borderRadius: 2, pointerEvents: "none" }} />
-            <div style={{ position: "absolute", bottom: 20, left: 20, background: "rgba(17,17,17,0.88)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.2)", borderRadius: 2, padding: "14px 18px" }}>
-              <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 32, color: "#fff", fontStyle: "italic", lineHeight: 1 }}>200+</div>
-              <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 2.5, color: "rgba(255,255,255,0.9)", marginTop: 4 }}>EVENTS PLAYED</div>
-            </div>
+            <img src={streetPhoto} alt="DJ Appz" style={{ width: "100%", aspectRatio: isMobile ? "4/3" : "3/4", objectFit: "cover", objectPosition: "center 25%", borderRadius: 4, display: "block", maxHeight: isMobile ? 240 : "none" }} />
           </div>
         </Reveal>
         <Reveal delay={isMobile ? 0 : 0.2}>
@@ -381,13 +376,13 @@ function QuickNavSection({ onBook, setSection }) {
                 onClick={c.action}
                 style={{ background: "rgba(245,235,210,0.07)", padding: isMobile ? "28px 20px" : "48px 36px", cursor: "pointer", transition: "all 0.3s", borderRadius: isMobile ? 6 : 2, border: "1px solid rgba(245,235,210,0.2)", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between", boxShadow: "0 4px 20px rgba(0,0,0,0.3)" }}
                 onMouseEnter={e => { e.currentTarget.style.background = "rgba(245,235,210,0.15)"; e.currentTarget.style.boxShadow = "0 8px 32px rgba(240,240,240,0.1)"; e.currentTarget.style.transform = "translateY(-4px)"; }}
-                onMouseLeave={e => { e.currentTarget.style.background = "#fff"; e.currentTarget.style.boxShadow = "0 2px 12px rgba(255,255,255,0.04)"; e.currentTarget.style.transform = "none"; }}
+                onMouseLeave={e => { e.currentTarget.style.background = "rgba(245,235,210,0.07)"; e.currentTarget.style.boxShadow = "0 4px 20px rgba(0,0,0,0.3)"; e.currentTarget.style.transform = "none"; }}
               >
                 <div>
                   <div style={{ fontSize: isMobile ? 32 : 44, marginBottom: 18 }}>{c.icon}</div>
                   <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, letterSpacing: 2.5, color: "rgba(245,166,35,0.8)", marginBottom: 8, textTransform: "uppercase" }}>{c.tag}</div>
                   <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? 17 : 20, color: "#ffffff", margin: "0 0 8px", fontWeight: 500 }}>{c.label}</h3>
-                  <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(255,255,255,0.55)", lineHeight: 1.65, margin: 0 }}>{c.desc}</p>
+                  <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 15, color: "rgba(255,255,255,0.75)", lineHeight: 1.65, margin: 0 }}>{c.desc}</p>
                 </div>
                 <div style={{ marginTop: 28, fontFamily: "'Outfit', sans-serif", fontSize: 11, letterSpacing: 2, color: "rgba(245,166,35,1)", fontWeight: 600 }}>
                   {c.label === "Enquire" ? "GET IN TOUCH →" : c.label === "Mixes" ? "LISTEN NOW →" : `VIEW ${c.label.toUpperCase()} →`}
@@ -419,7 +414,7 @@ function ServicesSection({ onBook }) {
               <div onClick={() => onBook(s.id)} style={{ background: "rgba(245,235,210,0.08)", padding: isMobile ? "28px 24px" : "44px 40px", cursor: "pointer", transition: "all 0.3s", borderRadius: isMobile ? 4 : 0, border: "1px solid rgba(245,235,210,0.2)" }} onMouseEnter={e => e.currentTarget.style.background = "rgba(245,235,210,0.14)"} onMouseLeave={e => e.currentTarget.style.background = "rgba(245,235,210,0.07)"}>
                 <div style={{ fontSize: 36, marginBottom: 12, color: "rgba(255,255,255,0.3)" }}>{s.icon}</div>
                 <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, color: "#ffffff", margin: "0 0 8px", fontWeight: 400 }}>{s.title}</h3>
-                <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(255,255,255,0.45)", letterSpacing: 1.5, margin: "0 0 24px" }}>{s.sub}</p>
+                <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 15, color: "rgba(240,230,200,0.8)", letterSpacing: 0.5, margin: "0 0 20px" }}>{s.sub}</p>
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                   <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14, color: "rgba(245,166,35,1)", letterSpacing: 1 }}>{s.price}</span>
                   <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 12, color: "rgba(245,166,35,1)", letterSpacing: 2, fontWeight: 600 }}>ENQUIRE →</span>
@@ -925,8 +920,8 @@ function VenueLogosSection() {
       </div>
       <div style={{ overflow: "hidden", position: "relative" }}>
         {/* Fade edges */}
-        <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 80, background: "linear-gradient(to right, #f5f0e8, transparent)", zIndex: 2, pointerEvents: "none" }} />
-        <div style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: 80, background: "linear-gradient(to left, #f5f0e8, transparent)", zIndex: 2, pointerEvents: "none" }} />
+        <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 80, background: "linear-gradient(to right, rgba(10,10,20,0.9), transparent)", zIndex: 2, pointerEvents: "none" }} />
+        <div style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: 80, background: "linear-gradient(to left, rgba(10,10,20,0.9), transparent)", zIndex: 2, pointerEvents: "none" }} />
         {/* Marquee track */}
         <div style={{ display: "flex", animation: "marquee 16.5s linear infinite", width: "max-content" }}>
           {allLogos.map((logo, i) => (
