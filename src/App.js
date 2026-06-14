@@ -179,7 +179,7 @@ function HeroSection({ onBook }) {
   useEffect(() => { const t = setInterval(() => setTick(x => x + 1), 1950); return () => clearInterval(t); }, []);
   const words = GENRES;
   return (
-    <section style={{ minHeight: isMobile ? "55svh" : "60vh", display: "flex", alignItems: "center", position: "relative", overflow: "hidden", width: "100%" }}>
+    <section style={{ minHeight: isMobile ? "100svh" : "100vh", display: "flex", alignItems: "center", position: "relative", overflow: "hidden", width: "100%" }}>
       {/* Showreel video background */}
       <div style={{ position: "absolute", inset: 0, overflow: "hidden" }}>
         <video
