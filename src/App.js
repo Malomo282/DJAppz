@@ -6,6 +6,8 @@ import showreel from "./Assets/showreel-djappz.mp4";
 import mixerPhoto from "./Assets/djappz-photo.jpg";
 import streetPhoto from "./Assets/djappz-mixer.jpeg";
 import weddingPhoto from "./Assets/djappz-wedding.jpeg";
+import weddingDance1 from "./Assets/WeddingDance2 (1).jpg";
+import weddingDance2 from "./Assets/WeddingDance2 (2).jpg";
 import crowdPhoto from "./Assets/djappz - Crowd Shot.png";
 import logoDirtyMartini from "./Assets/brand-dirtymartini.png";
 import logoBelushis from "./Assets/brand-belushis.png";
@@ -396,6 +398,51 @@ function QuickNavSection({ onBook, setSection }) {
   );
 }
 
+
+// ─── WEDDING GALLERY ────────────────────────────────────────────────────────
+function WeddingGallery({ isMobile }) {
+  const [active, setActive] = useState(0);
+  const photos = [
+    { src: weddingPhoto, pos: "center 40%" },
+    { src: weddingDance1, pos: "center 50%" },
+    { src: weddingDance2, pos: "center 35%" },
+  ];
+  useEffect(() => {
+    const t = setInterval(() => setActive(x => (x + 1) % photos.length), 3500);
+    return () => clearInterval(t);
+  }, []);
+  return (
+    <div style={{ position: "relative", height: isMobile ? 200 : 260, overflow: "hidden" }}>
+      {photos.map((p, i) => (
+        <img
+          key={i}
+          src={p.src}
+          alt="Wedding"
+          style={{
+            position: "absolute", inset: 0,
+            width: "100%", height: "100%",
+            objectFit: "cover", objectPosition: p.pos,
+            opacity: active === i ? 1 : 0,
+            transition: "opacity 0.8s ease",
+          }}
+        />
+      ))}
+      {/* Dark gradient overlay */}
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(10,10,20,0.65) 100%)", zIndex: 1 }} />
+      {/* Dot indicators */}
+      <div style={{ position: "absolute", bottom: 10, left: "50%", transform: "translateX(-50%)", display: "flex", gap: 6, zIndex: 2 }}>
+        {photos.map((_, i) => (
+          <button
+            key={i}
+            onClick={e => { e.stopPropagation(); setActive(i); }}
+            style={{ width: i === active ? 18 : 6, height: 6, borderRadius: 3, background: i === active ? "#F5A623" : "rgba(255,255,255,0.5)", border: "none", cursor: "pointer", padding: 0, transition: "all 0.3s" }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 // ─── SERVICES ──────────────────────────────────────────────────────────────
 function ServicesSection({ onBook }) {
   const isMobile = useIsMobile();
@@ -411,13 +458,19 @@ function ServicesSection({ onBook }) {
         <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)", gap: isMobile ? 12 : 16, background: "transparent" }}>
           {SERVICES.map((s, i) => (
             <Reveal key={s.id} delay={i * 0.1}>
-              <div onClick={() => onBook(s.id)} style={{ background: "rgba(245,235,210,0.08)", padding: isMobile ? "28px 16px" : "44px 40px", cursor: "pointer", transition: "all 0.3s", borderRadius: isMobile ? 4 : 0, border: "1px solid rgba(245,235,210,0.2)" }} onMouseEnter={e => e.currentTarget.style.background = "rgba(245,235,210,0.14)"} onMouseLeave={e => e.currentTarget.style.background = "rgba(245,235,210,0.07)"}>
-                <div style={{ fontSize: 36, marginBottom: 12, color: "rgba(255,255,255,0.3)" }}>{s.icon}</div>
-                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, color: "#ffffff", margin: "0 0 8px", fontWeight: 400 }}>{s.title}</h3>
-                <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 15, color: "rgba(240,230,200,0.8)", letterSpacing: 0.5, margin: "0 0 20px" }}>{s.sub}</p>
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                  <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14, color: "rgba(245,166,35,1)", letterSpacing: 1 }}>{s.price}</span>
-                  <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 12, color: "rgba(245,166,35,1)", letterSpacing: 2, fontWeight: 600 }}>ENQUIRE →</span>
+              <div onClick={() => onBook(s.id)} style={{ background: "rgba(245,235,210,0.08)", cursor: "pointer", transition: "all 0.3s", borderRadius: isMobile ? 4 : 0, border: "1px solid rgba(245,235,210,0.2)", overflow: "hidden" }} onMouseEnter={e => e.currentTarget.style.background = "rgba(245,235,210,0.14)"} onMouseLeave={e => e.currentTarget.style.background = "rgba(245,235,210,0.07)"}>
+                {/* Wedding photo gallery */}
+                {s.id === "wedding" && (
+                  <WeddingGallery isMobile={isMobile} />
+                )}
+                <div style={{ padding: isMobile ? "20px 16px" : "28px 32px" }}>
+                  <div style={{ fontSize: 32, marginBottom: 10, color: "rgba(255,255,255,0.3)" }}>{s.icon}</div>
+                  <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, color: "#ffffff", margin: "0 0 8px", fontWeight: 400 }}>{s.title}</h3>
+                  <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 15, color: "rgba(240,230,200,0.8)", letterSpacing: 0.5, margin: "0 0 20px" }}>{s.sub}</p>
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                    <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14, color: "rgba(245,166,35,1)", letterSpacing: 1 }}>{s.price}</span>
+                    <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 12, color: "rgba(245,166,35,1)", letterSpacing: 2, fontWeight: 600 }}>ENQUIRE →</span>
+                  </div>
                 </div>
               </div>
             </Reveal>
@@ -624,7 +677,7 @@ function BookingForm({ prefill, onSuccess, onPrivacyClick }) {
         {errors.privacy && <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, color: "rgba(200,80,80,0.9)", margin: "8px 0 0 26px" }}>{errors.privacy}</p>}
       </div>
       {sendError && <div style={{ background: "rgba(200,80,80,0.1)", border: "1px solid rgba(200,80,80,0.3)", borderRadius: 2, padding: "12px 16px", fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(255,150,150,0.9)" }}>Something went wrong sending your enquiry. Please email us directly at {DJ.email}</div>}
-      <button onClick={submit} disabled={sending} style={{ alignSelf: isMobile ? "stretch" : "flex-start", background: sending ? "rgba(240,240,240,0.1)" : "#ffffff", color: "rgba(255,255,255,0.05)", border: "none", padding: "16px 16px", fontFamily: "'Outfit', sans-serif", fontSize: 12, letterSpacing: 3, textTransform: "uppercase", cursor: sending ? "not-allowed" : "pointer", borderRadius: 1, fontWeight: 500, textAlign: "center" }}>
+      <button onClick={submit} disabled={sending} style={{ alignSelf: isMobile ? "stretch" : "flex-start", background: sending ? "rgba(245,166,35,0.5)" : "#F5A623", color: "#000000", border: "none", padding: "16px 48px", fontFamily: "'Outfit', sans-serif", fontSize: 13, letterSpacing: 3, textTransform: "uppercase", cursor: sending ? "not-allowed" : "pointer", borderRadius: 2, fontWeight: 700, textAlign: "center" }}>
         {sending ? "Sending…" : "Send Enquiry"}
       </button>
     </div>
