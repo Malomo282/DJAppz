@@ -5,9 +5,10 @@ import heroPhoto from "./Assets/djappz-bio.jpeg";
 import showreel from "./Assets/showreel-djappz.mp4";
 import mixerPhoto from "./Assets/djappz-photo.jpg";
 import streetPhoto from "./Assets/djappz-mixer.jpeg";
-import weddingPhoto from "./Assets/djappz-wedding.jpeg";
+import weddingPhoto2 from "./Assets/djappz-wedding2.jpg";
 import weddingDance1 from "./Assets/WeddingDance2 (1).jpg";
 import weddingDance2 from "./Assets/WeddingDance2 (2).jpg";
+import privateEventsPhoto from "./Assets/djappz-private.jpeg";
 import crowdPhoto from "./Assets/djappz - Crowd Shot.png";
 import logoDirtyMartini from "./Assets/brand-dirtymartini.png";
 import logoBelushis from "./Assets/brand-belushis.png";
@@ -15,6 +16,10 @@ import logoBoxpark from "./Assets/brand-boxpark.png";
 import logoJubel from "./Assets/brand-jubel.png";
 import logoLightbox from "./Assets/brand-lightbox.png";
 import logoSimmons from "./Assets/brand-simmons.png";
+import djControllerImg from "./Assets/Features/DJcontroller.jpg";
+import microphoneImg from "./Assets/Features/Microphone.jpg";
+import playlistImg from "./Assets/Features/Playlist.jpg";
+import speakersImg from "./Assets/Features/speakers.jpg";
 
 // ─── EMAILJS CONFIG ────────────────────────────────────────────────────────
 const EMAILJS = {
@@ -28,7 +33,7 @@ const EMAILJS = {
 const DJ = {
   name: "DJ APPZ",
   tagline: "R&B · Hip-Hop · Soul",
-  bio: "DJ Appz is a London-based DJ, entertainer, and former professional dancer with over 4 years of experience behind the decks. Specialising in R&B, Hip-Hop, Soul, Afrobeats and Dancehall, he brings a performer's instinct to every set — reading the crowd, building energy, and keeping the floor moving from first track to last. He has played at some of London's most respected venues including Boxpark, Dirty Martini, All Bar One, Lightbox Vauxhall, Simmons Bars, and Proper Snacks, as well as a growing portfolio of private events, weddings, and corporate functions across the UK.",
+  bio: "DJ Appz is a London-based DJ, entertainer, and former professional dancer with 5 years of experience behind the decks. Specialising in R&B, Hip-Hop, Soul, Afrobeats and Dancehall, he brings a performer's instinct to every set — reading the crowd, building energy, and keeping the floor moving from first track to last. He has played at some of London's most respected venues including Boxpark, Dirty Martini, All Bar One, Lightbox Vauxhall, Simmons Bars, and Proper Snacks, as well as a growing portfolio of private events, weddings, and corporate functions across the UK.",
   email: "dj-appz@outlook.com",
   location: "London, UK",
   instagram: "@djappz",
@@ -61,6 +66,7 @@ const FAQS = [
   { q: "What equipment do you bring?", a: "I perform on a professional DJ controller setup as standard. What's brought on the day ultimately depends on the nature of the gig and what's required — some venues have in-house equipment we can work with, while others need a fuller rig. This is always discussed and confirmed ahead of your event so there are no surprises." },
   { q: "How does payment work?", a: "25% deposit to secure your date. Remaining balance due 7 days before the event. Bank transfer, PayPal, or card via invoice." },
   { q: "Are you insured?", a: "Yes — fully covered with Public Liability Insurance up to £5M. Certificate available on request." },
+  { q: "My bride and groom come from different cultural backgrounds. How would you accommodate this?", a: "I'm experienced at bridging cultural gaps between wedding guests. Music is the universal language — I expertly blend genres and cultural styles throughout the night to honour both families and keep everyone engaged. Whether it's Afrobeats, Caribbean, Latin, Asian, soul, or anything in between, I create a seamless flow that celebrates the couple's diverse heritage and ensures every guest feels the love." },
 ];
 
 // ─── EMAILJS SUBMIT ────────────────────────────────────────────────────────
@@ -303,6 +309,100 @@ function GenreBanner() {
   );
 }
 
+// ─── WEDDING THEMES SECTION ────────────────────────────────────────────────
+function WeddingThemesSection() {
+  const isMobile = useIsMobile();
+  const themes = [
+    "Classic Soul & R&B",
+    "Afrobeats & Caribbean",
+    "Old School Hip-Hop",
+    "Neo-Soul & Funk",
+    "Dancehall & Reggae",
+    "Commercial Pop",
+    "Mixed Cultural Blend",
+    "Bespoke Playlist",
+  ];
+
+  return (
+    <section style={{ padding: isMobile ? "50px 16px" : "73px 16px", background: "rgba(255,255,255,0.03)" }}>
+      <div style={{ maxWidth: "95vw", margin: "0 auto" }}>
+        <Reveal>
+          <div style={{ marginBottom: 48 }}>
+            <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 25, letterSpacing: 4, color: "rgba(245,166,35,0.85)", marginBottom: 16 }}>WEDDINGS</div>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, color: "#ffffff", margin: "0 0 8px" }}>Popular Music Themes</h2>
+            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.6)", lineHeight: 1.7, maxWidth: 480 }}>From classic soul to vibrant Afrobeats — create the perfect vibe for your celebration.</p>
+          </div>
+        </Reveal>
+        <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr 1fr" : "repeat(4, 1fr)", gap: isMobile ? 12 : 16 }}>
+          {themes.map((theme, i) => (
+            <Reveal key={i} delay={i * 0.05}>
+              <div style={{ background: "rgba(245,235,210,0.06)", border: "1px solid rgba(245,235,210,0.15)", borderRadius: isMobile ? 6 : 2, padding: isMobile ? "18px 14px" : "20px 16px", textAlign: "center", transition: "all 0.3s" }} onMouseEnter={e => { e.currentTarget.style.background = "rgba(245,235,210,0.12)"; }} onMouseLeave={e => { e.currentTarget.style.background = "rgba(245,235,210,0.06)"; }}>
+                <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: isMobile ? 13 : 14, color: "rgba(255,255,255,0.7)", lineHeight: 1.5, margin: 0 }}>{theme}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── WEDDING PROCESS SECTION ───────────────────────────────────────────────
+function WeddingProcessSection() {
+  const isMobile = useIsMobile();
+  const steps = [
+    {
+      num: "01",
+      title: "Initial Consultation",
+      desc: "We'll discuss your vision, guest count, venue, and vibe. I'll ask about your musical journey together and cultural preferences."
+    },
+    {
+      num: "02",
+      title: "Playlist Building",
+      desc: "You share must-plays and do-not-plays. I create a bespoke setlist that flows seamlessly and honors both families' heritage."
+    },
+    {
+      num: "03",
+      title: "Pre-Event Planning",
+      desc: "We confirm timeline, equipment needs, and special moments. Full technical run-through to ensure nothing is left to chance."
+    },
+    {
+      num: "04",
+      title: "Flawless Execution",
+      desc: "I arrive early for setup, read the room throughout the night, and keep energy perfect from ceremony to final dance."
+    },
+  ];
+
+  return (
+    <section style={{ padding: isMobile ? "50px 16px" : "73px 16px" }}>
+      <div style={{ maxWidth: "95vw", margin: "0 auto" }}>
+        <Reveal>
+          <div style={{ marginBottom: 48 }}>
+            <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 25, letterSpacing: 4, color: "rgba(245,166,35,0.85)", marginBottom: 16 }}>WEDDINGS</div>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, color: "#ffffff", margin: "0 0 8px" }}>How We Work</h2>
+            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.6)", lineHeight: 1.7, maxWidth: 480 }}>A collaborative process to make your day perfect.</p>
+          </div>
+        </Reveal>
+        <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)", gap: isMobile ? 24 : 32 }}>
+          {steps.map((step, i) => (
+            <Reveal key={i} delay={i * 0.1}>
+              <div style={{ display: "flex", gap: isMobile ? 16 : 20 }}>
+                <div style={{ flex: "0 0 auto" }}>
+                  <div style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? 32 : 48, color: "rgba(245,166,35,0.3)", fontStyle: "italic", lineHeight: 1 }}>{step.num}</div>
+                </div>
+                <div>
+                  <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, color: "#ffffff", margin: "4px 0 8px", fontWeight: 400 }}>{step.title}</h3>
+                  <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.65)", lineHeight: 1.7, margin: 0 }}>{step.desc}</p>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ─── WELCOME SECTION ───────────────────────────────────────────────────────
 function WelcomeSection() {
   const isMobile = useIsMobile();
@@ -403,7 +503,7 @@ function QuickNavSection({ onBook, setSection }) {
 function WeddingGallery({ isMobile }) {
   const [active, setActive] = useState(0);
   const photos = [
-    { src: weddingPhoto, pos: "center 40%" },
+    { src: weddingPhoto2, pos: "center 40%" },
     { src: weddingDance1, pos: "center 50%" },
     { src: weddingDance2, pos: "center 35%" },
   ];
@@ -446,6 +546,13 @@ function WeddingGallery({ isMobile }) {
 // ─── SERVICES ──────────────────────────────────────────────────────────────
 function ServicesSection({ onBook }) {
   const isMobile = useIsMobile();
+  const serviceImages = {
+    private: privateEventsPhoto,
+    wedding: weddingPhoto2,
+    corporate: mixerPhoto,
+    club: crowdPhoto,
+  };
+
   return (
     <section style={{ padding: isMobile ? "61px 16px" : "68px 16px" }}>
       <div style={{ maxWidth: "95vw", margin: "0 auto" }}>
@@ -459,9 +566,9 @@ function ServicesSection({ onBook }) {
           {SERVICES.map((s, i) => (
             <Reveal key={s.id} delay={i * 0.1}>
               <div onClick={() => onBook(s.id)} style={{ background: "rgba(245,235,210,0.08)", cursor: "pointer", transition: "all 0.3s", borderRadius: isMobile ? 4 : 0, border: "1px solid rgba(245,235,210,0.2)", overflow: "hidden" }} onMouseEnter={e => e.currentTarget.style.background = "rgba(245,235,210,0.14)"} onMouseLeave={e => e.currentTarget.style.background = "rgba(245,235,210,0.07)"}>
-                {/* Wedding photo gallery */}
-                {s.id === "wedding" && (
-                  <WeddingGallery isMobile={isMobile} />
+                {/* Service image */}
+                {serviceImages[s.id] && (
+                  <img src={serviceImages[s.id]} alt={s.title} style={{ width: "100%", height: isMobile ? 200 : 260, objectFit: "cover", objectPosition: "center", display: "block" }} />
                 )}
                 <div style={{ padding: isMobile ? "20px 16px" : "28px 32px" }}>
                   <div style={{ fontSize: 32, marginBottom: 10, color: "rgba(255,255,255,0.3)" }}>{s.icon}</div>
@@ -472,6 +579,55 @@ function ServicesSection({ onBook }) {
                     <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 12, color: "rgba(245,166,35,1)", letterSpacing: 2, fontWeight: 600 }}>ENQUIRE →</span>
                   </div>
                 </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── WEDDING EQUIPMENT & INCLUDES ──────────────────────────────────────────
+function WeddingEquipmentSection() {
+  const isMobile = useIsMobile();
+  const items = [
+    { img: djControllerImg, title: "Professional Decks & Controller", desc: "Industry-standard DJ equipment for seamless mixing" },
+    { img: speakersImg, title: "Premium PA System", desc: "Crystal-clear sound for your venue size" },
+    { img: microphoneImg, title: "Microphone Setup", desc: "For toasts, announcements, and special moments" },
+    { img: playlistImg, title: "Music Consultation", desc: "Personalized playlist planning with you and your partner" },
+  ];
+
+  return (
+    <section style={{ padding: isMobile ? "50px 16px" : "73px 16px", background: "rgba(255,255,255,0.03)" }}>
+      <div style={{ maxWidth: "95vw", margin: "0 auto" }}>
+        <Reveal>
+          <div style={{ marginBottom: 48 }}>
+            <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 25, letterSpacing: 4, color: "rgba(245,166,35,0.85)", marginBottom: 16 }}>WEDDINGS</div>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, color: "#ffffff", margin: "0 0 8px" }}>What's Included</h2>
+            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.6)", lineHeight: 1.7, maxWidth: 480 }}>Everything you need for a flawless celebration, so you don't have to think about it.</p>
+          </div>
+        </Reveal>
+        <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr 1fr" : "repeat(4, 1fr)", gap: isMobile ? 20 : 24 }}>
+          {items.map((item, i) => (
+            <Reveal key={i} delay={i * 0.1}>
+              <div style={{ textAlign: "center", transition: "all 0.3s", cursor: "pointer" }} onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-8px)"; }} onMouseLeave={e => { e.currentTarget.style.transform = "none"; }}>
+                {/* Circular image container */}
+                <div style={{
+                  width: isMobile ? 140 : 160,
+                  height: isMobile ? 140 : 160,
+                  borderRadius: "50%",
+                  overflow: "hidden",
+                  margin: "0 auto 20px",
+                  border: "3px solid rgba(245,166,35,0.3)",
+                  boxShadow: "0 8px 32px rgba(245,166,35,0.1), inset 0 0 20px rgba(0,0,0,0.3)",
+                  transition: "all 0.4s ease",
+                  position: "relative"
+                }} onMouseEnter={e => { e.currentTarget.style.boxShadow = "0 16px 48px rgba(245,166,35,0.25), inset 0 0 20px rgba(0,0,0,0.3)"; e.currentTarget.style.borderColor = "rgba(245,166,35,0.6)"; }} onMouseLeave={e => { e.currentTarget.style.boxShadow = "0 8px 32px rgba(245,166,35,0.1), inset 0 0 20px rgba(0,0,0,0.3)"; e.currentTarget.style.borderColor = "rgba(245,166,35,0.3)"; }}>
+                  <img src={item.img} alt={item.title} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} />
+                </div>
+                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 16, color: "#ffffff", margin: "0 0 8px", fontWeight: 400 }}>{item.title}</h3>
+                <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(255,255,255,0.65)", lineHeight: 1.6, margin: 0 }}>{item.desc}</p>
               </div>
             </Reveal>
           ))}
@@ -1057,6 +1213,7 @@ export default function App() {
             <AboutSection />
             <QuickNavSection onBook={goBook} setSection={setSection} />
             <MixesSection />
+            <WeddingEquipmentSection />
             <TestimonialsSection />
             <CrowdSection />
             <VenueLogosSection />
@@ -1075,7 +1232,7 @@ export default function App() {
         )}
 
         {section === "about" && (<><div style={{ paddingTop: 80 }} /><AboutSection /></>)}
-        {section === "services" && (<><div style={{ paddingTop: 80 }} /><ServicesSection onBook={goBook} /></>)}
+        {section === "services" && (<><div style={{ paddingTop: 80 }} /><ServicesSection onBook={goBook} /><WeddingProcessSection /><WeddingThemesSection /><WeddingEquipmentSection /></>)}
         {section === "faq" && (<><div style={{ paddingTop: 80 }} /><FAQSection /></>)}
         {section === "book" && (<><div style={{ paddingTop: 80 }} />{submitted ? <SuccessSection form={submitted} /> : <BookingSection prefill={bookPrefill} onSuccess={setSubmitted} onPrivacyClick={() => setShowPrivacy(true)} />}</>)}
         {section === "privacy" && (<><div style={{ paddingTop: 80 }} /><PrivacyPolicy /></>)}
