@@ -1,5 +1,6 @@
 /* eslint-disable */
 import { useState, useEffect, useRef } from "react";
+import { IMAGE_POSITIONS } from "./imageConfig";
 import logo from "./Assets/djappz-logo.png";
 import heroPhoto from "./Assets/djappz-bio.jpeg";
 import showreel from "./Assets/showreel-djappz.mp4";
@@ -583,12 +584,8 @@ function ImageAdjusterPanel({ serviceId, imagePositions, onAdjust }) {
 // ─── SERVICES ──────────────────────────────────────────────────────────────
 function ServicesSection({ onBook }) {
   const isMobile = useIsMobile();
-  const [imagePositions, setImagePositions] = useState({
-    private: { x: 50, y: 50, scale: 1 },
-    wedding: { x: 50, y: 50, scale: 1 },
-    corporate: { x: 50, y: 50, scale: 1 },
-    club: { x: 50, y: 50, scale: 1 },
-  });
+  const [imagePositions, setImagePositions] = useState(IMAGE_POSITIONS);
+  const [showConfig, setShowConfig] = useState(false);
 
   const serviceImages = {
     private: privateEventsPhoto,
@@ -607,7 +604,21 @@ function ServicesSection({ onBook }) {
         <Reveal>
           <div style={{ marginBottom: 48 }}>
             <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 25, letterSpacing: 4, color: "rgba(245,166,35,0.85)", marginBottom: 16 }}>SERVICES</div>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, color: "#ffffff", margin: 0 }}>What I Do</h2>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, color: "#ffffff", margin: "0 0 12px" }}>What I Do</h2>
+            {!isMobile && (
+              <button onClick={() => setShowConfig(!showConfig)} style={{ background: "none", border: "none", color: "rgba(245,166,35,0.7)", fontSize: 12, fontFamily: "'Outfit', sans-serif", letterSpacing: 1, cursor: "pointer", textDecoration: "underline" }}>
+                {showConfig ? "Hide" : "Show"} Config
+              </button>
+            )}
+            {showConfig && !isMobile && (
+              <div style={{ marginTop: 16, padding: "12px 16px", background: "rgba(245,166,35,0.08)", borderRadius: 4, border: "1px solid rgba(245,166,35,0.2)", fontFamily: "'Outfit', sans-serif", fontSize: 11, color: "rgba(255,255,255,0.7)", lineHeight: 1.8 }}>
+                <p style={{ margin: "0 0 8px", color: "rgba(245,166,35,0.9)" }}>📋 Current Image Positions (copy to imageConfig.js):</p>
+                <pre style={{ background: "rgba(0,0,0,0.3)", padding: "8px", borderRadius: 2, overflow: "auto", maxHeight: 200, margin: 0 }}>
+{JSON.stringify(imagePositions, null, 2)}
+                </pre>
+                <p style={{ margin: "8px 0 0", fontSize: 10, color: "rgba(255,255,255,0.5)" }}>Adjust sliders below, then copy these values to src/imageConfig.js</p>
+              </div>
+            )}
           </div>
         </Reveal>
         <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)", gap: isMobile ? 12 : 16, background: "transparent" }}>
