@@ -543,14 +543,62 @@ function WeddingGallery({ isMobile }) {
   );
 }
 
+// ─── IMAGE ADJUSTER PANEL ──────────────────────────────────────────────────
+function ImageAdjusterPanel({ serviceId, imagePositions, onAdjust }) {
+  const [showPanel, setShowPanel] = useState(false);
+  const positions = imagePositions[serviceId] || { x: 50, y: 50, scale: 1 };
+  const isMobile = useIsMobile();
+
+  const handleChange = (key, value) => {
+    onAdjust(serviceId, { ...positions, [key]: value });
+  };
+
+  if (isMobile) return null;
+
+  return (
+    <div style={{ marginTop: 12, padding: "12px", background: "rgba(245,166,35,0.08)", borderRadius: 4, border: "1px dashed rgba(245,166,35,0.3)" }}>
+      <button onClick={() => setShowPanel(!showPanel)} style={{ background: "none", border: "none", color: "rgba(245,166,35,0.8)", fontSize: 12, cursor: "pointer", fontFamily: "'Outfit', sans-serif", letterSpacing: 1, textTransform: "uppercase", width: "100%" }}>
+        {showPanel ? "▼" : "▶"} Image Adjuster
+      </button>
+      {showPanel && (
+        <div style={{ marginTop: 12, display: "flex", flexDirection: "column", gap: 10 }}>
+          <div>
+            <label style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, color: "rgba(255,255,255,0.6)", display: "block", marginBottom: 6 }}>X Position: {positions.x}%</label>
+            <input type="range" min="0" max="100" value={positions.x} onChange={(e) => handleChange("x", parseInt(e.target.value))} style={{ width: "100%", cursor: "pointer" }} />
+          </div>
+          <div>
+            <label style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, color: "rgba(255,255,255,0.6)", display: "block", marginBottom: 6 }}>Y Position: {positions.y}%</label>
+            <input type="range" min="0" max="100" value={positions.y} onChange={(e) => handleChange("y", parseInt(e.target.value))} style={{ width: "100%", cursor: "pointer" }} />
+          </div>
+          <div>
+            <label style={{ fontFamily: "'Outfit', sans-serif", fontSize: 11, color: "rgba(255,255,255,0.6)", display: "block", marginBottom: 6 }}>Scale: {(positions.scale * 100).toFixed(0)}%</label>
+            <input type="range" min="0.5" max="2" step="0.1" value={positions.scale} onChange={(e) => handleChange("scale", parseFloat(e.target.value))} style={{ width: "100%", cursor: "pointer" }} />
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ─── SERVICES ──────────────────────────────────────────────────────────────
 function ServicesSection({ onBook }) {
   const isMobile = useIsMobile();
+  const [imagePositions, setImagePositions] = useState({
+    private: { x: 50, y: 50, scale: 1 },
+    wedding: { x: 50, y: 50, scale: 1 },
+    corporate: { x: 50, y: 50, scale: 1 },
+    club: { x: 50, y: 50, scale: 1 },
+  });
+
   const serviceImages = {
     private: privateEventsPhoto,
     wedding: weddingPhoto2,
     corporate: mixerPhoto,
     club: crowdPhoto,
+  };
+
+  const handleAdjust = (serviceId, newPositions) => {
+    setImagePositions(prev => ({ ...prev, [serviceId]: newPositions }));
   };
 
   return (
@@ -563,12 +611,14 @@ function ServicesSection({ onBook }) {
           </div>
         </Reveal>
         <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)", gap: isMobile ? 12 : 16, background: "transparent" }}>
-          {SERVICES.map((s, i) => (
+          {SERVICES.map((s, i) => {
+            const pos = imagePositions[s.id] || { x: 50, y: 50, scale: 1 };
+            return (
             <Reveal key={s.id} delay={i * 0.1}>
-              <div onClick={() => onBook(s.id)} style={{ background: "rgba(245,235,210,0.08)", cursor: "pointer", transition: "all 0.3s", borderRadius: isMobile ? 4 : 0, border: "1px solid rgba(245,235,210,0.2)", overflow: "hidden" }} onMouseEnter={e => e.currentTarget.style.background = "rgba(245,235,210,0.14)"} onMouseLeave={e => e.currentTarget.style.background = "rgba(245,235,210,0.07)"}>
-                {/* Service image */}
+              <div style={{ background: "rgba(245,235,210,0.08)", cursor: "pointer", transition: "all 0.3s", borderRadius: isMobile ? 4 : 0, border: "1px solid rgba(245,235,210,0.2)", overflow: "hidden" }} onMouseEnter={e => e.currentTarget.style.background = "rgba(245,235,210,0.14)"} onMouseLeave={e => e.currentTarget.style.background = "rgba(245,235,210,0.07)"}>
+                {/* Service image with adjustable positioning */}
                 {serviceImages[s.id] && (
-                  <img src={serviceImages[s.id]} alt={s.title} style={{ width: "100%", height: isMobile ? 200 : 260, objectFit: "cover", objectPosition: "center", display: "block" }} />
+                  <img src={serviceImages[s.id]} alt={s.title} style={{ width: "100%", height: isMobile ? 200 : 260, objectFit: "cover", objectPosition: `${pos.x}% ${pos.y}%`, transform: `scale(${pos.scale})`, display: "block", transformOrigin: `${pos.x}% ${pos.y}%` }} />
                 )}
                 <div style={{ padding: isMobile ? "20px 16px" : "28px 32px" }}>
                   <div style={{ fontSize: 32, marginBottom: 10, color: "rgba(255,255,255,0.3)" }}>{s.icon}</div>
@@ -576,12 +626,14 @@ function ServicesSection({ onBook }) {
                   <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 15, color: "rgba(240,230,200,0.8)", letterSpacing: 0.5, margin: "0 0 20px" }}>{s.sub}</p>
                   <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                     <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14, color: "rgba(245,166,35,1)", letterSpacing: 1 }}>{s.price}</span>
-                    <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 12, color: "rgba(245,166,35,1)", letterSpacing: 2, fontWeight: 600 }}>ENQUIRE →</span>
+                    <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 12, color: "rgba(245,166,35,1)", letterSpacing: 2, fontWeight: 600 }} onClick={() => onBook(s.id)}>ENQUIRE →</span>
                   </div>
+                  {!isMobile && <ImageAdjusterPanel serviceId={s.id} imagePositions={imagePositions} onAdjust={handleAdjust} />}
                 </div>
               </div>
             </Reveal>
-          ))}
+          );
+          })}
         </div>
       </div>
     </section>
