@@ -301,9 +301,9 @@ function HeroSection() {
       <section style={{
         marginTop: 60,
         width: "100%",
-        height: "70vh",
+        height: "85vh",
         overflow: "hidden",
-        background: "#f5f5f5",
+        background: "#ffffff",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -314,10 +314,8 @@ function HeroSection() {
           style={{
             width: "100%",
             height: "100%",
-            objectFit: "contain",
-            objectPosition: `${heroConfig.x}% ${heroConfig.y}%`,
-            transform: `scale(${heroConfig.scale})`,
-            transformOrigin: "center",
+            objectFit: "cover",
+            objectPosition: "center 50%",
           }}
         />
       </section>
