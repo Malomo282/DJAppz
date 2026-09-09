@@ -6,8 +6,8 @@
 
 export const HERO_IMAGE_CONFIG = {
   x: 50,      // Horizontal position (0-100%)
-  y: 30,      // Vertical position - slightly towards top (0-100%)
-  scale: 1,   // Zoom level (0.8-2)
+  y: 50,      // Vertical position - centered (0-100%)
+  scale: 1,   // Zoom level (0.8-2) - at 100% to show full image
 };
 
 // Quick adjustment guide:

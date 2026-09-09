@@ -301,21 +301,22 @@ function HeroSection() {
       <section style={{
         marginTop: 60,
         width: "100%",
-        height: "85vh",
-        overflow: "hidden",
+        minHeight: "100vh",
         background: "#ffffff",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        padding: "40px 0",
       }}>
         <img
           src={streetPhoto}
           alt="DJ Appz"
           style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            objectPosition: "center 50%",
+            maxWidth: "100%",
+            maxHeight: "100%",
+            width: "auto",
+            height: "auto",
+            display: "block",
           }}
         />
       </section>
