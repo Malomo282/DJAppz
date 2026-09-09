@@ -5,7 +5,7 @@ import logo from "./Assets/djappz-logo.png";
 import heroPhoto from "./Assets/djappz-bio.jpeg";
 import showreel from "./Assets/showreel-djappz.mp4";
 import mixerPhoto from "./Assets/djappz-photo.jpg";
-import streetPhoto from "./Assets/djappz-mixer.jpeg";
+import streetPhoto from "./Assets/djappz-private.jpeg";
 import weddingPhoto2 from "./Assets/djappz-wedding2.jpg";
 import weddingDance2 from "./Assets/WeddingDance2 (2).jpg";
 import privateEventsPhoto from "./Assets/djappz-private.jpeg";
