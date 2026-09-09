@@ -216,7 +216,7 @@ function HeroImageAdjuster({ config, setConfig, isMobile }) {
 
       <div style={{ marginBottom: 12 }}>
         <label style={{ display: "block", marginBottom: 6, fontSize: 11, fontWeight: 500 }}>
-          Scale: {(config.scale * 100).toFixed(0)}%
+          Zoom: {(config.scale * 100).toFixed(0)}%
         </label>
         <input
           type="range"
