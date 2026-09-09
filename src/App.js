@@ -464,6 +464,92 @@ function ServicesSection() {
   );
 }
 
+// ─── CAMPAIGNS & PROMOS SECTION ───────────────────────────────────────────
+function CampaignsSection() {
+  const isMobile = useIsMobile();
+  const videos = [
+    { id: "C8qxf_vxz8A", title: "Promo 1", type: "short" },
+    { id: "OOB4K2lTrxQ", title: "Promo 2", type: "short" },
+    { id: "tcQXc_Lp8yE", title: "Full Performance", type: "video" },
+  ];
+
+  return (
+    <section style={{
+      padding: isMobile ? "60px 24px" : "100px 60px",
+      background: "#f9f9f9",
+    }}>
+      <Reveal>
+        <div style={{ maxWidth: 1000, margin: "0 auto" }}>
+          <h2 style={{
+            fontSize: isMobile ? 28 : 42,
+            fontWeight: 400,
+            letterSpacing: 1.5,
+            marginBottom: 50,
+            color: "#000000",
+            fontFamily: "'Playfair Display', serif",
+          }}>
+            Campaigns & Promos
+          </h2>
+
+          <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)", gap: isMobile ? 20 : 30 }}>
+            {videos.map((video, i) => (
+              <Reveal key={video.id} delay={i * 0.1}>
+                <div style={{ position: "relative", paddingBottom: "100%", height: 0, overflow: "hidden", borderRadius: 4, background: "#000" }}>
+                  <iframe
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      width: "100%",
+                      height: "100%",
+                      border: "none",
+                      borderRadius: 4,
+                    }}
+                    src={`https://www.youtube.com/embed/${video.id}`}
+                    title={video.title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+                <p style={{
+                  fontSize: 14,
+                  color: "rgba(0,0,0,0.6)",
+                  marginTop: 12,
+                  fontFamily: "'Inter', sans-serif",
+                  textAlign: "center",
+                }}>
+                  {video.title}
+                </p>
+              </Reveal>
+            ))}
+          </div>
+
+          <div style={{ marginTop: 40, textAlign: "center" }}>
+            <a
+              href="https://www.youtube.com/@DJAppz"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-block",
+                fontSize: 14,
+                color: "#000000",
+                textDecoration: "none",
+                borderBottom: "1px solid #000000",
+                paddingBottom: 4,
+                fontFamily: "'Inter', sans-serif",
+                letterSpacing: 0.5,
+                fontWeight: 500,
+              }}
+            >
+              Subscribe on YouTube →
+            </a>
+          </div>
+        </div>
+      </Reveal>
+    </section>
+  );
+}
+
 // ─── FEATURED PROJECTS SECTION ────────────────────────────────────────────
 function FeaturedSection() {
   const isMobile = useIsMobile();
@@ -798,6 +884,7 @@ export default function App() {
       <HeroSection />
       <AboutSection />
       <ServicesSection />
+      <CampaignsSection />
       <FeaturedSection />
       <TestimonialsSection />
       <ContactSection />
