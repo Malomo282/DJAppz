@@ -1,5 +1,6 @@
 /* eslint-disable */
 import { useState, useEffect, useRef } from "react";
+import { HERO_IMAGE_CONFIG } from "./heroImageConfig";
 import logo from "./Assets/djappz-logo.png";
 import heroPhoto from "./Assets/djappz-bio.jpeg";
 import showreel from "./Assets/showreel-djappz.mp4";
@@ -162,30 +163,166 @@ function NavBar() {
   );
 }
 
+// ─── HERO IMAGE ADJUSTER ──────────────────────────────────────────────────
+function HeroImageAdjuster({ config, setConfig, isMobile }) {
+  const [showConfig, setShowConfig] = useState(false);
+
+  if (isMobile) return null;
+
+  return (
+    <div style={{
+      position: "fixed",
+      bottom: 20,
+      right: 20,
+      zIndex: 50,
+      background: "#ffffff",
+      border: "1px solid rgba(0,0,0,0.2)",
+      borderRadius: 8,
+      padding: 16,
+      maxWidth: 300,
+      boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+      fontFamily: "'Inter', sans-serif",
+      fontSize: 12,
+    }}>
+      <h4 style={{ margin: "0 0 12px", fontSize: 13, fontWeight: 600 }}>Hero Adjuster</h4>
+
+      <div style={{ marginBottom: 12 }}>
+        <label style={{ display: "block", marginBottom: 6, fontSize: 11, fontWeight: 500 }}>
+          X Position: {Math.round(config.x)}%
+        </label>
+        <input
+          type="range"
+          min="0"
+          max="100"
+          value={config.x}
+          onChange={(e) => setConfig({ ...config, x: parseFloat(e.target.value) })}
+          style={{ width: "100%", cursor: "pointer" }}
+        />
+      </div>
+
+      <div style={{ marginBottom: 12 }}>
+        <label style={{ display: "block", marginBottom: 6, fontSize: 11, fontWeight: 500 }}>
+          Y Position: {Math.round(config.y)}%
+        </label>
+        <input
+          type="range"
+          min="0"
+          max="100"
+          value={config.y}
+          onChange={(e) => setConfig({ ...config, y: parseFloat(e.target.value) })}
+          style={{ width: "100%", cursor: "pointer" }}
+        />
+      </div>
+
+      <div style={{ marginBottom: 12 }}>
+        <label style={{ display: "block", marginBottom: 6, fontSize: 11, fontWeight: 500 }}>
+          Scale: {(config.scale * 100).toFixed(0)}%
+        </label>
+        <input
+          type="range"
+          min="0.5"
+          max="2"
+          step="0.05"
+          value={config.scale}
+          onChange={(e) => setConfig({ ...config, scale: parseFloat(e.target.value) })}
+          style={{ width: "100%", cursor: "pointer" }}
+        />
+      </div>
+
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
+        <button
+          onClick={() => setShowConfig(!showConfig)}
+          style={{
+            padding: "8px 12px",
+            background: "#000",
+            color: "#fff",
+            border: "none",
+            borderRadius: 4,
+            cursor: "pointer",
+            fontSize: 11,
+            fontWeight: 500,
+          }}
+        >
+          {showConfig ? "Hide" : "Show"}
+        </button>
+        <button
+          onClick={() => {
+            const configText = `export const HERO_IMAGE_CONFIG = {\n  x: ${config.x},\n  y: ${config.y},\n  scale: ${config.scale},\n};`;
+            navigator.clipboard.writeText(configText);
+            alert("Config copied to clipboard!");
+          }}
+          style={{
+            padding: "8px 12px",
+            background: "#333",
+            color: "#fff",
+            border: "none",
+            borderRadius: 4,
+            cursor: "pointer",
+            fontSize: 11,
+            fontWeight: 500,
+          }}
+        >
+          Copy
+        </button>
+      </div>
+
+      {showConfig && (
+        <div style={{
+          marginTop: 12,
+          padding: 10,
+          background: "#f5f5f5",
+          borderRadius: 4,
+          fontSize: 10,
+          fontFamily: "'Monaco', monospace",
+          color: "#000",
+          overflow: "auto",
+          maxHeight: 120,
+        }}>
+          <pre style={{ margin: 0, whiteSpace: "pre-wrap", wordBreak: "break-all" }}>
+{`export const HERO_IMAGE_CONFIG = {
+  x: ${config.x},
+  y: ${config.y},
+  scale: ${config.scale},
+};`}
+          </pre>
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ─── HERO SECTION ──────────────────────────────────────────────────────────
 function HeroSection() {
+  const [heroConfig, setHeroConfig] = useState(HERO_IMAGE_CONFIG);
+  const isMobile = useIsMobile();
+
   return (
-    <section style={{
-      marginTop: 60,
-      width: "100%",
-      height: "70vh",
-      overflow: "hidden",
-      background: "#f5f5f5",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-    }}>
-      <img
-        src={streetPhoto}
-        alt="DJ Appz"
-        style={{
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          objectPosition: "center 30%",
-        }}
-      />
-    </section>
+    <>
+      <section style={{
+        marginTop: 60,
+        width: "100%",
+        height: "70vh",
+        overflow: "hidden",
+        background: "#f5f5f5",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}>
+        <img
+          src={streetPhoto}
+          alt="DJ Appz"
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: `${heroConfig.x}% ${heroConfig.y}%`,
+            transform: `scale(${heroConfig.scale})`,
+            transformOrigin: "center",
+          }}
+        />
+      </section>
+      <HeroImageAdjuster config={heroConfig} setConfig={setHeroConfig} isMobile={isMobile} />
+    </>
   );
 }
 
