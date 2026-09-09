@@ -571,7 +571,7 @@ function FeaturedSection() {
             Featured Mixes
           </h2>
 
-          <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: 40 }}>
+          <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)", gap: 40 }}>
             <Reveal delay={0.1}>
               <div>
                 <h3 style={{
@@ -626,6 +626,52 @@ function FeaturedSection() {
                   fontFamily: "'Inter', sans-serif",
                 }}>
                   Dynamic mix showcasing the energy and rhythm of Dancehall and Hip-Hop culture.
+                </p>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.3}>
+              <div>
+                <div style={{ position: "relative", paddingBottom: "100%", height: 0, overflow: "hidden", borderRadius: 4, background: "#000", marginBottom: 16 }}>
+                  <iframe
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      width: "100%",
+                      height: "100%",
+                      border: "none",
+                      borderRadius: 4,
+                    }}
+                    src="https://www.youtube.com/embed/NSBkVLI4-n4"
+                    title="DJ Appz Mix"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+                <h3 style={{
+                  fontSize: 18,
+                  fontWeight: 500,
+                  marginBottom: 8,
+                  color: "#000000",
+                  fontFamily: "'Inter', sans-serif",
+                }}>
+                  DJ Appz - YouTube Mix
+                </h3>
+                <p style={{
+                  fontSize: 14,
+                  color: "rgba(0,0,0,0.6)",
+                  marginBottom: 16,
+                  fontFamily: "'Inter', sans-serif",
+                }}>
+                  Full Mix Set
+                </p>
+                <p style={{
+                  fontSize: 13,
+                  color: "rgba(0,0,0,0.5)",
+                  fontFamily: "'Inter', sans-serif",
+                }}>
+                  High-energy performance showcasing the versatility and artistry of DJ Appz.
                 </p>
               </div>
             </Reveal>
