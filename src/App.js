@@ -372,13 +372,20 @@ function AboutSection() {
 // ─── SERVICES SECTION ─────────────────────────────────────────────────────
 function ServicesSection() {
   const isMobile = useIsMobile();
+  const serviceImages = {
+    private: privateEventsPhoto,
+    wedding: weddingPhoto2,
+    corporate: mixerPhoto,
+    guest: crowdPhoto,
+  };
+
   return (
     <section style={{
       padding: isMobile ? "60px 24px" : "100px 60px",
       background: "#ffffff",
     }}>
       <Reveal>
-        <div style={{ maxWidth: 900, margin: "0 auto" }}>
+        <div style={{ maxWidth: 1000, margin: "0 auto" }}>
           <h2 style={{
             fontSize: isMobile ? 28 : 42,
             fontWeight: 400,
@@ -393,7 +400,30 @@ function ServicesSection() {
           <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: isMobile ? 40 : 60 }}>
             {SERVICES.map((service, i) => (
               <Reveal key={service.id} delay={i * 0.1}>
-                <div>
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+                  <div style={{
+                    width: 200,
+                    height: 200,
+                    borderRadius: "50%",
+                    overflow: "hidden",
+                    marginBottom: 30,
+                    border: "2px solid rgba(0,171,228,0.3)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    background: "#f5f5f5",
+                  }}>
+                    <img
+                      src={serviceImages[service.id]}
+                      alt={service.title}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        objectPosition: "center",
+                      }}
+                    />
+                  </div>
                   <h3 style={{
                     fontSize: isMobile ? 18 : 22,
                     fontWeight: 500,
@@ -401,6 +431,7 @@ function ServicesSection() {
                     color: "#000000",
                     fontFamily: "'Inter', sans-serif",
                     letterSpacing: 0.5,
+                    textAlign: "center",
                   }}>
                     {service.title}
                   </h3>
@@ -410,6 +441,7 @@ function ServicesSection() {
                     color: "rgba(0,0,0,0.7)",
                     marginBottom: 16,
                     fontFamily: "'Inter', sans-serif",
+                    textAlign: "center",
                   }}>
                     {service.desc}
                   </p>
@@ -418,6 +450,7 @@ function ServicesSection() {
                     color: "rgba(0,0,0,0.5)",
                     fontFamily: "'Inter', sans-serif",
                     letterSpacing: 0.5,
+                    textAlign: "center",
                   }}>
                     {service.price}
                   </p>
