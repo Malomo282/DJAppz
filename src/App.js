@@ -573,16 +573,25 @@ function FeaturedSection() {
                 <h3 style={{
                   fontSize: 18,
                   fontWeight: 500,
-                  marginBottom: 8,
+                  marginBottom: 12,
                   color: "#000000",
                   fontFamily: "'Inter', sans-serif",
                 }}>
                   Retune Episode 3
                 </h3>
+                <div style={{ marginBottom: 16, borderRadius: 4, overflow: "hidden" }}>
+                  <iframe
+                    width="100%"
+                    height="180"
+                    src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&light=1&feed=%2FDJAppz%2Fretune-episode-3-rnb-hip-hop-90s-2000s%2F"
+                    frameBorder="0"
+                    style={{ display: "block" }}
+                  />
+                </div>
                 <p style={{
                   fontSize: 14,
                   color: "rgba(0,0,0,0.6)",
-                  marginBottom: 16,
+                  marginBottom: 8,
                   fontFamily: "'Inter', sans-serif",
                 }}>
                   R&B · Hip-Hop · 90s & 2000s
@@ -602,16 +611,25 @@ function FeaturedSection() {
                 <h3 style={{
                   fontSize: 18,
                   fontWeight: 500,
-                  marginBottom: 8,
+                  marginBottom: 12,
                   color: "#000000",
                   fontFamily: "'Inter', sans-serif",
                 }}>
                   Retune — Brixton Radio
                 </h3>
+                <div style={{ marginBottom: 16, borderRadius: 4, overflow: "hidden" }}>
+                  <iframe
+                    width="100%"
+                    height="180"
+                    src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&light=1&feed=%2Fbrixtonradiolive%2Fretune-271225%2F"
+                    frameBorder="0"
+                    style={{ display: "block" }}
+                  />
+                </div>
                 <p style={{
                   fontSize: 14,
                   color: "rgba(0,0,0,0.6)",
-                  marginBottom: 16,
+                  marginBottom: 8,
                   fontFamily: "'Inter', sans-serif",
                 }}>
                   Dancehall · Hip-Hop
