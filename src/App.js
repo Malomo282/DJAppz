@@ -522,7 +522,7 @@ function CampaignsSection() {
 
           <div style={{ marginTop: 40, textAlign: "center" }}>
             <a
-              href="https://www.youtube.com/@DJAppz"
+              href="https://www.youtube.com/@djappz121"
               target="_blank"
               rel="noopener noreferrer"
               style={{
