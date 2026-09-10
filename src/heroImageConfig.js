@@ -6,8 +6,8 @@
 
 export const HERO_IMAGE_CONFIG = {
   x: 50,      // Horizontal position (0-100%)
-  y: 60,      // Vertical position - lower focal point (0-100%)
-  scale: 0.8, // Zoom level - reduced by 20% for wider view
+  y: 65,      // Vertical position - lower focal point (0-100%)
+  scale: 0.64, // Zoom level - zoomed out 20% more
 };
 
 // Quick adjustment guide:
