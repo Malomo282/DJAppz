@@ -6,8 +6,8 @@
 
 export const HERO_IMAGE_CONFIG = {
   x: 50,      // Horizontal position (0-100%)
-  y: 65,      // Vertical position - lower focal point (0-100%)
-  scale: 0.64, // Zoom level - zoomed out 20% more
+  y: 50,      // Vertical position - centered (0-100%)
+  scale: 1.2, // Zoom level - zoomed in to show DJ prominently
 };
 
 // Quick adjustment guide:
