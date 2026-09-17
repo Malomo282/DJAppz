@@ -422,7 +422,7 @@ function FeaturedSection() {
   const isMobile = useIsMobile();
   return (
     <section style={{
-      padding: isMobile ? "60px 24px" : "100px 60px",
+      padding: isMobile ? "60px 24px" : "60px 60px",
       background: "#f9f9f9",
     }}>
       <Reveal>
@@ -438,7 +438,7 @@ function FeaturedSection() {
             Featured Mixes
           </h2>
 
-          <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)", gap: 40 }}>
+          <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)", gap: isMobile ? 30 : 60 }}>
             <Reveal delay={0.1}>
               <div>
                 <h3 style={{
@@ -453,7 +453,7 @@ function FeaturedSection() {
                 <div style={{ marginBottom: 16, borderRadius: 4, overflow: "hidden" }}>
                   <iframe
                     width="100%"
-                    height="180"
+                    height="220"
                     src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&light=1&feed=%2FDJAppz%2Fretune-episode-3-rnb-hip-hop-90s-2000s%2F"
                     frameBorder="0"
                     style={{ display: "block" }}
@@ -491,7 +491,7 @@ function FeaturedSection() {
                 <div style={{ marginBottom: 16, borderRadius: 4, overflow: "hidden" }}>
                   <iframe
                     width="100%"
-                    height="180"
+                    height="220"
                     src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&light=1&feed=%2Fbrixtonradiolive%2Fretune-271225%2F"
                     frameBorder="0"
                     style={{ display: "block" }}
