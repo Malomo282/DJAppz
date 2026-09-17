@@ -191,9 +191,7 @@ function HeroSection() {
         style={{
           width: "100%",
           height: "100%",
-          objectFit: "contain",
-          objectPosition: "center",
-          transform: `scale(${HERO_IMAGE_CONFIG.scale})`,
+          objectFit: "fill",
           display: "block",
         }}
       />
