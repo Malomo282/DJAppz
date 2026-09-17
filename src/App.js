@@ -185,7 +185,7 @@ function HeroSection() {
       background: "#000000",
     }}>
       <img
-        src={streetPhoto}
+        src={mixerPhoto}
         alt="DJ Appz"
         style={{
           width: "100%",
