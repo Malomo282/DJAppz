@@ -159,10 +159,10 @@ function NavBar() {
       background: "#ffffff",
       borderBottom: "1px solid rgba(0,0,0,0.05)",
     }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+      <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }} style={{ display: "flex", alignItems: "center", gap: 8, cursor: "pointer", textDecoration: "none" }}>
         <img src={logo} alt="DJ Appz" style={{ height: 28, objectFit: "contain" }} />
         <span style={{ fontSize: 14, fontWeight: 600, color: "#000", letterSpacing: 1 }}>DJ APPZ</span>
-      </div>
+      </a>
       <div style={{ display: "flex", alignItems: "center", gap: 32 }}>
         <a href="#contact" style={{ fontSize: 13, color: "#000", textDecoration: "none", fontWeight: 500, letterSpacing: 0.5 }}>Contact</a>
         <a href="https://instagram.com/djappz" target="_blank" rel="noopener noreferrer" style={{ fontSize: 18, color: "#000", textDecoration: "none" }}>↗</a>
