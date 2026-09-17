@@ -191,8 +191,8 @@ function HeroSection() {
         style={{
           width: "100%",
           height: "100%",
-          objectFit: "cover",
-          objectPosition: `${HERO_IMAGE_CONFIG.x}% ${HERO_IMAGE_CONFIG.y}%`,
+          objectFit: "contain",
+          objectPosition: "center",
           transform: `scale(${HERO_IMAGE_CONFIG.scale})`,
           display: "block",
         }}
