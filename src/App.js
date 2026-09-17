@@ -217,6 +217,7 @@ function AboutSection() {
             letterSpacing: 1.5,
             marginBottom: 30,
             fontFamily: "'Playfair Display', serif",
+            marginTop: 0,
           }}>
             About DJ Appz
           </h2>
@@ -228,14 +229,6 @@ function AboutSection() {
             fontFamily: "'Inter', sans-serif",
           }}>
             {DJ.bio}
-          </p>
-          <p style={{
-            fontSize: isMobile ? 13 : 16,
-            lineHeight: 1.8,
-            color: "rgba(255,255,255,0.7)",
-            fontFamily: "'Inter', sans-serif",
-          }}>
-            Playing at London's top venues including Boxpark, Dirty Martini, and Lightbox Vauxhall, DJ Appz brings infectious energy and professional expertise to every gig. Whether it's a private celebration, corporate event, wedding, or guest set — the mission is always the same: read the room, build the atmosphere, deliver the vibe.
           </p>
         </div>
       </Reveal>
@@ -830,6 +823,187 @@ function TestimonialsSection() {
 }
 
 // ─── CONTACT SECTION ───────────────────────────────────────────────────────
+function CustomDropdown({ value, onChange, options, placeholder, name }) {
+  const [open, setOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setOpen(false);
+      }
+    };
+    if (open) document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, [open]);
+
+  return (
+    <div ref={dropdownRef} style={{ position: "relative" }}>
+      <div
+        onClick={() => setOpen(!open)}
+        style={{
+          padding: "12px 16px",
+          border: "1px solid rgba(255,255,255,0.2)",
+          background: "rgba(255,255,255,0.05)",
+          color: value ? "#ffffff" : "rgba(255,255,255,0.5)",
+          fontSize: 14,
+          fontFamily: "'Inter', sans-serif",
+          cursor: "pointer",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <span>{value || placeholder}</span>
+        <span style={{ transform: open ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.2s" }}>▼</span>
+      </div>
+      {open && (
+        <div style={{
+          position: "absolute",
+          top: "100%",
+          left: 0,
+          right: 0,
+          background: "#ffffff",
+          border: "1px solid rgba(0,0,0,0.2)",
+          borderTop: "none",
+          zIndex: 9999,
+          maxHeight: "200px",
+          overflowY: "auto",
+          boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
+          pointerEvents: "auto",
+          opacity: 1,
+        }}>
+          {options.map(opt => (
+            <div
+              key={opt.value}
+              onClick={() => { onChange({ target: { name, value: opt.value } }); setOpen(false); }}
+              style={{
+                padding: "12px 16px",
+                color: "#000000",
+                cursor: "pointer",
+                backgroundColor: value === opt.value ? "#e8e8e8" : "transparent",
+                transition: "backgroundColor 0.15s",
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f0f0f0"}
+              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = value === opt.value ? "#e8e8e8" : "transparent"}
+            >
+              {opt.label}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function DatePicker({ value, onChange, name }) {
+  const [open, setOpen] = useState(false);
+  const [month, setMonth] = useState(() => {
+    if (value) {
+      const [day, m, year] = value.split("/");
+      return new Date(year, parseInt(m) - 1);
+    }
+    return new Date();
+  });
+  const dateRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dateRef.current && !dateRef.current.contains(e.target)) {
+        setOpen(false);
+      }
+    };
+    if (open) document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, [open]);
+
+  const getDaysInMonth = (date) => new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+  const getFirstDayOfMonth = (date) => new Date(date.getFullYear(), date.getMonth(), 1).getDay();
+
+  const handleDateSelect = (day) => {
+    const year = month.getFullYear();
+    const m = String(month.getMonth() + 1).padStart(2, "0");
+    const d = String(day).padStart(2, "0");
+    onChange({ target: { name, value: `${d}/${m}/${year}` } });
+    setOpen(false);
+  };
+
+  const days = Array.from({ length: getDaysInMonth(month) }, (_, i) => i + 1);
+  const firstDay = getFirstDayOfMonth(month);
+  const blanks = Array.from({ length: firstDay }, (_, i) => i);
+  const monthName = month.toLocaleString("default", { month: "long", year: "numeric" });
+
+  return (
+    <div ref={dateRef} style={{ position: "relative" }}>
+      <input
+        type="text"
+        value={value}
+        placeholder="dd/mm/yyyy"
+        readOnly
+        onClick={() => setOpen(!open)}
+        style={{
+          padding: "12px 16px",
+          border: "1px solid rgba(255,255,255,0.2)",
+          background: "rgba(255,255,255,0.05)",
+          color: "#ffffff",
+          fontSize: 14,
+          fontFamily: "'Inter', sans-serif",
+          cursor: "pointer",
+          width: "100%",
+          boxSizing: "border-box",
+        }}
+      />
+      {open && (
+        <div style={{
+          position: "absolute",
+          top: "100%",
+          left: 0,
+          right: 0,
+          background: "#ffffff",
+          border: "1px solid rgba(0,0,0,0.2)",
+          borderTop: "none",
+          zIndex: 1000,
+          padding: "16px",
+          marginTop: "2px",
+          boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
+        }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
+            <button onClick={() => setMonth(new Date(month.getFullYear(), month.getMonth() - 1))} style={{ background: "none", border: "none", cursor: "pointer", fontSize: "16px" }}>◀</button>
+            <span style={{ color: "#000", fontSize: "14px", fontWeight: "600" }}>{monthName}</span>
+            <button onClick={() => setMonth(new Date(month.getFullYear(), month.getMonth() + 1))} style={{ background: "none", border: "none", cursor: "pointer", fontSize: "16px" }}>▶</button>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: "4px", marginBottom: "8px" }}>
+            {["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"].map(d => (
+              <div key={d} style={{ textAlign: "center", color: "#999", fontSize: "12px", fontWeight: "600", padding: "4px" }}>{d}</div>
+            ))}
+            {blanks.map(i => <div key={`blank-${i}`} style={{ padding: "4px" }}></div>)}
+            {days.map(day => (
+              <button
+                key={day}
+                onClick={() => handleDateSelect(day)}
+                style={{
+                  padding: "8px",
+                  border: value && value.startsWith(String(day).padStart(2, "0")) ? "2px solid #00ABE4" : "1px solid #ddd",
+                  background: value && value.startsWith(String(day).padStart(2, "0")) ? "#e8f5ff" : "#fff",
+                  color: "#000",
+                  cursor: "pointer",
+                  fontSize: "12px",
+                  borderRadius: "4px",
+                  transition: "all 0.2s",
+                }}
+                onMouseEnter={(e) => e.target.style.background = "#f0f0f0"}
+                onMouseLeave={(e) => e.target.style.background = value && value.startsWith(String(day).padStart(2, "0")) ? "#e8f5ff" : "#fff"}
+              >
+                {day}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 function ContactSection() {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", eventType: "", date: "", venue: "", guests: "", budget: "", notes: "" });
   const [submitted, setSubmitted] = useState(false);
@@ -906,39 +1080,22 @@ function ContactSection() {
                 fontFamily: "'Inter', sans-serif",
               }}
             />
-            <select
+            <CustomDropdown
               name="eventType"
               value={formData.eventType}
               onChange={handleChange}
-              required
-              style={{
-                padding: "12px 16px",
-                border: "1px solid rgba(255,255,255,0.2)",
-                background: "rgba(255,255,255,0.05)",
-                color: formData.eventType ? "#ffffff" : "rgba(255,255,255,0.5)",
-                fontSize: 14,
-                fontFamily: "'Inter', sans-serif",
-              }}
-            >
-              <option value="">Event Type</option>
-              <option value="Private Event">Private Event</option>
-              <option value="Wedding">Wedding</option>
-              <option value="Corporate">Corporate</option>
-              <option value="Guest Set">Guest Set</option>
-            </select>
-            <input
-              type="date"
+              placeholder="Event Type"
+              options={[
+                { value: "Private Event", label: "Private Event" },
+                { value: "Wedding", label: "Wedding" },
+                { value: "Corporate", label: "Corporate" },
+                { value: "Guest Set", label: "Guest Set" },
+              ]}
+            />
+            <DatePicker
               name="date"
               value={formData.date}
               onChange={handleChange}
-              style={{
-                padding: "12px 16px",
-                border: "1px solid rgba(255,255,255,0.2)",
-                background: "rgba(255,255,255,0.05)",
-                color: "#ffffff",
-                fontSize: 14,
-                fontFamily: "'Inter', sans-serif",
-              }}
             />
             <textarea
               name="notes"
