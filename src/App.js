@@ -235,7 +235,7 @@ function AboutSection() {
             color: "rgba(255,255,255,0.7)",
             fontFamily: "'Inter', sans-serif",
           }}>
-            From Ibiza to UK venues including Boxpark, Dirty Martini, and Lightbox Vauxhall, DJ Appz brings infectious energy and professional expertise to every gig. Whether it's a private celebration, corporate event, wedding, or international guest set — the mission is always the same: read the room, build the atmosphere, deliver the vibe.
+            Playing at London's top venues including Boxpark, Dirty Martini, and Lightbox Vauxhall, DJ Appz brings infectious energy and professional expertise to every gig. Whether it's a private celebration, corporate event, wedding, or guest set — the mission is always the same: read the room, build the atmosphere, deliver the vibe.
           </p>
         </div>
       </Reveal>
