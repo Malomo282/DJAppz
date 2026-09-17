@@ -184,15 +184,36 @@ function HeroSection() {
       height: "72vh",
       overflow: "hidden",
       background: "#000000",
+      position: "relative",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
     }}>
+      {/* Blurred background */}
+      <div style={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        backgroundImage: `url(${heroImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        filter: "blur(40px)",
+        zIndex: 1,
+      }} />
+      {/* Main image on top */}
       <img
         src={heroImage}
         alt="DJ Appz"
         style={{
           width: "100%",
           height: "100%",
-          objectFit: "fill",
+          objectFit: "contain",
+          objectPosition: "center",
           display: "block",
+          position: "relative",
+          zIndex: 2,
         }}
       />
     </section>
