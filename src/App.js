@@ -742,8 +742,8 @@ function TestimonialsSection() {
   return (
     <section style={{
       padding: isMobile ? "80px 24px" : "120px 60px",
-      background: "linear-gradient(135deg, #0d0d0d 0%, #1a1a2e 50%, #16213e 100%)",
-      color: "#ffffff",
+      background: "#ffffff",
+      color: "#000000",
       position: "relative",
       overflow: "hidden",
     }}>
@@ -755,7 +755,7 @@ function TestimonialsSection() {
               fontSize: isMobile ? 32 : 52,
               fontWeight: 400,
               letterSpacing: 2,
-              color: "#ffffff",
+              color: "#000000",
               fontFamily: "'Playfair Display', serif",
               marginBottom: 12,
             }}>
@@ -763,10 +763,10 @@ function TestimonialsSection() {
             </h2>
             <div style={{
               width: 60,
-              height: 3,
-              background: "#F5A623",
+              height: 2,
+              background: "#000000",
               margin: "0 auto",
-              borderRadius: 2,
+              borderRadius: 1,
             }} />
           </div>
 
@@ -785,11 +785,10 @@ function TestimonialsSection() {
                 <div
                   key={currentIndex * itemsPerPage + i}
                   style={{
-                    background: "rgba(255, 255, 255, 0.05)",
-                    border: "1px solid rgba(245, 166, 35, 0.3)",
-                    borderRadius: 12,
+                    background: "#ffffff",
+                    border: "1px solid #e0e0e0",
+                    borderRadius: 8,
                     padding: isMobile ? 30 : 40,
-                    backdropFilter: "blur(10px)",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "space-between",
@@ -801,10 +800,10 @@ function TestimonialsSection() {
                   {/* Opening Quote */}
                   <div style={{
                     fontSize: isMobile ? 48 : 56,
-                    color: "#F5A623",
+                    color: "#000000",
                     marginBottom: 16,
                     lineHeight: 0.8,
-                    opacity: 0.7,
+                    opacity: 0.3,
                   }}>
                     "
                   </div>
@@ -813,7 +812,7 @@ function TestimonialsSection() {
                   <p style={{
                     fontSize: isMobile ? 16 : 18,
                     lineHeight: 1.7,
-                    color: "#ffffff",
+                    color: "#000000",
                     marginBottom: 24,
                     fontFamily: "'Playfair Display', serif",
                     fontWeight: 400,
@@ -825,17 +824,17 @@ function TestimonialsSection() {
                   {/* Attribution */}
                   <div style={{
                     paddingTop: 20,
-                    borderTop: "1px solid rgba(245, 166, 35, 0.2)",
+                    borderTop: "1px solid #e0e0e0",
                   }}>
                     <p style={{
                       fontSize: 14,
-                      color: "#F5A623",
+                      color: "#666666",
                       fontFamily: "'Outfit', sans-serif",
-                      fontWeight: 600,
-                      letterSpacing: 0.8,
+                      fontWeight: 500,
+                      letterSpacing: 0.5,
                       margin: 0,
                     }}>
-                      — {testimonial.name.toUpperCase()}
+                      — {testimonial.name}
                     </p>
                   </div>
                 </div>
@@ -858,9 +857,9 @@ function TestimonialsSection() {
                 width: 48,
                 height: 48,
                 borderRadius: "50%",
-                border: "2px solid #F5A623",
+                border: "2px solid #000000",
                 background: "transparent",
-                color: "#F5A623",
+                color: "#000000",
                 fontSize: 20,
                 cursor: "pointer",
                 display: "flex",
@@ -870,12 +869,12 @@ function TestimonialsSection() {
                 fontWeight: "bold",
               }}
               onMouseEnter={(e) => {
-                e.target.style.background = "#F5A623";
-                e.target.style.color = "#0d0d0d";
+                e.target.style.background = "#000000";
+                e.target.style.color = "#ffffff";
               }}
               onMouseLeave={(e) => {
                 e.target.style.background = "transparent";
-                e.target.style.color = "#F5A623";
+                e.target.style.color = "#000000";
               }}
             >
               ←
@@ -896,7 +895,7 @@ function TestimonialsSection() {
                     height: 10,
                     borderRadius: 5,
                     border: "none",
-                    background: currentIndex === i ? "#F5A623" : "rgba(245, 166, 35, 0.3)",
+                    background: currentIndex === i ? "#000000" : "#d0d0d0",
                     cursor: "pointer",
                     transition: "all 0.3s ease",
                   }}
@@ -912,9 +911,9 @@ function TestimonialsSection() {
                 width: 48,
                 height: 48,
                 borderRadius: "50%",
-                border: "2px solid #F5A623",
+                border: "2px solid #000000",
                 background: "transparent",
-                color: "#F5A623",
+                color: "#000000",
                 fontSize: 20,
                 cursor: "pointer",
                 display: "flex",
@@ -924,12 +923,12 @@ function TestimonialsSection() {
                 fontWeight: "bold",
               }}
               onMouseEnter={(e) => {
-                e.target.style.background = "#F5A623";
-                e.target.style.color = "#0d0d0d";
+                e.target.style.background = "#000000";
+                e.target.style.color = "#ffffff";
               }}
               onMouseLeave={(e) => {
                 e.target.style.background = "transparent";
-                e.target.style.color = "#F5A623";
+                e.target.style.color = "#000000";
               }}
             >
               →
@@ -941,7 +940,7 @@ function TestimonialsSection() {
             textAlign: "center",
             marginTop: 30,
             fontSize: 13,
-            color: "rgba(255, 255, 255, 0.5)",
+            color: "#999999",
             fontFamily: "'Outfit', sans-serif",
             letterSpacing: 1,
           }}>
