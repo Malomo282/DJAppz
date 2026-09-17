@@ -636,13 +636,14 @@ function TestimonialsSection() {
           {/* Carousel Container */}
           <div style={{
             position: "relative",
-            minHeight: isMobile ? 280 : 240,
+            minHeight: isMobile ? 280 : 320,
           }}>
             {/* Testimonial Cards */}
             <div style={{
               display: "grid",
               gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)",
-              gap: isMobile ? 30 : 40,
+              gap: isMobile ? 30 : 60,
+              width: "100%",
             }}>
               {visibleTestimonials.map((testimonial, i) => (
                 <div
