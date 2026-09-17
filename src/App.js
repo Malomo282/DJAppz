@@ -199,7 +199,7 @@ function HeroSection() {
         backgroundImage: `url(${heroImage})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        filter: "blur(40px)",
+        filter: "blur(60px) brightness(0.7)",
         zIndex: 1,
       }} />
       {/* Main image on top */}
