@@ -62,9 +62,17 @@ const SERVICES = [
 ];
 
 const TESTIMONIALS = [
-  { name: "Marcus & Jade", event: "Wedding Reception", quote: "From the first song to the last, it was perfect. He read the room better than anyone we've seen. Our guests are still talking about it." },
-  { name: "Simone T.", event: "30th Birthday, London", quote: "Appz had everyone on the floor all night. Knew exactly when to switch up the energy. Best party we've ever thrown." },
-  { name: "Nadia K.", event: "Corporate Launch, Shoreditch", quote: "Professional, punctual, and the set was immaculate. Every colleague asked who the DJ was. Already booked him again." },
+  { name: "Ryan", quote: "Brings great vibes to any party — a wide range of music to suit everyone's tastes." },
+  { name: "Josh", quote: "He brings the vibes and has a huge passion for tunes." },
+  { name: "Aleks", quote: "A fantastic performer — worked brilliantly across genres, keeping the whole audience involved." },
+  { name: "Mawuli Amber", quote: "Proactively filled the dance floor, with original remixes to match the mood." },
+  { name: "Uti David", quote: "Knows exactly how to give a crowd what they need — his technical skills are fantastic." },
+  { name: "Isaac", quote: "Deep knowledge of old-school and new-school music, backed by real technical skill." },
+  { name: "Nathaniel Crossdale", quote: "An amazing DJ who consistently delivers excellent performances." },
+  { name: "Ebbie", quote: "Passion and energy that never let up — the vibes were non-stop." },
+  { name: "Anisa", quote: "My No. 1 DJ — professional, friendly, and brilliant every time." },
+  { name: "Cooperation Town", quote: "Brought his own equipment, competitive pricing, and always follows the brief." },
+  { name: "Emmanuel", quote: "Love the creative remixes — he always puts his own spin on the music." },
 ];
 
 // ─── EMAILJS SUBMIT ────────────────────────────────────────────────────────
@@ -718,54 +726,236 @@ function FeaturedSection() {
 
 // ─── TESTIMONIALS SECTION ─────────────────────────────────────────────────
 function TestimonialsSection() {
+  const [currentIndex, setCurrentIndex] = useState(0);
   const isMobile = useIsMobile();
+  const itemsPerPage = isMobile ? 1 : 2;
+  const maxIndex = Math.ceil(TESTIMONIALS.length / itemsPerPage) - 1;
+
+  const handlePrev = () => setCurrentIndex(prev => prev === 0 ? maxIndex : prev - 1);
+  const handleNext = () => setCurrentIndex(prev => prev === maxIndex ? 0 : prev + 1);
+
+  const visibleTestimonials = TESTIMONIALS.slice(
+    currentIndex * itemsPerPage,
+    (currentIndex + 1) * itemsPerPage
+  );
+
   return (
     <section style={{
-      padding: isMobile ? "60px 24px" : "100px 60px",
-      background: "#ffffff",
+      padding: isMobile ? "80px 24px" : "120px 60px",
+      background: "linear-gradient(135deg, #0d0d0d 0%, #1a1a2e 50%, #16213e 100%)",
+      color: "#ffffff",
+      position: "relative",
+      overflow: "hidden",
     }}>
       <Reveal>
-        <div style={{ maxWidth: 900, margin: "0 auto" }}>
-          <h2 style={{
-            fontSize: isMobile ? 28 : 42,
-            fontWeight: 400,
-            letterSpacing: 1.5,
-            marginBottom: 50,
-            color: "#000000",
-            fontFamily: "'Playfair Display', serif",
-          }}>
-            Word on the Street
-          </h2>
+        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+          {/* Header */}
+          <div style={{ marginBottom: isMobile ? 50 : 70, textAlign: "center" }}>
+            <h2 style={{
+              fontSize: isMobile ? 32 : 52,
+              fontWeight: 400,
+              letterSpacing: 2,
+              color: "#ffffff",
+              fontFamily: "'Playfair Display', serif",
+              marginBottom: 12,
+            }}>
+              Word on the Street
+            </h2>
+            <div style={{
+              width: 60,
+              height: 3,
+              background: "#F5A623",
+              margin: "0 auto",
+              borderRadius: 2,
+            }} />
+          </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 50 }}>
-            {TESTIMONIALS.map((testimonial, i) => (
-              <Reveal key={i} delay={i * 0.15}>
-                <div>
-                  <p style={{
-                    fontSize: isMobile ? 15 : 17,
-                    lineHeight: 1.8,
-                    color: "#000000",
-                    marginBottom: 20,
-                    fontFamily: "'Inter', sans-serif",
-                    fontStyle: "italic",
+          {/* Carousel Container */}
+          <div style={{
+            position: "relative",
+            minHeight: isMobile ? 280 : 240,
+          }}>
+            {/* Testimonial Cards */}
+            <div style={{
+              display: "grid",
+              gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)",
+              gap: isMobile ? 30 : 40,
+            }}>
+              {visibleTestimonials.map((testimonial, i) => (
+                <div
+                  key={currentIndex * itemsPerPage + i}
+                  style={{
+                    background: "rgba(255, 255, 255, 0.05)",
+                    border: "1px solid rgba(245, 166, 35, 0.3)",
+                    borderRadius: 12,
+                    padding: isMobile ? 30 : 40,
+                    backdropFilter: "blur(10px)",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                    minHeight: "100%",
+                    transition: "all 0.3s ease",
+                    animation: "fadeIn 0.5s ease",
+                  }}
+                >
+                  {/* Opening Quote */}
+                  <div style={{
+                    fontSize: isMobile ? 48 : 56,
+                    color: "#F5A623",
+                    marginBottom: 16,
+                    lineHeight: 0.8,
+                    opacity: 0.7,
                   }}>
-                    "{testimonial.quote}"
-                  </p>
+                    "
+                  </div>
+
+                  {/* Quote Text */}
                   <p style={{
-                    fontSize: 14,
-                    color: "rgba(0,0,0,0.6)",
-                    fontFamily: "'Inter', sans-serif",
-                    fontWeight: 500,
-                    letterSpacing: 0.5,
+                    fontSize: isMobile ? 16 : 18,
+                    lineHeight: 1.7,
+                    color: "#ffffff",
+                    marginBottom: 24,
+                    fontFamily: "'Playfair Display', serif",
+                    fontWeight: 400,
+                    flex: 1,
                   }}>
-                    {testimonial.name} • {testimonial.event}
+                    {testimonial.quote}
                   </p>
+
+                  {/* Attribution */}
+                  <div style={{
+                    paddingTop: 20,
+                    borderTop: "1px solid rgba(245, 166, 35, 0.2)",
+                  }}>
+                    <p style={{
+                      fontSize: 14,
+                      color: "#F5A623",
+                      fontFamily: "'Outfit', sans-serif",
+                      fontWeight: 600,
+                      letterSpacing: 0.8,
+                      margin: 0,
+                    }}>
+                      — {testimonial.name.toUpperCase()}
+                    </p>
+                  </div>
                 </div>
-              </Reveal>
-            ))}
+              ))}
+            </div>
+          </div>
+
+          {/* Navigation Controls */}
+          <div style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: 24,
+            marginTop: isMobile ? 50 : 60,
+          }}>
+            {/* Previous Button */}
+            <button
+              onClick={handlePrev}
+              style={{
+                width: 48,
+                height: 48,
+                borderRadius: "50%",
+                border: "2px solid #F5A623",
+                background: "transparent",
+                color: "#F5A623",
+                fontSize: 20,
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                transition: "all 0.3s ease",
+                fontWeight: "bold",
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.background = "#F5A623";
+                e.target.style.color = "#0d0d0d";
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.background = "transparent";
+                e.target.style.color = "#F5A623";
+              }}
+            >
+              ←
+            </button>
+
+            {/* Indicator Dots */}
+            <div style={{
+              display: "flex",
+              gap: 8,
+              alignItems: "center",
+            }}>
+              {Array.from({ length: maxIndex + 1 }).map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrentIndex(i)}
+                  style={{
+                    width: currentIndex === i ? 24 : 10,
+                    height: 10,
+                    borderRadius: 5,
+                    border: "none",
+                    background: currentIndex === i ? "#F5A623" : "rgba(245, 166, 35, 0.3)",
+                    cursor: "pointer",
+                    transition: "all 0.3s ease",
+                  }}
+                  aria-label={`Go to testimonial ${i + 1}`}
+                />
+              ))}
+            </div>
+
+            {/* Next Button */}
+            <button
+              onClick={handleNext}
+              style={{
+                width: 48,
+                height: 48,
+                borderRadius: "50%",
+                border: "2px solid #F5A623",
+                background: "transparent",
+                color: "#F5A623",
+                fontSize: 20,
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                transition: "all 0.3s ease",
+                fontWeight: "bold",
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.background = "#F5A623";
+                e.target.style.color = "#0d0d0d";
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.background = "transparent";
+                e.target.style.color = "#F5A623";
+              }}
+            >
+              →
+            </button>
+          </div>
+
+          {/* Quote Counter */}
+          <div style={{
+            textAlign: "center",
+            marginTop: 30,
+            fontSize: 13,
+            color: "rgba(255, 255, 255, 0.5)",
+            fontFamily: "'Outfit', sans-serif",
+            letterSpacing: 1,
+          }}>
+            {currentIndex * itemsPerPage + 1} — {Math.min((currentIndex + 1) * itemsPerPage, TESTIMONIALS.length)} of {TESTIMONIALS.length}
           </div>
         </div>
       </Reveal>
+
+      <style>{`
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+      `}</style>
     </section>
   );
 }
