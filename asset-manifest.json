@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/DJAppz/static/css/main.e6c13ad2.css",
-    "main.js": "/DJAppz/static/js/main.d97f952d.js",
+    "main.js": "/DJAppz/static/js/main.a99fdf28.js",
     "static/js/453.d06effaa.chunk.js": "/DJAppz/static/js/453.d06effaa.chunk.js",
     "static/media/showreel-djappz.mp4": "/DJAppz/static/media/showreel-djappz.70f50379bf87611e30fb.mp4",
     "static/media/djappz - Crowd Shot.png": "/DJAppz/static/media/djappz - Crowd Shot.d2ce2249180ef73e7e9f.png",
@@ -13,11 +13,11 @@
     "static/media/djappz-logo.png": "/DJAppz/static/media/djappz-logo.8a8f8df7dd5020eba385.png",
     "index.html": "/DJAppz/index.html",
     "main.e6c13ad2.css.map": "/DJAppz/static/css/main.e6c13ad2.css.map",
-    "main.d97f952d.js.map": "/DJAppz/static/js/main.d97f952d.js.map",
+    "main.a99fdf28.js.map": "/DJAppz/static/js/main.a99fdf28.js.map",
     "453.d06effaa.chunk.js.map": "/DJAppz/static/js/453.d06effaa.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.d97f952d.js"
+    "static/js/main.a99fdf28.js"
   ]
 }
