@@ -1121,7 +1121,7 @@ function Footer() {
       fontFamily: "'Inter', sans-serif",
       letterSpacing: 0.5,
     }}>
-      <p style={{ margin: 0 }}>© 2026 DJ Appz. Based in London. Available UK-wide.</p>
+      <p style={{ margin: 0 }}>Est. 2021 DJ Appz. Based in London. Available UK-wide.</p>
     </footer>
   );
 }
