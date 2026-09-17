@@ -180,7 +180,7 @@ function HeroSection() {
     <section style={{
       marginTop: 60,
       width: "100%",
-      height: "90vh",
+      height: "72vh",
       overflow: "hidden",
       background: "#000000",
     }}>
