@@ -6,7 +6,7 @@
 
 export const HERO_IMAGE_CONFIG = {
   x: 50,      // Horizontal position (0-100%)
-  y: 50,      // Vertical position - centered (0-100%)
+  y: 40,      // Vertical position - moved up 10% (0-100%)
   scale: 0.84, // Zoom level - zoomed out 30%
 };
 
