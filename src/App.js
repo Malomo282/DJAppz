@@ -5,6 +5,7 @@ import logo from "./Assets/djappz-logo.png";
 import heroPhoto from "./Assets/djappz-bio.jpeg";
 import showreel from "./Assets/showreel-djappz.mp4";
 import mixerPhoto from "./Assets/djappz-photo.jpg";
+import heroImage from "./Assets/djappz-hero.jpeg";
 import streetPhoto from "./Assets/djappz-private.jpeg";
 import weddingPhoto2 from "./Assets/djappz-wedding2.jpg";
 import weddingDance2 from "./Assets/WeddingDance2 (2).jpg";
@@ -185,7 +186,7 @@ function HeroSection() {
       background: "#000000",
     }}>
       <img
-        src={mixerPhoto}
+        src={heroImage}
         alt="DJ Appz"
         style={{
           width: "100%",
