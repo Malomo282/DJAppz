@@ -209,12 +209,11 @@ function HeroSection() {
         style={{
           width: "100%",
           height: "100%",
-          objectFit: "contain",
+          objectFit: "cover",
           objectPosition: "center",
           display: "block",
           position: "relative",
           zIndex: 2,
-          transform: "scale(0.8)",
         }}
       />
     </section>
