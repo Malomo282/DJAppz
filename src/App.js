@@ -214,6 +214,7 @@ function HeroSection() {
           display: "block",
           position: "relative",
           zIndex: 2,
+          transform: "scale(0.9)",
         }}
       />
     </section>
