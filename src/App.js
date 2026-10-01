@@ -77,6 +77,14 @@ const TESTIMONIALS = [
   { name: "Emmanuel", quote: "Love the creative remixes — he always puts his own spin on the music." },
 ];
 
+const GOOGLE_REVIEWS = [
+  { name: "Laurence Brooks", rating: 5, quote: "DJ Appz is an exceptional talent. His music selection and ability to read the crowd is outstanding." },
+  { name: "Emilio Stavrou", rating: 5, quote: "Professional, reliable, and brings incredible energy to every event. Highly recommended." },
+  { name: "Ralitsa", rating: 5, quote: "One of the best DJs I've seen. His technical skills and passion for music are unmatched." },
+  { name: "Tyrell", rating: 5, quote: "DJ Appz made our event unforgettable. The music was perfect and the energy was amazing." },
+  { name: "Bob Dylan", rating: 5, quote: "A true professional with an impeccable ear for music. Every set is a masterclass." },
+];
+
 // ─── EMAILJS SUBMIT ────────────────────────────────────────────────────────
 async function loadEmailJS() {
   if (window.emailjs) return;
@@ -916,6 +924,146 @@ function TestimonialsSection() {
   );
 }
 
+// ─── GOOGLE REVIEWS SECTION ────────────────────────────────────────────────
+function GoogleReviewsSection() {
+  const isMobile = useIsMobile();
+  const [ref, visible] = useInView();
+
+  return (
+    <section ref={ref} style={{
+      padding: isMobile ? "80px 24px" : "120px 60px",
+      background: "#f9f9f9",
+      textAlign: "center",
+    }}>
+      <Reveal>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          {/* Google Reviews Header */}
+          <div style={{ marginBottom: 60, display: "flex", alignItems: "center", justifyContent: "center", gap: 15, flexWrap: "wrap" }}>
+            <h2 style={{
+              fontSize: isMobile ? 32 : 48,
+              fontWeight: 300,
+              margin: 0,
+              fontFamily: "'Playfair Display', serif",
+              letterSpacing: -1,
+            }}>
+              Google Reviews
+            </h2>
+            <div style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 8,
+              background: "#ffffff",
+              padding: "12px 20px",
+              borderRadius: 8,
+              boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
+            }}>
+              <span style={{
+                fontSize: 24,
+                fontWeight: "bold",
+                color: "#000",
+              }}>★ 5.0</span>
+              <span style={{
+                fontSize: 13,
+                color: "#666",
+                fontFamily: "'Outfit', sans-serif",
+              }}>22 reviews</span>
+            </div>
+          </div>
+
+          {/* Reviews Grid */}
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)",
+            gap: isMobile ? 20 : 30,
+            marginBottom: 20,
+          }}>
+            {GOOGLE_REVIEWS.map((review, idx) => (
+              <Reveal key={idx} delay={idx * 0.1}>
+                <div style={{
+                  background: "#ffffff",
+                  padding: isMobile ? "30px 20px" : "40px 30px",
+                  borderRadius: 12,
+                  boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
+                  textAlign: "left",
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                  transition: "all 0.3s ease",
+                }}>
+                  {/* Stars */}
+                  <div style={{ marginBottom: 15 }}>
+                    {[...Array(5)].map((_, i) => (
+                      <span key={i} style={{ color: "#FFC107", fontSize: 14, marginRight: 2 }}>★</span>
+                    ))}
+                  </div>
+
+                  {/* Quote */}
+                  <p style={{
+                    fontSize: isMobile ? 14 : 15,
+                    fontStyle: "italic",
+                    color: "#555",
+                    margin: "0 0 20px 0",
+                    lineHeight: 1.6,
+                    flex: 1,
+                  }}>
+                    "{review.quote}"
+                  </p>
+
+                  {/* Reviewer Name */}
+                  <p style={{
+                    fontSize: 14,
+                    fontWeight: 600,
+                    color: "#000",
+                    margin: 0,
+                    fontFamily: "'Outfit', sans-serif",
+                  }}>
+                    — {review.name}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          {/* Google Button */}
+          <Reveal delay={0.3}>
+            <a
+              href="https://www.google.com/search?q=DJ+Appz+London"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-block",
+                marginTop: 30,
+                padding: "12px 32px",
+                border: "1px solid #000",
+                background: "#ffffff",
+                color: "#000",
+                textDecoration: "none",
+                fontSize: 14,
+                fontWeight: 600,
+                fontFamily: "'Outfit', sans-serif",
+                letterSpacing: 1,
+                cursor: "pointer",
+                transition: "all 0.3s ease",
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.background = "#000";
+                e.target.style.color = "#fff";
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.background = "#ffffff";
+                e.target.style.color = "#000";
+              }}
+            >
+              View All Reviews →
+            </a>
+          </Reveal>
+        </div>
+      </Reveal>
+    </section>
+  );
+}
+
 // ─── CONTACT SECTION ───────────────────────────────────────────────────────
 function CustomDropdown({ value, onChange, options, placeholder, name }) {
   const [open, setOpen] = useState(false);
@@ -1258,6 +1406,7 @@ export default function App() {
       <FeaturedSection />
       <BrandsCarousel />
       <TestimonialsSection />
+      <GoogleReviewsSection />
       <ContactSection />
       <Footer />
     </div>
