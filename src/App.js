@@ -624,17 +624,17 @@ function BrandsCarousel() {
 
   return (
     <section style={{
-      padding: isMobile ? "80px 24px" : "120px 60px",
+      padding: isMobile ? "50px 24px" : "60px 60px",
       background: "#ffffff",
       color: "#000000",
     }}>
       <Reveal>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <h2 style={{
-            fontSize: isMobile ? 24 : 36,
+            fontSize: isMobile ? 22 : 32,
             fontWeight: 400,
             letterSpacing: 1.5,
-            marginBottom: 60,
+            marginBottom: 40,
             textAlign: "center",
             fontFamily: "'Playfair Display', serif",
           }}>
@@ -644,7 +644,7 @@ function BrandsCarousel() {
           <div style={{
             display: "grid",
             gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(4, 1fr)",
-            gap: isMobile ? 30 : 50,
+            gap: isMobile ? 20 : 30,
             alignItems: "center",
             justifyItems: "center",
           }}>
@@ -654,21 +654,21 @@ function BrandsCarousel() {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  height: 100,
+                  height: 70,
                   width: "100%",
-                  opacity: 0.8,
+                  opacity: 0.7,
                   transition: "opacity 0.3s ease",
                 }}>
                   <img
                     src={brand.logo}
                     alt={brand.name}
                     style={{
-                      maxHeight: 80,
-                      maxWidth: "90%",
+                      maxHeight: 60,
+                      maxWidth: "85%",
                       objectFit: "contain",
                     }}
                     onMouseEnter={(e) => e.target.parentElement.style.opacity = 1}
-                    onMouseLeave={(e) => e.target.parentElement.style.opacity = 0.8}
+                    onMouseLeave={(e) => e.target.parentElement.style.opacity = 0.7}
                   />
                 </div>
               </Reveal>
