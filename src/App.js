@@ -17,6 +17,7 @@ import logoBoxpark from "./Assets/brand-boxpark.png";
 import logoJubel from "./Assets/brand-jubel.png";
 import logoLightbox from "./Assets/brand-lightbox.png";
 import logoSimmons from "./Assets/brand-simmons.png";
+import logoRedefine from "./Assets/brand-redefinemeat.png.png";
 
 // ─── CONFIG ────────────────────────────────────────────────────────────────
 const EMAILJS = {
@@ -608,6 +609,77 @@ function FeaturedSection() {
   );
 }
 
+// ─── BRANDS CAROUSEL SECTION ──────────────────────────────────────────────
+function BrandsCarousel() {
+  const isMobile = useIsMobile();
+  const brands = [
+    { name: "Belushis", logo: logoBelushis },
+    { name: "Boxpark", logo: logoBoxpark },
+    { name: "Dirty Martini", logo: logoDirtyMartini },
+    { name: "Jubel", logo: logoJubel },
+    { name: "Lightbox", logo: logoLightbox },
+    { name: "Simmons", logo: logoSimmons },
+    { name: "Redefine Meat", logo: logoRedefine },
+  ];
+
+  return (
+    <section style={{
+      padding: isMobile ? "80px 24px" : "120px 60px",
+      background: "#ffffff",
+      color: "#000000",
+    }}>
+      <Reveal>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <h2 style={{
+            fontSize: isMobile ? 24 : 36,
+            fontWeight: 400,
+            letterSpacing: 1.5,
+            marginBottom: 60,
+            textAlign: "center",
+            fontFamily: "'Playfair Display', serif",
+          }}>
+            Brands I've Worked With
+          </h2>
+
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(4, 1fr)",
+            gap: isMobile ? 30 : 50,
+            alignItems: "center",
+            justifyItems: "center",
+          }}>
+            {brands.map((brand, idx) => (
+              <Reveal key={idx} delay={idx * 0.1}>
+                <div style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  height: 100,
+                  width: "100%",
+                  opacity: 0.8,
+                  transition: "opacity 0.3s ease",
+                }}>
+                  <img
+                    src={brand.logo}
+                    alt={brand.name}
+                    style={{
+                      maxHeight: 80,
+                      maxWidth: "90%",
+                      objectFit: "contain",
+                    }}
+                    onMouseEnter={(e) => e.target.parentElement.style.opacity = 1}
+                    onMouseLeave={(e) => e.target.parentElement.style.opacity = 0.8}
+                  />
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </Reveal>
+    </section>
+  );
+}
+
 // ─── TESTIMONIALS SECTION ─────────────────────────────────────────────────
 function TestimonialsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -1184,6 +1256,7 @@ export default function App() {
       <ServicesSection />
       <CampaignsSection />
       <FeaturedSection />
+      <BrandsCarousel />
       <TestimonialsSection />
       <ContactSection />
       <Footer />
