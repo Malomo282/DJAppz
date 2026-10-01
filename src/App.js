@@ -64,11 +64,11 @@ const SERVICES = [
 ];
 
 const TESTIMONIALS = [
-  { name: "Ralitsa", rating: 5, quote: "One of the best DJs I've seen. His technical skills and passion for music are unmatched." },
-  { name: "Emilio Stavrou", rating: 5, quote: "Professional, reliable, and brings incredible energy to every event. Highly recommended." },
-  { name: "Laurence Brooks", rating: 5, quote: "DJ Appz is an exceptional talent. His music selection and ability to read the crowd is outstanding." },
-  { name: "Kevin", rating: 5, quote: "Exceptional DJ who knows exactly how to keep the energy up. Highly professional and reliable." },
-  { name: "Bob Dylan", rating: 5, quote: "A true professional with an impeccable ear for music. Every set is a masterclass." },
+  { name: "Ralitsa", eventType: "Destination Wedding", rating: 5, quote: "DJ Appz brought an incredible energy to our wedding day. From the moment he arrived, he understood the vibe we were looking for. His song selection was impeccable, seamlessly blending our diverse guest's musical tastes. He kept the dance floor packed the entire night and made everyone feel included. His technical skills are outstanding, and his ability to read the room was exceptional." },
+  { name: "Emilio Stavrou", eventType: "Corporate Event", rating: 5, quote: "We hired DJ Appz for our company's annual gala, and he absolutely exceeded our expectations. He's a consummate professional who arrived early, communicated clearly, and delivered an outstanding performance. His music selection was sophisticated yet engaging, perfectly setting the tone for our event. He managed to keep the energy high while maintaining the professional atmosphere we needed." },
+  { name: "Laurence Brooks", eventType: "Private Party", rating: 5, quote: "DJ Appz is an exceptional talent with impeccable music knowledge. His ability to read a crowd and adapt his set in real-time is remarkable. He doesn't just play songs—he crafts an experience. His technical skills are flawless, and he brings genuine passion to every set. From start to finish, he kept everyone engaged and dancing. Highly professional and incredibly personable." },
+  { name: "Kevin", eventType: "Club Night", rating: 5, quote: "Hosting DJ Appz at our venue was a game-changer. His technical proficiency behind the decks is outstanding—seamless transitions, perfect mixing, and an innate sense of timing. Beyond his technical abilities, he genuinely connects with the crowd. He reads the energy and adjusts his set to keep people engaged and having the best time possible." },
+  { name: "Bob Dylan", eventType: "Festival Performance", rating: 5, quote: "A true professional with an impeccable ear for music. DJ Appz demonstrated masterful control of the crowd and the energy throughout his set. His understanding of music theory and how different tracks work together is evident in every transition. He's not just mixing records—he's creating an emotional journey for the audience. Every set is a masterclass in DJing." },
 ];
 
 // ─── EMAILJS SUBMIT ────────────────────────────────────────────────────────
@@ -741,7 +741,8 @@ function TestimonialsSection() {
           {/* Carousel Container */}
           <div style={{
             position: "relative",
-            minHeight: isMobile ? 280 : 320,
+            minHeight: isMobile ? 350 : 400,
+            marginBottom: isMobile ? 40 : 60,
           }}>
             {/* Testimonial Cards */}
             <div style={{
@@ -806,13 +807,22 @@ function TestimonialsSection() {
                   }}>
                     <p style={{
                       fontSize: 14,
-                      color: "#666666",
+                      color: "#000",
                       fontFamily: "'Outfit', sans-serif",
-                      fontWeight: 500,
+                      fontWeight: 600,
                       letterSpacing: 0.5,
-                      margin: 0,
+                      margin: "0 0 4px 0",
                     }}>
                       — {testimonial.name}
+                    </p>
+                    <p style={{
+                      fontSize: 12,
+                      color: "#999",
+                      fontFamily: "'Outfit', sans-serif",
+                      letterSpacing: 0.3,
+                      margin: 0,
+                    }}>
+                      {testimonial.eventType}
                     </p>
                   </div>
                 </div>
@@ -826,7 +836,9 @@ function TestimonialsSection() {
             justifyContent: "center",
             alignItems: "center",
             gap: 24,
-            marginTop: isMobile ? 50 : 60,
+            marginTop: isMobile ? 80 : 100,
+            position: "relative",
+            zIndex: 10,
           }}>
             {/* Previous Button */}
             <button
