@@ -64,11 +64,11 @@ const SERVICES = [
 ];
 
 const TESTIMONIALS = [
-  { name: "Laurence", eventType: "Wedding", rating: 5, quote: "DJ Appz brings the perfect vibes to any night out 🍑 His wedding set had us singing, dancing and having the night of our lives! He's a highly versatile DJ that's attuned to his crowd, playing any genre from R&B, soul classics to singalong crowd-pleasers. He's a true professional, a master of his craft, and a genuinely lovely guy, and I couldn't recommend him enough!!" },
+  { name: "Laurence", eventType: "Wedding", rating: 5, quote: "DJ Appz brings the perfect vibes to any night out 🔥 His wedding set had us singing, dancing and having the night of our lives! He's a highly versatile DJ that's attuned to his crowd, playing any genre from R&B, soul classics to singalong crowd-pleasers. He's a true professional, a master of his craft, and a genuinely lovely guy, and I couldn't recommend him enough!!" },
   { name: "Emilio", eventType: "Brand Launch", rating: 5, quote: "Jesse is exceptionally professional, always arrives early with the correct equipment. His versatility and responsiveness to the crowd is on point! Epic collection of multi-genre crowd pleasers. Always a pleasure to see him perform." },
   { name: "Ralitsa", eventType: "Simmons Cocktail Bar", rating: 5, quote: "If you haven't heard of DJ Appz, remember this name! He's a vibe, with his own unique style and mixing skills, broad variety of genres and if you ask him politely and respectfully, you'll get your music wishes fulfilled! Me and my friends were partying at the Simmons Clapham and we couldn't sit ourselves down to rest, it was that good. Highly recommend him and his brand!" },
   { name: "Kevin", eventType: "Charity Events", rating: 5, quote: "I cannot recommend Jesse enough! His professionalism was top-tier from the moment he arrived but what really blew me away was his incredible ability to curate the perfect soundtrack for the night. He didn't just play great music, he read the room, effortlessly adapting the vibes to match the crowd's energy. His transitions were flawless. If you want a DJ who genuinely knows how to elevate an event, Jesse is your guy!" },
-  { name: "Bob Dylan", eventType: "The Fox (Pub)", rating: 5, quote: "Top DJ. Extremely professional and friendly every time he does an event at 'The Fox - Ickenham'. Would recommend to anyone needing event hires 🍑" },
+  { name: "Bob Dylan", eventType: "The Fox (Pub)", rating: 5, quote: "Top DJ. Extremely professional and friendly every time he does an event at 'The Fox - Ickenham'. Would recommend to anyone needing event hires 🔥" },
 ];
 
 // ─── EMAILJS SUBMIT ────────────────────────────────────────────────────────
