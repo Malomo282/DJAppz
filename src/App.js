@@ -17,6 +17,7 @@ import logoBoxpark from "./Assets/brand-boxpark.png";
 import logoJubel from "./Assets/brand-jubel.png";
 import logoLightbox from "./Assets/brand-lightbox.png";
 import logoSimmons from "./Assets/brand-simmons.png";
+import logoRedefine from "./Assets/brand-redefinemeat.png";
 
 // ─── CONFIG ────────────────────────────────────────────────────────────────
 const EMAILJS = {
@@ -618,6 +619,7 @@ function BrandsCarousel() {
     { name: "Jubel", logo: logoJubel },
     { name: "Lightbox", logo: logoLightbox },
     { name: "Simmons", logo: logoSimmons },
+    { name: "Redefine Meat", logo: logoRedefine },
   ];
 
   return (
