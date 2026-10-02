@@ -161,7 +161,13 @@ function NavBar() {
       </a>
       <div style={{ display: "flex", alignItems: "center", gap: 32 }}>
         <a href="#contact" style={{ fontSize: 13, color: "#000", textDecoration: "none", fontWeight: 500, letterSpacing: 0.5 }}>Contact</a>
-        <a href="https://instagram.com/djappz" target="_blank" rel="noopener noreferrer" style={{ fontSize: 18, color: "#000", textDecoration: "none" }}>↗</a>
+        <a href="https://www.instagram.com/dj.appz/" target="_blank" rel="noopener noreferrer" style={{ fontSize: 18, color: "#000", textDecoration: "none", display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <circle cx="17.5" cy="6.5" r="1.5"></circle>
+          </svg>
+        </a>
       </div>
     </nav>
   );
