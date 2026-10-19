@@ -359,7 +359,7 @@ function CampaignsSection() {
   const videos = [
     { id: "C8qxf_vxz8A", title: "Promo 1", type: "short" },
     { id: "OOB4K2lTrxQ", title: "Promo 2", type: "short" },
-    { id: "tcQXc_Lp8yE", title: "Full Performance", type: "video" },
+    { id: "tcQXc_Lp8yE", title: "Showreel: a demo of my performance range", type: "video" },
   ];
 
   return (
