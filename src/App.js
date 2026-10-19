@@ -41,25 +41,21 @@ const SERVICES = [
     id: "private",
     title: "Private Events",
     desc: "Birthdays, house parties, celebrations. From intimate gatherings to milestone celebrations, I create the perfect soundtrack for your special moments.",
-    price: "From £350"
   },
   {
     id: "wedding",
     title: "Weddings",
     desc: "Your wedding deserves a DJ who understands the importance of every moment. From ceremony to the final dance, I deliver seamlessly.",
-    price: "Enquire for pricing"
   },
   {
     id: "corporate",
     title: "Corporate Events",
     desc: "Brand launches, company parties, industry events. I understand how to create atmosphere whilst maintaining professionalism.",
-    price: "From £600"
   },
   {
     id: "guest",
     title: "Guest Sets & Residencies",
     desc: "Guest sets at London's most prestigious venues and international bookings. I bring precision, artistry, and energy to every performance.",
-    price: "Enquire"
   },
 ];
 
@@ -333,15 +329,6 @@ function ServicesSection() {
                     textAlign: "center",
                   }}>
                     {service.desc}
-                  </p>
-                  <p style={{
-                    fontSize: 14,
-                    color: "rgba(0,0,0,0.5)",
-                    fontFamily: "'Inter', sans-serif",
-                    letterSpacing: 0.5,
-                    textAlign: "center",
-                  }}>
-                    {service.price}
                   </p>
                 </div>
               </Reveal>
