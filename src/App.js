@@ -460,6 +460,28 @@ function FeaturedSection() {
             Featured Mixes
           </h2>
 
+          <div style={{ marginBottom: 60 }}>
+            <h3 style={{
+              fontSize: 18,
+              fontWeight: 500,
+              marginBottom: 12,
+              color: "#000000",
+              fontFamily: "'Inter', sans-serif",
+            }}>
+              Wedding Promo Mix
+            </h3>
+            <div style={{ borderRadius: 4, overflow: "hidden" }}>
+              <iframe
+                width="100%"
+                height="120"
+                src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&light=1&feed=%2FDJAppz%2Fwedding-mix-teaser%2F&utm_medium=share&utm_source=embed&utm_content=show&utm_term=VXNlcjo0NTA4MjQzMQ%3D%3D"
+                frameBorder="0"
+                allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;"
+                style={{ display: "block" }}
+              />
+            </div>
+          </div>
+
           <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)", gap: isMobile ? 30 : 60 }}>
             <Reveal delay={0.1}>
               <div>
